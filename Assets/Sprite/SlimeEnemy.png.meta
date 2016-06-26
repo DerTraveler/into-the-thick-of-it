@@ -1,0 +1,245 @@
+fileFormatVersion: 2
+guid: 58679f48488d8814495d5a2de5ba341c
+timeCreated: 1466939517
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SlimeEnemy_0
+    21300002: SlimeEnemy_1
+    21300004: SlimeEnemy_2
+    21300006: SlimeEnemy_3
+    21300008: SlimeEnemy_4
+    21300010: SlimeEnemy_5
+    21300012: SlimeEnemy_6
+    21300014: SlimeEnemy_7
+    21300016: SlimeEnemy_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 512
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SlimeEnemy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 25.44}
+        - {x: -14, y: 17.44}
+        - {x: -14, y: 1.4400005}
+        - {x: -6, y: -2.5599995}
+        - {x: 7, y: -2.5599995}
+        - {x: 14, y: 4.4400005}
+        - {x: 14, y: 16.44}
+        - {x: 10, y: 25.44}
+    - name: SlimeEnemy_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 25.44}
+        - {x: -14, y: 17.44}
+        - {x: -14, y: 1.4400005}
+        - {x: -6, y: -2.5599995}
+        - {x: 7, y: -2.5599995}
+        - {x: 14, y: 4.4400005}
+        - {x: 14, y: 16.44}
+        - {x: 10, y: 25.44}
+    - name: SlimeEnemy_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 25.44}
+        - {x: -14, y: 17.44}
+        - {x: -14, y: 1.4400005}
+        - {x: -6, y: -2.5599995}
+        - {x: 7, y: -2.5599995}
+        - {x: 14, y: 4.4400005}
+        - {x: 14, y: 16.44}
+        - {x: 10, y: 25.44}
+    - name: SlimeEnemy_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 19.44}
+        - {x: -16, y: 11.440001}
+        - {x: -16, y: 3.4400005}
+        - {x: -15, y: 3.4400005}
+        - {x: -7, y: -2.5599995}
+        - {x: 8, y: -2.5599995}
+        - {x: 16, y: 2.4400005}
+        - {x: 16, y: 12.440001}
+        - {x: 8, y: 19.44}
+    - name: SlimeEnemy_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 27.44}
+        - {x: -10, y: 26.44}
+        - {x: -14, y: 16.44}
+        - {x: -14, y: 4.4400005}
+        - {x: -8, y: -2.5599995}
+        - {x: 10, y: -2.5599995}
+        - {x: 16, y: 0.44000053}
+        - {x: 16, y: 24.44}
+        - {x: 10, y: 27.44}
+    - name: SlimeEnemy_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 25.44}
+        - {x: -14, y: 21.44}
+        - {x: -14, y: 1.4400005}
+        - {x: -7, y: -2.5599995}
+        - {x: 5, y: -2.5599995}
+        - {x: 10, y: -1.5599995}
+        - {x: 16, y: 2.4400005}
+        - {x: 16, y: 22.44}
+        - {x: 10, y: 25.44}
+    - name: SlimeEnemy_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 24.44}
+        - {x: -7, y: 22.44}
+        - {x: -12, y: 17.44}
+        - {x: -14, y: 13.440001}
+        - {x: -14, y: 4.4400005}
+        - {x: -7, y: -2.5599995}
+        - {x: 6, y: -2.5599995}
+        - {x: 15, y: 5.4400005}
+        - {x: 15, y: 13.440001}
+        - {x: 10, y: 24.44}
+    - name: SlimeEnemy_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 23.44}
+        - {x: -8, y: 23.44}
+        - {x: -15, y: 21.44}
+        - {x: -15, y: 5.4400005}
+        - {x: -8, y: -2.5599995}
+        - {x: 8, y: -2.5599995}
+        - {x: 11, y: -1.5599995}
+        - {x: 15, y: 3.4400005}
+        - {x: 15, y: 9.440001}
+        - {x: 13, y: 17.44}
+    - name: SlimeEnemy_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 19.44}
+        - {x: -16, y: 11.440001}
+        - {x: -16, y: 3.4400005}
+        - {x: -15, y: 3.4400005}
+        - {x: -7, y: -2.5599995}
+        - {x: 8, y: -2.5599995}
+        - {x: 16, y: 2.4400005}
+        - {x: 16, y: 12.440001}
+        - {x: 8, y: 19.44}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
