@@ -1,0 +1,1297 @@
+fileFormatVersion: 2
+guid: f345b91655d76414ab2e9f720eb0d27e
+timeCreated: 1466984095
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: saxon_swordsman_0
+    21300002: saxon_swordsman_1
+    21300004: saxon_swordsman_2
+    21300006: saxon_swordsman_3
+    21300008: saxon_swordsman_4
+    21300010: saxon_swordsman_5
+    21300012: saxon_swordsman_6
+    21300014: saxon_swordsman_7
+    21300016: saxon_swordsman_8
+    21300018: saxon_swordsman_9
+    21300020: saxon_swordsman_10
+    21300022: saxon_swordsman_11
+    21300024: saxon_swordsman_12
+    21300026: saxon_swordsman_13
+    21300028: saxon_swordsman_14
+    21300030: saxon_swordsman_15
+    21300032: saxon_swordsman_16
+    21300034: saxon_swordsman_17
+    21300036: saxon_swordsman_18
+    21300038: saxon_swordsman_19
+    21300040: saxon_swordsman_20
+    21300042: saxon_swordsman_21
+    21300044: saxon_swordsman_22
+    21300046: saxon_swordsman_23
+    21300048: saxon_swordsman_24
+    21300050: saxon_swordsman_25
+    21300052: saxon_swordsman_26
+    21300054: saxon_swordsman_27
+    21300056: saxon_swordsman_28
+    21300058: saxon_swordsman_29
+    21300060: saxon_swordsman_30
+    21300062: saxon_swordsman_31
+    21300064: saxon_swordsman_32
+    21300066: saxon_swordsman_33
+    21300068: saxon_swordsman_34
+    21300070: saxon_swordsman_35
+    21300072: saxon_swordsman_36
+    21300074: saxon_swordsman_37
+    21300076: saxon_swordsman_38
+    21300078: saxon_swordsman_39
+    21300080: saxon_swordsman_40
+    21300082: saxon_swordsman_41
+    21300084: saxon_swordsman_42
+    21300086: saxon_swordsman_43
+    21300088: saxon_swordsman_44
+    21300090: saxon_swordsman_45
+    21300092: saxon_swordsman_46
+    21300094: saxon_swordsman_47
+    21300096: saxon_swordsman_48
+    21300098: saxon_swordsman_49
+    21300100: saxon_swordsman_50
+    21300102: saxon_swordsman_51
+    21300104: saxon_swordsman_52
+    21300106: saxon_swordsman_53
+    21300108: saxon_swordsman_54
+    21300110: saxon_swordsman_55
+    21300112: saxon_swordsman_56
+    21300114: saxon_swordsman_57
+    21300116: saxon_swordsman_58
+    21300118: saxon_swordsman_59
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: saxon_swordsman_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 804
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 18}
+        - {x: -15, y: 17}
+        - {x: -17, y: 10}
+        - {x: -17, y: -10}
+        - {x: -15, y: -15}
+        - {x: -7, y: -16}
+        - {x: 15, y: -16}
+        - {x: 15, y: 18}
+    - name: saxon_swordsman_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 804
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 17}
+        - {x: -14, y: -13}
+        - {x: -11, y: -18}
+        - {x: 11, y: -18}
+        - {x: 21, y: -13}
+        - {x: 21, y: 11}
+        - {x: 5, y: 17}
+    - name: saxon_swordsman_2
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 804
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 13}
+        - {x: 6, y: 17}
+        - {x: -3, y: 17}
+        - {x: -9, y: 14}
+        - {x: -9, y: -18}
+        - {x: -7, y: -20}
+        - {x: 4, y: -20}
+        - {x: 10, y: -18}
+        - {x: 16, y: -6}
+        - {x: 16, y: -3}
+        - {x: 15, y: 0}
+    - name: saxon_swordsman_3
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 804
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 16}
+        - {x: -14, y: 2}
+        - {x: -14, y: -12}
+        - {x: -10, y: -17}
+        - {x: -6, y: -19}
+        - {x: 7, y: -19}
+        - {x: 15, y: -13}
+        - {x: 15, y: 16}
+    - name: saxon_swordsman_4
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 804
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 17}
+        - {x: -13, y: 8}
+        - {x: -13, y: -15}
+        - {x: -10, y: -17}
+        - {x: 9, y: -17}
+        - {x: 16, y: -16}
+        - {x: 18, y: -14}
+        - {x: 18, y: 6}
+        - {x: 11, y: 17}
+    - name: saxon_swordsman_5
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 732
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 23}
+        - {x: -15, y: 13}
+        - {x: -15, y: -7}
+        - {x: -12, y: -17}
+        - {x: 9, y: -17}
+        - {x: 14, y: -16}
+        - {x: 14, y: 16}
+        - {x: 11, y: 23}
+    - name: saxon_swordsman_6
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 732
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: 17}
+        - {x: -14, y: 17}
+        - {x: -16, y: 11}
+        - {x: -16, y: -9}
+        - {x: -11, y: -17}
+        - {x: -7, y: -18}
+        - {x: 3, y: -18}
+        - {x: 17, y: -4}
+        - {x: 17, y: 14}
+        - {x: 15, y: 16}
+    - name: saxon_swordsman_7
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 732
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 17}
+        - {x: -15, y: 5}
+        - {x: -15, y: -20}
+        - {x: 0, y: -20}
+        - {x: 17, y: -14}
+        - {x: 17, y: 12}
+        - {x: 8, y: 17}
+    - name: saxon_swordsman_8
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 732
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 14}
+        - {x: 0, y: 16}
+        - {x: -4, y: 16}
+        - {x: -7, y: 11}
+        - {x: -10, y: 4}
+        - {x: -12, y: -6}
+        - {x: -12, y: -14}
+        - {x: -7, y: -17}
+        - {x: 14, y: -17}
+        - {x: 16, y: -5}
+        - {x: 15, y: -2}
+        - {x: 12, y: 8}
+    - name: saxon_swordsman_9
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 732
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 17}
+        - {x: -12, y: 10}
+        - {x: -12, y: -16}
+        - {x: -3, y: -20}
+        - {x: 8, y: -20}
+        - {x: 15, y: -18}
+        - {x: 18, y: -14}
+        - {x: 18, y: 8}
+        - {x: 11, y: 17}
+    - name: saxon_swordsman_10
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 660
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: 21}
+        - {x: 7, y: 20}
+        - {x: -2, y: 19}
+        - {x: -16, y: 7}
+        - {x: -17, y: 4}
+        - {x: -17, y: -7}
+        - {x: -6, y: -16}
+        - {x: 12, y: -16}
+        - {x: 15, y: -15}
+        - {x: 15, y: 13}
+        - {x: 14, y: 19}
+    - name: saxon_swordsman_11
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 660
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 17}
+        - {x: -16, y: 16}
+        - {x: -16, y: 0}
+        - {x: -8, y: -18}
+        - {x: 6, y: -18}
+        - {x: 19, y: -2}
+        - {x: 19, y: 14}
+        - {x: 4, y: 17}
+    - name: saxon_swordsman_12
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 660
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 17}
+        - {x: -10, y: 14}
+        - {x: -10, y: -20}
+        - {x: 4, y: -20}
+        - {x: 11, y: -18}
+        - {x: 19, y: -1}
+        - {x: 19, y: 10}
+        - {x: 4, y: 17}
+    - name: saxon_swordsman_13
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 660
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 16}
+        - {x: -11, y: 7}
+        - {x: -11, y: -17}
+        - {x: -6, y: -19}
+        - {x: 6, y: -19}
+        - {x: 14, y: -13}
+        - {x: 14, y: 16}
+    - name: saxon_swordsman_14
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 660
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 17}
+        - {x: -7, y: 17}
+        - {x: -14, y: 5}
+        - {x: -14, y: -9}
+        - {x: -10, y: -16}
+        - {x: 1, y: -18}
+        - {x: 12, y: -18}
+        - {x: 16, y: -16}
+        - {x: 17, y: -11}
+        - {x: 17, y: 10}
+    - name: saxon_swordsman_15
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 588
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 18}
+        - {x: -14, y: 18}
+        - {x: -16, y: 13}
+        - {x: -16, y: -9}
+        - {x: -13, y: -16}
+        - {x: -8, y: -17}
+        - {x: 9, y: -17}
+        - {x: 14, y: -15}
+        - {x: 14, y: 17}
+    - name: saxon_swordsman_16
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 588
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 19}
+        - {x: -12, y: 19}
+        - {x: -14, y: 14}
+        - {x: -14, y: -10}
+        - {x: -9, y: -14}
+        - {x: -1, y: -14}
+        - {x: 7, y: -13}
+        - {x: 20, y: -3}
+        - {x: 20, y: 1}
+    - name: saxon_swordsman_17
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 588
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 17}
+        - {x: -15, y: 0}
+        - {x: -15, y: -13}
+        - {x: -4, y: -19}
+        - {x: 9, y: -19}
+        - {x: 14, y: -18}
+        - {x: 14, y: 8}
+        - {x: 6, y: 17}
+    - name: saxon_swordsman_18
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 588
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 16}
+        - {x: -14, y: 3}
+        - {x: -14, y: -8}
+        - {x: -5, y: -17}
+        - {x: 0, y: -18}
+        - {x: 7, y: -18}
+        - {x: 14, y: -6}
+        - {x: 14, y: 15}
+        - {x: 11, y: 16}
+    - name: saxon_swordsman_19
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 588
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 17}
+        - {x: -1, y: 17}
+        - {x: -8, y: 14}
+        - {x: -13, y: 7}
+        - {x: -13, y: -15}
+        - {x: -11, y: -20}
+        - {x: 2, y: -20}
+        - {x: 16, y: -7}
+        - {x: 16, y: 3}
+    - name: saxon_swordsman_20
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 516
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 18}
+        - {x: -17, y: -16}
+        - {x: 9, y: -16}
+        - {x: 15, y: -9}
+        - {x: 15, y: 17}
+        - {x: 14, y: 18}
+    - name: saxon_swordsman_21
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 516
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 19}
+        - {x: -13, y: 17}
+        - {x: -13, y: -12}
+        - {x: -5, y: -15}
+        - {x: 12, y: -15}
+        - {x: 22, y: -4}
+        - {x: 22, y: 7}
+        - {x: 4, y: 19}
+    - name: saxon_swordsman_22
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 516
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 17}
+        - {x: -7, y: 12}
+        - {x: -12, y: 2}
+        - {x: -12, y: -11}
+        - {x: -8, y: -19}
+        - {x: -4, y: -20}
+        - {x: 10, y: -20}
+        - {x: 16, y: -15}
+        - {x: 16, y: 4}
+        - {x: 8, y: 17}
+    - name: saxon_swordsman_23
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 516
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 16}
+        - {x: -13, y: -19}
+        - {x: 7, y: -19}
+        - {x: 15, y: -8}
+        - {x: 15, y: 9}
+        - {x: 13, y: 16}
+    - name: saxon_swordsman_24
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 516
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 17}
+        - {x: -1, y: 17}
+        - {x: -12, y: 10}
+        - {x: -13, y: 5}
+        - {x: -13, y: -11}
+        - {x: -10, y: -20}
+        - {x: -3, y: -20}
+        - {x: 9, y: -17}
+        - {x: 17, y: -10}
+        - {x: 17, y: 3}
+        - {x: 14, y: 10}
+    - name: saxon_swordsman_25
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 444
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 24}
+        - {x: -4, y: 23}
+        - {x: -4, y: 19}
+        - {x: -15, y: 13}
+        - {x: -15, y: -8}
+        - {x: -14, y: -14}
+        - {x: -9, y: -16}
+        - {x: 14, y: -16}
+        - {x: 18, y: -7}
+        - {x: 18, y: 17}
+        - {x: 5, y: 24}
+    - name: saxon_swordsman_26
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 444
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 20}
+        - {x: -12, y: 18}
+        - {x: -12, y: -8}
+        - {x: -5, y: -18}
+        - {x: 10, y: -18}
+        - {x: 13, y: -11}
+        - {x: 13, y: 16}
+        - {x: 6, y: 20}
+    - name: saxon_swordsman_27
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 444
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 18}
+        - {x: -3, y: 17}
+        - {x: -13, y: 12}
+        - {x: -13, y: 1}
+        - {x: -9, y: -17}
+        - {x: -4, y: -20}
+        - {x: 9, y: -20}
+        - {x: 14, y: -11}
+        - {x: 14, y: 11}
+        - {x: 8, y: 18}
+    - name: saxon_swordsman_28
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 444
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 16}
+        - {x: -21, y: 16}
+        - {x: -23, y: 11}
+        - {x: -22, y: 8}
+        - {x: -8, y: -19}
+        - {x: 7, y: -19}
+        - {x: 18, y: -5}
+        - {x: 18, y: 9}
+        - {x: 17, y: 13}
+    - name: saxon_swordsman_29
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 444
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 20}
+        - {x: -16, y: -16}
+        - {x: -14, y: -17}
+        - {x: 9, y: -17}
+        - {x: 14, y: -16}
+        - {x: 14, y: 10}
+        - {x: 8, y: 20}
+    - name: saxon_swordsman_30
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 372
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 24}
+        - {x: -17, y: 14}
+        - {x: -17, y: -3}
+        - {x: -14, y: -15}
+        - {x: -9, y: -16}
+        - {x: 12, y: -16}
+        - {x: 15, y: -13}
+        - {x: 15, y: 24}
+    - name: saxon_swordsman_31
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 372
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 24}
+        - {x: -13, y: 22}
+        - {x: -13, y: -12}
+        - {x: -10, y: -18}
+        - {x: 7, y: -18}
+        - {x: 15, y: -11}
+        - {x: 16, y: -2}
+        - {x: 16, y: 24}
+    - name: saxon_swordsman_32
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 372
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 24}
+        - {x: 1, y: 24}
+        - {x: -9, y: 15}
+        - {x: -9, y: -18}
+        - {x: -4, y: -20}
+        - {x: 7, y: -20}
+        - {x: 12, y: -13}
+        - {x: 14, y: 2}
+        - {x: 14, y: 13}
+    - name: saxon_swordsman_33
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 372
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 24}
+        - {x: -10, y: 14}
+        - {x: -10, y: -11}
+        - {x: -8, y: -19}
+        - {x: 6, y: -19}
+        - {x: 18, y: -16}
+        - {x: 18, y: 21}
+        - {x: 8, y: 24}
+    - name: saxon_swordsman_34
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 372
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 24}
+        - {x: -15, y: 24}
+        - {x: -15, y: -17}
+        - {x: 14, y: -17}
+        - {x: 16, y: -16}
+        - {x: 16, y: 13}
+    - name: saxon_swordsman_35
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 300
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 12}
+        - {x: -18, y: -10}
+        - {x: -15, y: -15}
+        - {x: -7, y: -16}
+        - {x: 13, y: -16}
+        - {x: 14, y: -15}
+        - {x: 14, y: 24}
+        - {x: 4, y: 24}
+        - {x: -16, y: 18}
+    - name: saxon_swordsman_36
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 300
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 19}
+        - {x: -14, y: 18}
+        - {x: -14, y: -9}
+        - {x: -4, y: -18}
+        - {x: 7, y: -18}
+        - {x: 13, y: -16}
+        - {x: 24, y: 11}
+        - {x: 24, y: 19}
+    - name: saxon_swordsman_37
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 300
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 17}
+        - {x: -9, y: 14}
+        - {x: -10, y: 9}
+        - {x: -10, y: -12}
+        - {x: -8, y: -20}
+        - {x: 6, y: -20}
+        - {x: 10, y: -18}
+        - {x: 24, y: 3}
+        - {x: 24, y: 12}
+        - {x: 15, y: 17}
+    - name: saxon_swordsman_38
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 300
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 15}
+        - {x: 7, y: 16}
+        - {x: -3, y: 16}
+        - {x: -7, y: 12}
+        - {x: -9, y: -1}
+        - {x: -9, y: -18}
+        - {x: -6, y: -19}
+        - {x: 4, y: -19}
+        - {x: 11, y: -11}
+        - {x: 20, y: 2}
+        - {x: 20, y: 9}
+    - name: saxon_swordsman_39
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 15}
+        - {x: -18, y: 2}
+        - {x: -15, y: -17}
+        - {x: 14, y: -17}
+        - {x: 18, y: -14}
+        - {x: 18, y: 6}
+        - {x: 12, y: 15}
+    - name: saxon_swordsman_40
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 228
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: -8}
+        - {x: -13, y: -16}
+        - {x: 13, y: -16}
+        - {x: 13, y: 14}
+        - {x: 11, y: 24}
+        - {x: 1, y: 24}
+        - {x: -13, y: 16}
+        - {x: -17, y: 12}
+    - name: saxon_swordsman_41
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 228
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 18}
+        - {x: -15, y: 11}
+        - {x: -15, y: -8}
+        - {x: -5, y: -18}
+        - {x: 7, y: -18}
+        - {x: 18, y: 0}
+        - {x: 23, y: 13}
+        - {x: 23, y: 18}
+    - name: saxon_swordsman_42
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 228
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 17}
+        - {x: -10, y: 14}
+        - {x: -10, y: -18}
+        - {x: -6, y: -20}
+        - {x: 14, y: -20}
+        - {x: 24, y: -11}
+        - {x: 24, y: 2}
+        - {x: 10, y: 17}
+    - name: saxon_swordsman_43
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 228
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 16}
+        - {x: -9, y: -1}
+        - {x: -9, y: -18}
+        - {x: -7, y: -19}
+        - {x: 14, y: -19}
+        - {x: 21, y: -17}
+        - {x: 21, y: -3}
+        - {x: 14, y: 16}
+    - name: saxon_swordsman_44
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 228
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 13}
+        - {x: -6, y: 13}
+        - {x: -9, y: 12}
+        - {x: -11, y: -9}
+        - {x: -11, y: -14}
+        - {x: 0, y: -24}
+        - {x: 7, y: -24}
+        - {x: 18, y: -6}
+        - {x: 18, y: 5}
+    - name: saxon_swordsman_45
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 156
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 17}
+        - {x: -21, y: 11}
+        - {x: -21, y: 1}
+        - {x: -16, y: -11}
+        - {x: -3, y: -18}
+        - {x: 10, y: -18}
+        - {x: 23, y: 5}
+        - {x: 23, y: 15}
+        - {x: 7, y: 17}
+    - name: saxon_swordsman_46
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 156
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 17}
+        - {x: -21, y: 11}
+        - {x: -21, y: 1}
+        - {x: -16, y: -11}
+        - {x: -3, y: -18}
+        - {x: 10, y: -18}
+        - {x: 23, y: 5}
+        - {x: 23, y: 15}
+        - {x: 7, y: 17}
+    - name: saxon_swordsman_47
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 156
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 17}
+        - {x: -21, y: 11}
+        - {x: -21, y: 1}
+        - {x: -16, y: -11}
+        - {x: -3, y: -18}
+        - {x: 10, y: -18}
+        - {x: 23, y: 5}
+        - {x: 23, y: 15}
+        - {x: 7, y: 17}
+    - name: saxon_swordsman_48
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 156
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 9}
+        - {x: 9, y: 16}
+        - {x: -8, y: 16}
+        - {x: -17, y: 7}
+        - {x: -17, y: -11}
+        - {x: -13, y: -16}
+        - {x: -6, y: -19}
+        - {x: 2, y: -19}
+        - {x: 11, y: -11}
+        - {x: 11, y: -7}
+        - {x: 17, y: 4}
+    - name: saxon_swordsman_49
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 156
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 9}
+        - {x: 9, y: 16}
+        - {x: -8, y: 16}
+        - {x: -17, y: 7}
+        - {x: -17, y: -11}
+        - {x: -13, y: -16}
+        - {x: -6, y: -19}
+        - {x: 2, y: -19}
+        - {x: 11, y: -11}
+        - {x: 11, y: -7}
+        - {x: 17, y: 4}
+    - name: saxon_swordsman_50
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 84
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 11}
+        - {x: -18, y: 11}
+        - {x: -24, y: 10}
+        - {x: -24, y: -5}
+        - {x: -14, y: -18}
+        - {x: -11, y: -19}
+        - {x: 8, y: -21}
+        - {x: 19, y: -21}
+        - {x: 19, y: -17}
+        - {x: 12, y: -3}
+    - name: saxon_swordsman_51
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 84
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 11}
+        - {x: -18, y: 11}
+        - {x: -24, y: 10}
+        - {x: -24, y: -5}
+        - {x: -14, y: -18}
+        - {x: -11, y: -19}
+        - {x: 8, y: -21}
+        - {x: 19, y: -21}
+        - {x: 19, y: -17}
+        - {x: 12, y: -3}
+    - name: saxon_swordsman_52
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 84
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 11}
+        - {x: -18, y: 11}
+        - {x: -24, y: 10}
+        - {x: -24, y: -5}
+        - {x: -14, y: -18}
+        - {x: -11, y: -19}
+        - {x: 8, y: -21}
+        - {x: 19, y: -21}
+        - {x: 19, y: -17}
+        - {x: 12, y: -3}
+    - name: saxon_swordsman_53
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 84
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 16}
+        - {x: -21, y: 6}
+        - {x: -21, y: -17}
+        - {x: -8, y: -21}
+        - {x: 6, y: -21}
+        - {x: 13, y: -10}
+        - {x: 13, y: 15}
+        - {x: 9, y: 16}
+    - name: saxon_swordsman_54
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 84
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 16}
+        - {x: -21, y: 6}
+        - {x: -21, y: -17}
+        - {x: -8, y: -21}
+        - {x: 6, y: -21}
+        - {x: 13, y: -10}
+        - {x: 13, y: 15}
+        - {x: 9, y: 16}
+    - name: saxon_swordsman_55
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 12
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 4}
+        - {x: -20, y: 1}
+        - {x: -24, y: 0}
+        - {x: -24, y: -24}
+        - {x: 13, y: -24}
+        - {x: 13, y: -2}
+        - {x: 6, y: 4}
+    - name: saxon_swordsman_56
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 12
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 4}
+        - {x: -20, y: 1}
+        - {x: -24, y: 0}
+        - {x: -24, y: -24}
+        - {x: 13, y: -24}
+        - {x: 13, y: -2}
+        - {x: 6, y: 4}
+    - name: saxon_swordsman_57
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 12
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 4}
+        - {x: -20, y: 1}
+        - {x: -24, y: 0}
+        - {x: -24, y: -24}
+        - {x: 13, y: -24}
+        - {x: 13, y: -2}
+        - {x: 6, y: 4}
+    - name: saxon_swordsman_58
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 12
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 14}
+        - {x: -24, y: 9}
+        - {x: -24, y: -17}
+        - {x: -22, y: -24}
+        - {x: 6, y: -24}
+        - {x: 10, y: -20}
+        - {x: 10, y: 1}
+        - {x: 2, y: 14}
+    - name: saxon_swordsman_59
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 12
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 14}
+        - {x: -24, y: 9}
+        - {x: -24, y: -17}
+        - {x: -22, y: -24}
+        - {x: 6, y: -24}
+        - {x: 10, y: -20}
+        - {x: 10, y: 1}
+        - {x: 2, y: 14}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
