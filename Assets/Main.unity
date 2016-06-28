@@ -427,6 +427,7 @@ GameObject:
   - 4: {fileID: 1643439948}
   - 95: {fileID: 1643439949}
   - 50: {fileID: 1643439950}
+  - 114: {fileID: 1643439951}
   m_Layer: 0
   m_Name: SlimeEnemy
   m_TagString: Enemy
@@ -461,7 +462,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: c997c91f9305a9641825866fb294ce28, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -483,6 +484,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1643439951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1643439947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d800dbff0f1894798ee6ac6143dfec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 313976973}
+  maxStamina: 100
+  staminaRegeneration: 40
+  distancePerJump: 0.15
+  staminaPerJump: 10
+  state: 0
+  currentAnimation: Idle
+  currentStamina: 0
+  jumpTrigger: 0
+  jumping: 0
+  jumpOrigin: {x: 0, y: 0}
+  jumpDirection: {x: 1, y: 0}
+  lookToLeft: 0
 --- !u!1 &1851474514
 GameObject:
   m_ObjectHideFlags: 0
