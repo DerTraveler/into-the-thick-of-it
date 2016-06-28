@@ -6,9 +6,11 @@ public class Sword : MonoBehaviour {
 	public float attackForce = 1.0f;
 
 	void OnCollisionEnter2D(Collision2D coll) {
-		Vector2 hitForce = coll.contacts[0].point - (Vector2)transform.position;
-		coll.rigidbody.AddForce(hitForce.normalized * attackForce, ForceMode2D.Impulse);
-		print("Hit " + coll.gameObject.name + " with force: " + (hitForce.normalized * attackForce));
+		if (coll.gameObject.tag == "Enemy") {
+			Vector2 hitForce = coll.contacts[0].point - (Vector2)transform.position;
+			coll.rigidbody.AddForce(hitForce.normalized * attackForce, ForceMode2D.Impulse);
+			print("Hit " + coll.gameObject.name + " with force: " + (hitForce.normalized * attackForce));
+		}
 	}
 
 }
