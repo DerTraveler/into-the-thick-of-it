@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f345b91655d76414ab2e9f720eb0d27e
-timeCreated: 1466984095
+timeCreated: 1467123494
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -117,18 +117,18 @@ TextureImporter:
         y: 804
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -13, y: 18}
-        - {x: -15, y: 17}
-        - {x: -17, y: 10}
-        - {x: -17, y: -10}
-        - {x: -15, y: -15}
-        - {x: -7, y: -16}
-        - {x: 15, y: -16}
-        - {x: 15, y: 18}
+      - - {x: -13, y: 31.919983}
+        - {x: -15, y: 30.919983}
+        - {x: -17, y: 23.919983}
+        - {x: -17, y: 3.919983}
+        - {x: -15, y: -1.0800171}
+        - {x: -7, y: -2.080017}
+        - {x: 15, y: -2.080017}
+        - {x: 15, y: 31.919983}
     - name: saxon_swordsman_1
       rect:
         serializedVersion: 2
@@ -137,7 +137,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -14, y: 17}
@@ -154,21 +154,21 @@ TextureImporter:
         y: 804
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 8, y: 13}
-        - {x: 6, y: 17}
-        - {x: -3, y: 17}
-        - {x: -9, y: 14}
-        - {x: -9, y: -18}
-        - {x: -7, y: -20}
-        - {x: 4, y: -20}
-        - {x: 10, y: -18}
-        - {x: 16, y: -6}
-        - {x: 16, y: -3}
-        - {x: 15, y: 0}
+      - - {x: 8, y: 26.919983}
+        - {x: 6, y: 30.919983}
+        - {x: -3, y: 30.919983}
+        - {x: -9, y: 27.919983}
+        - {x: -9, y: -4.080017}
+        - {x: -7, y: -6.080017}
+        - {x: 4, y: -6.080017}
+        - {x: 10, y: -4.080017}
+        - {x: 16, y: 7.919983}
+        - {x: 16, y: 10.919983}
+        - {x: 15, y: 13.919983}
     - name: saxon_swordsman_3
       rect:
         serializedVersion: 2
@@ -177,7 +177,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -8, y: 16}
@@ -195,19 +195,19 @@ TextureImporter:
         y: 804
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -3, y: 17}
-        - {x: -13, y: 8}
-        - {x: -13, y: -15}
-        - {x: -10, y: -17}
-        - {x: 9, y: -17}
-        - {x: 16, y: -16}
-        - {x: 18, y: -14}
-        - {x: 18, y: 6}
-        - {x: 11, y: 17}
+      - - {x: -3, y: 30.919983}
+        - {x: -13, y: 21.919983}
+        - {x: -13, y: -1.0800171}
+        - {x: -10, y: -3.080017}
+        - {x: 9, y: -3.080017}
+        - {x: 16, y: -2.080017}
+        - {x: 18, y: -0.08001709}
+        - {x: 18, y: 19.919983}
+        - {x: 11, y: 30.919983}
     - name: saxon_swordsman_5
       rect:
         serializedVersion: 2
@@ -215,18 +215,18 @@ TextureImporter:
         y: 732
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 3, y: 23}
-        - {x: -15, y: 13}
-        - {x: -15, y: -7}
-        - {x: -12, y: -17}
-        - {x: 9, y: -17}
-        - {x: 14, y: -16}
-        - {x: 14, y: 16}
-        - {x: 11, y: 23}
+      - - {x: 3, y: 36.919983}
+        - {x: -15, y: 26.919983}
+        - {x: -15, y: 6.919983}
+        - {x: -12, y: -3.080017}
+        - {x: 9, y: -3.080017}
+        - {x: 14, y: -2.080017}
+        - {x: 14, y: 29.919983}
+        - {x: 11, y: 36.919983}
     - name: saxon_swordsman_6
       rect:
         serializedVersion: 2
@@ -235,7 +235,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 11, y: 17}
@@ -255,17 +255,17 @@ TextureImporter:
         y: 732
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -10, y: 17}
-        - {x: -15, y: 5}
-        - {x: -15, y: -20}
-        - {x: 0, y: -20}
-        - {x: 17, y: -14}
-        - {x: 17, y: 12}
-        - {x: 8, y: 17}
+      - - {x: -10, y: 30.919983}
+        - {x: -15, y: 18.919983}
+        - {x: -15, y: -6.080017}
+        - {x: 0, y: -6.080017}
+        - {x: 17, y: -0.08001709}
+        - {x: 17, y: 25.919983}
+        - {x: 8, y: 30.919983}
     - name: saxon_swordsman_8
       rect:
         serializedVersion: 2
@@ -274,7 +274,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 9, y: 14}
@@ -296,19 +296,19 @@ TextureImporter:
         y: 732
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -9, y: 17}
-        - {x: -12, y: 10}
-        - {x: -12, y: -16}
-        - {x: -3, y: -20}
-        - {x: 8, y: -20}
-        - {x: 15, y: -18}
-        - {x: 18, y: -14}
-        - {x: 18, y: 8}
-        - {x: 11, y: 17}
+      - - {x: -9, y: 30.919983}
+        - {x: -12, y: 23.919983}
+        - {x: -12, y: -2.080017}
+        - {x: -3, y: -6.080017}
+        - {x: 8, y: -6.080017}
+        - {x: 15, y: -4.080017}
+        - {x: 18, y: -0.08001709}
+        - {x: 18, y: 21.919983}
+        - {x: 11, y: 30.919983}
     - name: saxon_swordsman_10
       rect:
         serializedVersion: 2
@@ -316,21 +316,21 @@ TextureImporter:
         y: 660
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 10, y: 21}
-        - {x: 7, y: 20}
-        - {x: -2, y: 19}
-        - {x: -16, y: 7}
-        - {x: -17, y: 4}
-        - {x: -17, y: -7}
-        - {x: -6, y: -16}
-        - {x: 12, y: -16}
-        - {x: 15, y: -15}
-        - {x: 15, y: 13}
-        - {x: 14, y: 19}
+      - - {x: 10, y: 34.919983}
+        - {x: 7, y: 33.919983}
+        - {x: -2, y: 32.919983}
+        - {x: -16, y: 20.919983}
+        - {x: -17, y: 17.919983}
+        - {x: -17, y: 6.919983}
+        - {x: -6, y: -2.080017}
+        - {x: 12, y: -2.080017}
+        - {x: 15, y: -1.0800171}
+        - {x: 15, y: 26.919983}
+        - {x: 14, y: 32.919983}
     - name: saxon_swordsman_11
       rect:
         serializedVersion: 2
@@ -339,7 +339,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -15, y: 17}
@@ -357,18 +357,18 @@ TextureImporter:
         y: 660
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -8, y: 17}
-        - {x: -10, y: 14}
-        - {x: -10, y: -20}
-        - {x: 4, y: -20}
-        - {x: 11, y: -18}
-        - {x: 19, y: -1}
-        - {x: 19, y: 10}
-        - {x: 4, y: 17}
+      - - {x: -8, y: 30.919983}
+        - {x: -10, y: 27.919983}
+        - {x: -10, y: -6.080017}
+        - {x: 4, y: -6.080017}
+        - {x: 11, y: -4.080017}
+        - {x: 19, y: 12.919983}
+        - {x: 19, y: 23.919983}
+        - {x: 4, y: 30.919983}
     - name: saxon_swordsman_13
       rect:
         serializedVersion: 2
@@ -377,7 +377,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -5, y: 16}
@@ -394,20 +394,20 @@ TextureImporter:
         y: 660
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 5, y: 17}
-        - {x: -7, y: 17}
-        - {x: -14, y: 5}
-        - {x: -14, y: -9}
-        - {x: -10, y: -16}
-        - {x: 1, y: -18}
-        - {x: 12, y: -18}
-        - {x: 16, y: -16}
-        - {x: 17, y: -11}
-        - {x: 17, y: 10}
+      - - {x: 5, y: 30.919983}
+        - {x: -7, y: 30.919983}
+        - {x: -14, y: 18.919983}
+        - {x: -14, y: 4.919983}
+        - {x: -10, y: -2.080017}
+        - {x: 1, y: -4.080017}
+        - {x: 12, y: -4.080017}
+        - {x: 16, y: -2.080017}
+        - {x: 17, y: 2.919983}
+        - {x: 17, y: 23.919983}
     - name: saxon_swordsman_15
       rect:
         serializedVersion: 2
@@ -415,19 +415,19 @@ TextureImporter:
         y: 588
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 9, y: 18}
-        - {x: -14, y: 18}
-        - {x: -16, y: 13}
-        - {x: -16, y: -9}
-        - {x: -13, y: -16}
-        - {x: -8, y: -17}
-        - {x: 9, y: -17}
-        - {x: 14, y: -15}
-        - {x: 14, y: 17}
+      - - {x: 9, y: 31.919983}
+        - {x: -14, y: 31.919983}
+        - {x: -16, y: 26.919983}
+        - {x: -16, y: 4.919983}
+        - {x: -13, y: -2.080017}
+        - {x: -8, y: -3.080017}
+        - {x: 9, y: -3.080017}
+        - {x: 14, y: -1.0800171}
+        - {x: 14, y: 30.919983}
     - name: saxon_swordsman_16
       rect:
         serializedVersion: 2
@@ -436,7 +436,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 2, y: 19}
@@ -455,18 +455,18 @@ TextureImporter:
         y: 588
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -7, y: 17}
-        - {x: -15, y: 0}
-        - {x: -15, y: -13}
-        - {x: -4, y: -19}
-        - {x: 9, y: -19}
-        - {x: 14, y: -18}
-        - {x: 14, y: 8}
-        - {x: 6, y: 17}
+      - - {x: -7, y: 30.919983}
+        - {x: -15, y: 13.919983}
+        - {x: -15, y: 0.9199829}
+        - {x: -4, y: -5.080017}
+        - {x: 9, y: -5.080017}
+        - {x: 14, y: -4.080017}
+        - {x: 14, y: 21.919983}
+        - {x: 6, y: 30.919983}
     - name: saxon_swordsman_18
       rect:
         serializedVersion: 2
@@ -475,7 +475,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -8, y: 16}
@@ -494,19 +494,19 @@ TextureImporter:
         y: 588
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 6, y: 17}
-        - {x: -1, y: 17}
-        - {x: -8, y: 14}
-        - {x: -13, y: 7}
-        - {x: -13, y: -15}
-        - {x: -11, y: -20}
-        - {x: 2, y: -20}
-        - {x: 16, y: -7}
-        - {x: 16, y: 3}
+      - - {x: 6, y: 30.919983}
+        - {x: -1, y: 30.919983}
+        - {x: -8, y: 27.919983}
+        - {x: -13, y: 20.919983}
+        - {x: -13, y: -1.0800171}
+        - {x: -11, y: -6.080017}
+        - {x: 2, y: -6.080017}
+        - {x: 16, y: 6.919983}
+        - {x: 16, y: 16.919983}
     - name: saxon_swordsman_20
       rect:
         serializedVersion: 2
@@ -514,16 +514,16 @@ TextureImporter:
         y: 516
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -17, y: 18}
-        - {x: -17, y: -16}
-        - {x: 9, y: -16}
-        - {x: 15, y: -9}
-        - {x: 15, y: 17}
-        - {x: 14, y: 18}
+      - - {x: -17, y: 31.919983}
+        - {x: -17, y: -2.080017}
+        - {x: 9, y: -2.080017}
+        - {x: 15, y: 4.919983}
+        - {x: 15, y: 30.919983}
+        - {x: 14, y: 31.919983}
     - name: saxon_swordsman_21
       rect:
         serializedVersion: 2
@@ -532,7 +532,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -6, y: 19}
@@ -550,20 +550,20 @@ TextureImporter:
         y: 516
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -2, y: 17}
-        - {x: -7, y: 12}
-        - {x: -12, y: 2}
-        - {x: -12, y: -11}
-        - {x: -8, y: -19}
-        - {x: -4, y: -20}
-        - {x: 10, y: -20}
-        - {x: 16, y: -15}
-        - {x: 16, y: 4}
-        - {x: 8, y: 17}
+      - - {x: -2, y: 30.919983}
+        - {x: -7, y: 25.919983}
+        - {x: -12, y: 15.919983}
+        - {x: -12, y: 2.919983}
+        - {x: -8, y: -5.080017}
+        - {x: -4, y: -6.080017}
+        - {x: 10, y: -6.080017}
+        - {x: 16, y: -1.0800171}
+        - {x: 16, y: 17.919983}
+        - {x: 8, y: 30.919983}
     - name: saxon_swordsman_23
       rect:
         serializedVersion: 2
@@ -572,7 +572,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -13, y: 16}
@@ -588,21 +588,21 @@ TextureImporter:
         y: 516
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 3, y: 17}
-        - {x: -1, y: 17}
-        - {x: -12, y: 10}
-        - {x: -13, y: 5}
-        - {x: -13, y: -11}
-        - {x: -10, y: -20}
-        - {x: -3, y: -20}
-        - {x: 9, y: -17}
-        - {x: 17, y: -10}
-        - {x: 17, y: 3}
-        - {x: 14, y: 10}
+      - - {x: 3, y: 30.919983}
+        - {x: -1, y: 30.919983}
+        - {x: -12, y: 23.919983}
+        - {x: -13, y: 18.919983}
+        - {x: -13, y: 2.919983}
+        - {x: -10, y: -6.080017}
+        - {x: -3, y: -6.080017}
+        - {x: 9, y: -3.080017}
+        - {x: 17, y: 3.919983}
+        - {x: 17, y: 16.919983}
+        - {x: 14, y: 23.919983}
     - name: saxon_swordsman_25
       rect:
         serializedVersion: 2
@@ -610,21 +610,21 @@ TextureImporter:
         y: 444
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -2, y: 24}
-        - {x: -4, y: 23}
-        - {x: -4, y: 19}
-        - {x: -15, y: 13}
-        - {x: -15, y: -8}
-        - {x: -14, y: -14}
-        - {x: -9, y: -16}
-        - {x: 14, y: -16}
-        - {x: 18, y: -7}
-        - {x: 18, y: 17}
-        - {x: 5, y: 24}
+      - - {x: -2, y: 37.920013}
+        - {x: -4, y: 36.920013}
+        - {x: -4, y: 32.920013}
+        - {x: -15, y: 26.920013}
+        - {x: -15, y: 5.9200134}
+        - {x: -14, y: -0.07998657}
+        - {x: -9, y: -2.0799866}
+        - {x: 14, y: -2.0799866}
+        - {x: 18, y: 6.9200134}
+        - {x: 18, y: 30.920013}
+        - {x: 5, y: 37.920013}
     - name: saxon_swordsman_26
       rect:
         serializedVersion: 2
@@ -633,7 +633,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -6, y: 20}
@@ -651,20 +651,20 @@ TextureImporter:
         y: 444
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 2, y: 18}
-        - {x: -3, y: 17}
-        - {x: -13, y: 12}
-        - {x: -13, y: 1}
-        - {x: -9, y: -17}
-        - {x: -4, y: -20}
-        - {x: 9, y: -20}
-        - {x: 14, y: -11}
-        - {x: 14, y: 11}
-        - {x: 8, y: 18}
+      - - {x: 2, y: 31.920013}
+        - {x: -3, y: 30.920013}
+        - {x: -13, y: 25.920013}
+        - {x: -13, y: 14.920013}
+        - {x: -9, y: -3.0799866}
+        - {x: -4, y: -6.0799866}
+        - {x: 9, y: -6.0799866}
+        - {x: 14, y: 2.9200134}
+        - {x: 14, y: 24.920013}
+        - {x: 8, y: 31.920013}
     - name: saxon_swordsman_28
       rect:
         serializedVersion: 2
@@ -673,7 +673,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 14, y: 16}
@@ -692,17 +692,17 @@ TextureImporter:
         y: 444
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -16, y: 20}
-        - {x: -16, y: -16}
-        - {x: -14, y: -17}
-        - {x: 9, y: -17}
-        - {x: 14, y: -16}
-        - {x: 14, y: 10}
-        - {x: 8, y: 20}
+      - - {x: -16, y: 33.920013}
+        - {x: -16, y: -2.0799866}
+        - {x: -14, y: -3.0799866}
+        - {x: 9, y: -3.0799866}
+        - {x: 14, y: -2.0799866}
+        - {x: 14, y: 23.920013}
+        - {x: 8, y: 33.920013}
     - name: saxon_swordsman_30
       rect:
         serializedVersion: 2
@@ -710,18 +710,18 @@ TextureImporter:
         y: 372
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 2, y: 24}
-        - {x: -17, y: 14}
-        - {x: -17, y: -3}
-        - {x: -14, y: -15}
-        - {x: -9, y: -16}
-        - {x: 12, y: -16}
-        - {x: 15, y: -13}
-        - {x: 15, y: 24}
+      - - {x: 2, y: 37.920013}
+        - {x: -17, y: 27.920013}
+        - {x: -17, y: 10.920013}
+        - {x: -14, y: -1.0799866}
+        - {x: -9, y: -2.0799866}
+        - {x: 12, y: -2.0799866}
+        - {x: 15, y: 0.9200134}
+        - {x: 15, y: 37.920013}
     - name: saxon_swordsman_31
       rect:
         serializedVersion: 2
@@ -730,7 +730,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -6, y: 24}
@@ -748,19 +748,19 @@ TextureImporter:
         y: 372
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 8, y: 24}
-        - {x: 1, y: 24}
-        - {x: -9, y: 15}
-        - {x: -9, y: -18}
-        - {x: -4, y: -20}
-        - {x: 7, y: -20}
-        - {x: 12, y: -13}
-        - {x: 14, y: 2}
-        - {x: 14, y: 13}
+      - - {x: 8, y: 37.920013}
+        - {x: 1, y: 37.920013}
+        - {x: -9, y: 28.920013}
+        - {x: -9, y: -4.0799866}
+        - {x: -4, y: -6.0799866}
+        - {x: 7, y: -6.0799866}
+        - {x: 12, y: 0.9200134}
+        - {x: 14, y: 15.920013}
+        - {x: 14, y: 26.920013}
     - name: saxon_swordsman_33
       rect:
         serializedVersion: 2
@@ -769,7 +769,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -6, y: 24}
@@ -787,16 +787,16 @@ TextureImporter:
         y: 372
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -2, y: 24}
-        - {x: -15, y: 24}
-        - {x: -15, y: -17}
-        - {x: 14, y: -17}
-        - {x: 16, y: -16}
-        - {x: 16, y: 13}
+      - - {x: -2, y: 37.920013}
+        - {x: -15, y: 37.920013}
+        - {x: -15, y: -3.0799866}
+        - {x: 14, y: -3.0799866}
+        - {x: 16, y: -2.0799866}
+        - {x: 16, y: 26.920013}
     - name: saxon_swordsman_35
       rect:
         serializedVersion: 2
@@ -804,19 +804,19 @@ TextureImporter:
         y: 300
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -18, y: 12}
-        - {x: -18, y: -10}
-        - {x: -15, y: -15}
-        - {x: -7, y: -16}
-        - {x: 13, y: -16}
-        - {x: 14, y: -15}
-        - {x: 14, y: 24}
-        - {x: 4, y: 24}
-        - {x: -16, y: 18}
+      - - {x: -18, y: 25.920013}
+        - {x: -18, y: 3.9200134}
+        - {x: -15, y: -1.0799866}
+        - {x: -7, y: -2.0799866}
+        - {x: 13, y: -2.0799866}
+        - {x: 14, y: -1.0799866}
+        - {x: 14, y: 37.920013}
+        - {x: 4, y: 37.920013}
+        - {x: -16, y: 31.920013}
     - name: saxon_swordsman_36
       rect:
         serializedVersion: 2
@@ -825,7 +825,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -3, y: 19}
@@ -843,20 +843,20 @@ TextureImporter:
         y: 300
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -4, y: 17}
-        - {x: -9, y: 14}
-        - {x: -10, y: 9}
-        - {x: -10, y: -12}
-        - {x: -8, y: -20}
-        - {x: 6, y: -20}
-        - {x: 10, y: -18}
-        - {x: 24, y: 3}
-        - {x: 24, y: 12}
-        - {x: 15, y: 17}
+      - - {x: -4, y: 30.920013}
+        - {x: -9, y: 27.920013}
+        - {x: -10, y: 22.920013}
+        - {x: -10, y: 1.9200134}
+        - {x: -8, y: -6.0799866}
+        - {x: 6, y: -6.0799866}
+        - {x: 10, y: -4.0799866}
+        - {x: 24, y: 16.920013}
+        - {x: 24, y: 25.920013}
+        - {x: 15, y: 30.920013}
     - name: saxon_swordsman_38
       rect:
         serializedVersion: 2
@@ -865,7 +865,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 14, y: 15}
@@ -886,17 +886,17 @@ TextureImporter:
         y: 300
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -18, y: 15}
-        - {x: -18, y: 2}
-        - {x: -15, y: -17}
-        - {x: 14, y: -17}
-        - {x: 18, y: -14}
-        - {x: 18, y: 6}
-        - {x: 12, y: 15}
+      - - {x: -18, y: 28.920013}
+        - {x: -18, y: 15.920013}
+        - {x: -15, y: -3.0799866}
+        - {x: 14, y: -3.0799866}
+        - {x: 18, y: -0.07998657}
+        - {x: 18, y: 19.920013}
+        - {x: 12, y: 28.920013}
     - name: saxon_swordsman_40
       rect:
         serializedVersion: 2
@@ -904,18 +904,18 @@ TextureImporter:
         y: 228
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -17, y: -8}
-        - {x: -13, y: -16}
-        - {x: 13, y: -16}
-        - {x: 13, y: 14}
-        - {x: 11, y: 24}
-        - {x: 1, y: 24}
-        - {x: -13, y: 16}
-        - {x: -17, y: 12}
+      - - {x: -17, y: 5.919998}
+        - {x: -13, y: -2.0800018}
+        - {x: 13, y: -2.0800018}
+        - {x: 13, y: 27.919998}
+        - {x: 11, y: 37.92}
+        - {x: 1, y: 37.92}
+        - {x: -13, y: 29.919998}
+        - {x: -17, y: 25.919998}
     - name: saxon_swordsman_41
       rect:
         serializedVersion: 2
@@ -924,7 +924,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -12, y: 18}
@@ -942,18 +942,18 @@ TextureImporter:
         y: 228
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -4, y: 17}
-        - {x: -10, y: 14}
-        - {x: -10, y: -18}
-        - {x: -6, y: -20}
-        - {x: 14, y: -20}
-        - {x: 24, y: -11}
-        - {x: 24, y: 2}
-        - {x: 10, y: 17}
+      - - {x: -4, y: 30.919998}
+        - {x: -10, y: 27.919998}
+        - {x: -10, y: -4.080002}
+        - {x: -6, y: -6.080002}
+        - {x: 14, y: -6.080002}
+        - {x: 24, y: 2.9199982}
+        - {x: 24, y: 15.919998}
+        - {x: 10, y: 30.919998}
     - name: saxon_swordsman_43
       rect:
         serializedVersion: 2
@@ -962,7 +962,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -2, y: 16}
@@ -980,19 +980,19 @@ TextureImporter:
         y: 228
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 13, y: 13}
-        - {x: -6, y: 13}
-        - {x: -9, y: 12}
-        - {x: -11, y: -9}
-        - {x: -11, y: -14}
-        - {x: 0, y: -24}
-        - {x: 7, y: -24}
-        - {x: 18, y: -6}
-        - {x: 18, y: 5}
+      - - {x: 13, y: 26.919998}
+        - {x: -6, y: 26.919998}
+        - {x: -9, y: 25.919998}
+        - {x: -11, y: 4.919998}
+        - {x: -11, y: -0.08000183}
+        - {x: 0, y: -10.080002}
+        - {x: 7, y: -10.080002}
+        - {x: 18, y: 7.919998}
+        - {x: 18, y: 18.919998}
     - name: saxon_swordsman_45
       rect:
         serializedVersion: 2
@@ -1000,19 +1000,19 @@ TextureImporter:
         y: 156
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -17, y: 17}
-        - {x: -21, y: 11}
-        - {x: -21, y: 1}
-        - {x: -16, y: -11}
-        - {x: -3, y: -18}
-        - {x: 10, y: -18}
-        - {x: 23, y: 5}
-        - {x: 23, y: 15}
-        - {x: 7, y: 17}
+      - - {x: -17, y: 30.919998}
+        - {x: -21, y: 24.919998}
+        - {x: -21, y: 14.919998}
+        - {x: -16, y: 2.9199982}
+        - {x: -3, y: -4.080002}
+        - {x: 10, y: -4.080002}
+        - {x: 23, y: 18.919998}
+        - {x: 23, y: 28.919998}
+        - {x: 7, y: 30.919998}
     - name: saxon_swordsman_46
       rect:
         serializedVersion: 2
@@ -1021,7 +1021,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -17, y: 17}
@@ -1040,19 +1040,19 @@ TextureImporter:
         y: 156
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -17, y: 17}
-        - {x: -21, y: 11}
-        - {x: -21, y: 1}
-        - {x: -16, y: -11}
-        - {x: -3, y: -18}
-        - {x: 10, y: -18}
-        - {x: 23, y: 5}
-        - {x: 23, y: 15}
-        - {x: 7, y: 17}
+      - - {x: -17, y: 30.919998}
+        - {x: -21, y: 24.919998}
+        - {x: -21, y: 14.919998}
+        - {x: -16, y: 2.9199982}
+        - {x: -3, y: -4.080002}
+        - {x: 10, y: -4.080002}
+        - {x: 23, y: 18.919998}
+        - {x: 23, y: 28.919998}
+        - {x: 7, y: 30.919998}
     - name: saxon_swordsman_48
       rect:
         serializedVersion: 2
@@ -1061,7 +1061,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 17, y: 9}
@@ -1082,21 +1082,21 @@ TextureImporter:
         y: 156
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 17, y: 9}
-        - {x: 9, y: 16}
-        - {x: -8, y: 16}
-        - {x: -17, y: 7}
-        - {x: -17, y: -11}
-        - {x: -13, y: -16}
-        - {x: -6, y: -19}
-        - {x: 2, y: -19}
-        - {x: 11, y: -11}
-        - {x: 11, y: -7}
-        - {x: 17, y: 4}
+      - - {x: 17, y: 22.919998}
+        - {x: 9, y: 29.919998}
+        - {x: -8, y: 29.919998}
+        - {x: -17, y: 20.919998}
+        - {x: -17, y: 2.9199982}
+        - {x: -13, y: -2.0800018}
+        - {x: -6, y: -5.080002}
+        - {x: 2, y: -5.080002}
+        - {x: 11, y: 2.9199982}
+        - {x: 11, y: 6.919998}
+        - {x: 17, y: 17.919998}
     - name: saxon_swordsman_50
       rect:
         serializedVersion: 2
@@ -1105,7 +1105,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 11}
@@ -1126,7 +1126,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 11}
@@ -1147,7 +1147,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 11}
@@ -1168,7 +1168,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -18, y: 16}
@@ -1187,7 +1187,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -18, y: 16}
@@ -1206,7 +1206,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 4}
@@ -1224,7 +1224,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 4}
@@ -1242,7 +1242,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 4}
@@ -1260,7 +1260,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -14, y: 14}
@@ -1279,7 +1279,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -14, y: 14}
