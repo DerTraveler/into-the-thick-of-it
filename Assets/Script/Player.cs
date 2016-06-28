@@ -29,6 +29,8 @@ public class Player : MonoBehaviour {
 	private Vector2 faceDirection = new Vector2(0, -1);
 	[SerializeField]
 	private bool directionPressed = false;
+	[SerializeField]
+	private bool attackTrigger = false;
 
 	void Start () {
 		animator = GetComponent<Animator>();
@@ -53,20 +55,30 @@ public class Player : MonoBehaviour {
 		if (Mathf.Approximately(moveDirection.sqrMagnitude, 1.0f)) {
 			faceDirection.Set(moveDirection.x, moveDirection.y);
 		}
+
+		attackTrigger = Input.GetButtonDown("Attack");
 	}
 
 	private void UpdateState() {
 		switch(state) {
-			case State.Idle:
-				if (directionPressed) {
-					state = State.Walking;
-				}
-				break;
-			case State.Walking:
-				if (!directionPressed) {
-					state = State.Idle;
-				}
-				break;
+		case State.Idle:
+			if (directionPressed) {
+				state = State.Walking;
+			}
+			break;
+		case State.Walking:
+			if (!directionPressed) {
+				state = State.Idle;
+			}
+			break;
+		case State.Attacking:
+			if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f) {
+				state = directionPressed ? State.Walking : State.Idle;
+			}
+			break;
+		}
+		if (attackTrigger && state != State.Attacking) {
+			state = State.Attacking;
 		}
 	}
 
@@ -80,6 +92,9 @@ public class Player : MonoBehaviour {
 			break;
 		case State.Walking:
 			nextAnimation = "Walk" + getDirectionName();
+			break;
+		case State.Attacking:
+			nextAnimation = "Attack" + getDirectionName();
 			break;
 		}
 		if (nextAnimation != currentAnimation) {
