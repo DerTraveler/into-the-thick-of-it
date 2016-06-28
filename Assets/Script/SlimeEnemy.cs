@@ -119,6 +119,9 @@ public class SlimeEnemy : MonoBehaviour {
 		case State.Idle:
 			animator.Play("Idle");
 			break;
+		case State.Hurt:
+			animator.Play("Hurt");
+			break;
 		default:
 			if (jumpTrigger) {
 				animator.Play("Jump", 0, 0);
@@ -139,5 +142,11 @@ public class SlimeEnemy : MonoBehaviour {
 			Vector2 newPos = jumpOrigin + Mathf.Lerp(0, distancePerJump, animationTime) * jumpDirection;
 			transform.position = newPos;
 		}
+	}
+
+	public void DealDamage() {
+		jumpTrigger = false;
+		jumping = false;
+		state = State.Hurt;
 	}
 }
