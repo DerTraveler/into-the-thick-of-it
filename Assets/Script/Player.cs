@@ -6,7 +6,6 @@ public class Player : MonoBehaviour {
 	public float speed = 1.0f;
 
 	private Animator animator;
-	private SpriteRenderer spriteRenderer;
 
 	public enum State {
 		Idle,
@@ -27,7 +26,6 @@ public class Player : MonoBehaviour {
 
 	void Start () {
 		animator = GetComponent<Animator>();
-		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -67,8 +65,7 @@ public class Player : MonoBehaviour {
 	}
 
 	private void PlayAnimation() {
-		// Flipping on X axis
-		spriteRenderer.flipX = Mathf.Approximately(faceDirection.x, -1.0f);
+		FlipIfNecessary();
 
 		string nextAnimation = currentAnimation;
 		switch (state) {
@@ -83,6 +80,13 @@ public class Player : MonoBehaviour {
 			currentAnimation = nextAnimation;
 			animator.Play(currentAnimation);
 		}
+	}
+
+	private void FlipIfNecessary() {
+		Vector3 scale = transform.localScale;
+		float scaleX = Mathf.Abs(scale.x);
+		scale.Set(Mathf.Approximately(faceDirection.x, -1.0f) ? -scaleX: scaleX, scale.y, scale.z);
+		transform.localScale = scale;
 	}
 
 	private string getDirectionName() {
