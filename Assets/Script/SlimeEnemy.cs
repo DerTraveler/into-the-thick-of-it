@@ -64,7 +64,7 @@ public class SlimeEnemy : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		UpdateState();
 
 		PlayAnimation();
