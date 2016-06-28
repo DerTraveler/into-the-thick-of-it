@@ -9,6 +9,8 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	public float speed = 1.0f;
+
 	private Animator animator;
 	private SpriteRenderer spriteRenderer;
 
@@ -18,10 +20,14 @@ public class Player : MonoBehaviour {
 		Attacking
 	}
 
-	public State state = State.Idle;
-
-	public int direction = -1;
-	public bool directionPressed = false;
+	[SerializeField]
+	private State state = State.Idle;
+	[SerializeField]
+	private Vector2 moveDirection = new Vector2(0, 0);
+	[SerializeField]
+	private Vector2 faceDirection = new Vector2(0, -1);
+	[SerializeField]
+	private bool directionPressed = false;
 
 	void Start () {
 		animator = GetComponent<Animator>();
@@ -33,17 +39,19 @@ public class Player : MonoBehaviour {
 		ReadInput();
 
 		UpdateState();
+
+		PlayAnimation();
+
+		UpdateTransform();
 	}
 
 	private void ReadInput() {
-		if (Input.GetAxisRaw("Horizontal") != 0) {
-			direction = (int) Input.GetAxisRaw("Horizontal") * 2;
-			directionPressed = true;
-		} else if (Input.GetAxisRaw("Vertical") != 0) {
-			direction = (int) Input.GetAxisRaw("Vertical");
-			directionPressed = true;
-		} else {
-			directionPressed = false;
+		moveDirection.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+		directionPressed = moveDirection.sqrMagnitude > float.Epsilon;
+
+		if (Mathf.Approximately(moveDirection.sqrMagnitude, 1.0f)) {
+			faceDirection.Set(moveDirection.x, moveDirection.y);
 		}
 	}
 
@@ -60,30 +68,36 @@ public class Player : MonoBehaviour {
 				}
 				break;
 		}
-
-		PlayAnimation();
 	}
 
 	private void PlayAnimation() {
-		spriteRenderer.flipX = direction == -2;
+		// Flipping on X axis
+		spriteRenderer.flipX = Mathf.Approximately(faceDirection.x, -1.0f);
+
 		switch (state) {
 			case State.Idle:
-				animator.Play("Idle" + getDirectionName(direction));
+				animator.Play("Idle" + getDirectionName());
 				break;
 			case State.Walking:
-				animator.Play("Walk" + getDirectionName(direction));
+				animator.Play("Walk" + getDirectionName());
 				break;
 		}
 	}
 
-	private string getDirectionName(int direction) {
-		switch (direction) {
-		case 1:
+	private string getDirectionName() {
+		if (faceDirection.y > 0) {
 			return "Up";
-		case -1:
+		} else if (faceDirection.y < 0) {
 			return "Down";
-		default:
+		} else {
 			return "Side";
+		}
+	}
+
+	private void UpdateTransform() {
+		if (state == State.Walking) {
+			Vector3 newPos = transform.position + (Vector3)(moveDirection * speed * Time.deltaTime);
+			transform.position = newPos;
 		}
 	}
 }
