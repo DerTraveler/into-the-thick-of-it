@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	private State state = State.Idle;
 	[SerializeField]
+	private string currentAnimation = "IdleDown";
+	[SerializeField]
 	private Vector2 moveDirection = new Vector2(0, 0);
 	[SerializeField]
 	private Vector2 faceDirection = new Vector2(0, -1);
@@ -68,13 +70,18 @@ public class Player : MonoBehaviour {
 		// Flipping on X axis
 		spriteRenderer.flipX = Mathf.Approximately(faceDirection.x, -1.0f);
 
+		string nextAnimation = currentAnimation;
 		switch (state) {
-			case State.Idle:
-				animator.Play("Idle" + getDirectionName());
-				break;
-			case State.Walking:
-				animator.Play("Walk" + getDirectionName());
-				break;
+		case State.Idle:
+			nextAnimation = "Idle" + getDirectionName();
+			break;
+		case State.Walking:
+			nextAnimation = "Walk" + getDirectionName();
+			break;
+		}
+		if (nextAnimation != currentAnimation) {
+			currentAnimation = nextAnimation;
+			animator.Play(currentAnimation);
 		}
 	}
 
