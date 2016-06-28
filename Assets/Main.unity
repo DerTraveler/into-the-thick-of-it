@@ -219,7 +219,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 673533892}
   - 212: {fileID: 673533891}
-  - 95: {fileID: 673533890}
   - 61: {fileID: 673533894}
   m_Layer: 0
   m_Name: Body
@@ -228,23 +227,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &673533890
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 673533889}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c997c91f9305a9641825866fb294ce28, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &673533891
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -397,6 +379,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1643439948}
+  - 95: {fileID: 1643439949}
   m_Layer: 0
   m_Name: SlimeEnemy
   m_TagString: Untagged
@@ -416,5 +399,23 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 673533892}
+  - {fileID: 313137685}
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!95 &1643439949
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1643439947}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c997c91f9305a9641825866fb294ce28, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
