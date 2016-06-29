@@ -498,12 +498,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 673533889}
   player: {fileID: 313976973}
+  maxHitPoints: 3
   maxStamina: 100
   staminaRegeneration: 60
   distancePerJump: 0.5
   staminaPerJump: 10
   state: 0
   currentAnimation: Idle
+  currentHitPoints: 0
   currentStamina: 0
   jumpTrigger: 0
   jumping: 0

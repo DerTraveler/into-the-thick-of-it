@@ -11,6 +11,8 @@ public class SlimeEnemy : WorldObject {
 
 	public Player player;
 
+	public float maxHitPoints = 3;
+
 	public float maxStamina = 100.0f;
 	public float staminaRegeneration = 40.0f;
 
@@ -29,6 +31,9 @@ public class SlimeEnemy : WorldObject {
 	private State state = State.Idle;
 	[SerializeField]
 	private string currentAnimation = "Idle";
+
+	[SerializeField]
+	private float currentHitPoints;
 	[SerializeField]
 	private float currentStamina;
 
@@ -59,6 +64,7 @@ public class SlimeEnemy : WorldObject {
 
 	void Start () {
 		animator = GetComponent<Animator>();
+		currentHitPoints = maxHitPoints;
 		currentStamina = maxStamina;
 	}
 
@@ -149,10 +155,19 @@ public class SlimeEnemy : WorldObject {
 		}
 	}
 
-	public void DealDamage() {
+	public void DealDamage(int damage) {
 		jumpTrigger = false;
 		jumping = false;
 		state = State.Hurt;
+
+		currentHitPoints -= damage;
+		if (currentHitPoints <= 0) {
+			Die();
+		}
+	}
+
+	private void Die() {
+		Destroy(gameObject, 1.0f);
 	}
 		
 }
