@@ -149,7 +149,7 @@ public class SlimeEnemy : WorldObject {
 		}
 	}
 
-	public void DealDamage(int damage) {
+	public override void ReceiveDamage(int damage) {
 		jumpTrigger = false;
 		jumping = false;
 		state = State.Hurt;

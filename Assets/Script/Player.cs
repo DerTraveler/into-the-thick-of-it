@@ -121,4 +121,7 @@ public class Player : WorldObject {
 			transform.position = newPos;
 		}
 	}
+
+	public override void ReceiveDamage(int damage) {
+	}
 }
