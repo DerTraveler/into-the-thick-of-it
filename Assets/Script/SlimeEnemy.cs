@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SlimeEnemy : MonoBehaviour {
+public class SlimeEnemy : WorldObject {
 
 	public Player player;
 
