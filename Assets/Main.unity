@@ -497,8 +497,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 313976973}
   maxStamina: 100
-  staminaRegeneration: 40
-  distancePerJump: 0.15
+  staminaRegeneration: 60
+  distancePerJump: 0.5
   staminaPerJump: 10
   state: 0
   currentAnimation: Idle
