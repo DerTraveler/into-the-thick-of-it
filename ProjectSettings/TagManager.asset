@@ -14,10 +14,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Hitbox Player
+  - Attackbox Player
+  - Hitbox Enemy
+  - Attackbox Enemy
   - 
   - 
   - 
