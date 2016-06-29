@@ -16,7 +16,7 @@ public abstract class WorldObject : MonoBehaviour {
 		}
 	}
 
-	// Receive damage
-	public abstract void ReceiveDamage(int damage);
+	// Receive damage, returns true if the object was really hurt
+	public abstract bool ReceiveDamage(int damage);
 
 }

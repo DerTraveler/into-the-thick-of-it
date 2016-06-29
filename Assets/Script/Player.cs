@@ -138,8 +138,14 @@ public class Player : WorldObject {
 		}
 	}
 
-	public override void ReceiveDamage(int damage) {
+	public override bool ReceiveDamage(int damage) {
+		if (state == State.Hurt) {
+			return false;
+		}
+
 		state = State.Hurt;
 		hurtTrigger = true;
+
+		return true;
 	}
 }

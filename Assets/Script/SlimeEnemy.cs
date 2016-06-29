@@ -149,7 +149,7 @@ public class SlimeEnemy : WorldObject {
 		}
 	}
 
-	public override void ReceiveDamage(int damage) {
+	public override bool ReceiveDamage(int damage) {
 		jumpTrigger = false;
 		jumping = false;
 		state = State.Hurt;
@@ -158,6 +158,7 @@ public class SlimeEnemy : WorldObject {
 		if (currentHitPoints <= 0) {
 			Die();
 		}
+		return true;
 	}
 
 	private void Die() {

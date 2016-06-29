@@ -8,10 +8,11 @@ public class KnockbackDamageCollider : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		WorldObject target = coll.gameObject.GetComponent<WorldObject>();
-		target.ReceiveDamage(attackDamage);
 
-		Vector2 hitForce = coll.contacts[0].point - (Vector2)transform.position;
-		coll.rigidbody.AddForce(hitForce.normalized * knockbackForce, ForceMode2D.Impulse);
+		if (target.ReceiveDamage(attackDamage)) {
+			Vector2 hitForce = coll.contacts[0].point - (Vector2)transform.position;
+			coll.rigidbody.AddForce(hitForce.normalized * knockbackForce, ForceMode2D.Impulse);
+		}
 	}
 
 }
