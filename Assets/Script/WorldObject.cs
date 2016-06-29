@@ -1,0 +1,24 @@
+﻿/* Copyright (c) 2016 Kevin Fischer
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+using UnityEngine;
+using System.Collections;
+
+public class WorldObject : MonoBehaviour {
+
+	public GameObject body;
+	private SpriteRenderer rend;
+
+	void Awake () {
+		rend = body.GetComponent<SpriteRenderer>();
+	}
+
+	void LateUpdate () {
+		if (rend.isVisible) {
+			rend.sortingOrder = (int) (body.transform.position.y * 64.0 * -1.0f);
+		}
+	}
+}

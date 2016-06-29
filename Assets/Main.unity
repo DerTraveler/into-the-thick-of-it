@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb4c105e65ce5745b6ba29253da09db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 313976969}
   speed: 2.5
   state: 0
   currentAnimation: IdleDown
@@ -495,6 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d800dbff0f1894798ee6ac6143dfec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 673533889}
   player: {fileID: 313976973}
   maxStamina: 100
   staminaRegeneration: 60
