@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb4c105e65ce5745b6ba29253da09db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2.5
   state: 0
   currentAnimation: IdleDown
   moveDirection: {x: 0, y: 0}
