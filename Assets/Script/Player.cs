@@ -28,8 +28,9 @@ public class Player : WorldObject {
 	private Vector2 faceDirection = new Vector2(0, -1);
 	[SerializeField]
 	private bool directionPressed = false;
-	[SerializeField]
+
 	private bool attackTrigger = false;
+	private bool hurtTrigger = false;
 
 	void Start () {
 		animator = GetComponent<Animator>();
@@ -68,16 +69,26 @@ public class Player : WorldObject {
 			}
 			break;
 		case State.Attacking:
+			WaitForAnimationEnd();
+			break;
 		case State.Hurt:
-			// Return to walk or idle after end of animation
-			if (animationTime > 1.0f) {
-				state = directionPressed ? State.Walking : State.Idle;
+			if (hurtTrigger) {
+				hurtTrigger = false;
+			} else {
+				WaitForAnimationEnd();
 			}
 			break;
 		}
 
 		if (attackTrigger && state != State.Attacking) {
 			state = State.Attacking;
+		}
+	}
+
+	private void WaitForAnimationEnd() {
+		if (animationTime > 1.0f) {
+			// Return to walk or idle after end of animation
+			state = directionPressed ? State.Walking : State.Idle;
 		}
 	}
 
@@ -129,5 +140,6 @@ public class Player : WorldObject {
 
 	public override void ReceiveDamage(int damage) {
 		state = State.Hurt;
+		hurtTrigger = true;
 	}
 }
