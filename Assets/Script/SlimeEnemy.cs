@@ -17,7 +17,6 @@ public class SlimeEnemy : MonoBehaviour {
 	public float distancePerJump = 0.15f;
 	public float staminaPerJump = 10.0f;
 
-
 	private Animator animator;
 
 	public enum State {
@@ -137,9 +136,15 @@ public class SlimeEnemy : MonoBehaviour {
 		transform.localScale = scale;
 	}
 
+	private const float jumpStartTime = 0.305f;
+	private const float jumpEndTime = 0.78f;
+	private float jumpDuration {
+		get { return jumpEndTime - jumpStartTime; }
+	}
+
 	private void UpdateTransform() {
-		if (jumping) {
-			Vector2 newPos = jumpOrigin + Mathf.Lerp(0, distancePerJump, animationTime) * jumpDirection;
+		if (jumping && animationTime > jumpStartTime) {
+			Vector2 newPos = jumpOrigin + Mathf.Lerp(0, distancePerJump, (animationTime - jumpStartTime) / jumpDuration ) * jumpDirection;
 			transform.position = newPos;
 		}
 	}
@@ -149,4 +154,5 @@ public class SlimeEnemy : MonoBehaviour {
 		jumping = false;
 		state = State.Hurt;
 	}
+		
 }
