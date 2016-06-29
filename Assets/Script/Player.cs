@@ -1,17 +1,21 @@
-﻿/* Copyright (c) 2016 Kevin Fischer
+/* Copyright (c) 2016 Kevin Fischer
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class Player : WorldObject {
 
 	public float speed = 2.5f;
 
 	private Animator animator;
+
+	float animationTime {
+		get { return animator.GetCurrentAnimatorStateInfo(0).normalizedTime; }
+	}
 
 	public enum State {
 		Idle,
@@ -53,10 +57,6 @@ public class Player : WorldObject {
 
 		directionPressed = moveDirection.sqrMagnitude > float.Epsilon;
 
-		if (Mathf.Approximately(moveDirection.sqrMagnitude, 1.0f)) {
-			faceDirection.Set(moveDirection.x, moveDirection.y);
-		}
-
 		attackTrigger = Input.GetButtonDown("Attack");
 	}
 
@@ -73,31 +73,22 @@ public class Player : WorldObject {
 			}
 			break;
 		case State.Attacking:
-			if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f) {
+			if (animationTime > 1.0f) {
 				state = directionPressed ? State.Walking : State.Idle;
 			}
 			break;
 		}
+
 		if (attackTrigger && state != State.Attacking) {
 			state = State.Attacking;
 		}
 	}
 
 	private void PlayAnimation() {
-		FlipIfNecessary();
+		SetFaceDirection();
 
-		string nextAnimation = currentAnimation;
-		switch (state) {
-		case State.Idle:
-			nextAnimation = "Idle" + getDirectionName();
-			break;
-		case State.Walking:
-			nextAnimation = "Walk" + getDirectionName();
-			break;
-		case State.Attacking:
-			nextAnimation = "Attack" + getDirectionName();
-			break;
-		}
+		string nextAnimation = state.ToString() + getDirectionName();
+
 		if (nextAnimation != currentAnimation) {
 			currentAnimation = nextAnimation;
 			animator.Play(currentAnimation);
@@ -118,6 +109,17 @@ public class Player : WorldObject {
 			return "Down";
 		} else {
 			return "Side";
+		}
+	}
+
+	private readonly IList<State> FixedDirectionStates = new List<State> { State.Attacking }.AsReadOnly();
+
+	private void SetFaceDirection() {
+		if (!FixedDirectionStates.Contains(state)) {
+			if (Mathf.Approximately(moveDirection.sqrMagnitude, 1.0f)) {
+				faceDirection.Set(moveDirection.x, moveDirection.y);
+			}
+			FlipIfNecessary();
 		}
 	}
 
