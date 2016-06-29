@@ -14,7 +14,8 @@ public class Player : WorldObject {
 	public enum State {
 		Idle,
 		Walking,
-		Attacking
+		Attacking,
+		Hurt
 	}
 
 	[SerializeField]
@@ -67,6 +68,8 @@ public class Player : WorldObject {
 			}
 			break;
 		case State.Attacking:
+		case State.Hurt:
+			// Return to walk or idle after end of animation
 			if (animationTime > 1.0f) {
 				state = directionPressed ? State.Walking : State.Idle;
 			}
@@ -106,7 +109,7 @@ public class Player : WorldObject {
 		}
 	}
 
-	private readonly IList<State> FixedDirectionStates = new List<State> { State.Attacking }.AsReadOnly();
+	private readonly IList<State> FixedDirectionStates = new List<State> { State.Attacking, State.Hurt }.AsReadOnly();
 
 	private void SetFaceDirection() {
 		if (!FixedDirectionStates.Contains(state)) {
@@ -125,5 +128,6 @@ public class Player : WorldObject {
 	}
 
 	public override void ReceiveDamage(int damage) {
+		state = State.Hurt;
 	}
 }
