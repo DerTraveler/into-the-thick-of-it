@@ -9,7 +9,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	public float speed = 1.0f;
+	public float speed = 2.5f;
 
 	private Animator animator;
 
@@ -34,6 +34,7 @@ public class Player : MonoBehaviour {
 
 	void Start () {
 		animator = GetComponent<Animator>();
+		animator.SetFloat("Speed", speed);
 	}
 
 	// Update is called once per frame
