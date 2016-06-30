@@ -5,6 +5,7 @@ public class SlimeEnemy : WorldObject {
 
 	private Player player;
 
+	public ParticleSystem deathAnimation;
 	public float maxHitPoints = 3;
 
 	public float maxStamina = 100.0f;
@@ -175,7 +176,9 @@ public class SlimeEnemy : WorldObject {
 
 	private void Die() {
 		SendDeathNotification();
-		Destroy(gameObject, 1.0f);
+		body.GetComponent<SpriteRenderer>().enabled = false;
+		deathAnimation.Play();
+		Destroy(gameObject, 0.5f);
 	}
 		
 }
