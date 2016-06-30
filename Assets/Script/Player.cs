@@ -86,7 +86,7 @@ public class Player : WorldObject {
 			break;
 		}
 
-		if (attackTrigger && state != State.Attacking) {
+		if (attackTrigger && (state == State.Idle || state == State.Walking)) {
 			state = State.Attacking;
 		}
 	}
