@@ -225,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 1
   knockbackForce: 2
+  hitSound: {fileID: 8300000, guid: cf95e6817c7af5a449de9c6f8c81bc0e, type: 3}
 --- !u!212 &21207476
 SpriteRenderer:
   m_ObjectHideFlags: 1
