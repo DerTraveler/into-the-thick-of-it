@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class Player : WorldObject {
@@ -8,23 +9,21 @@ public class Player : WorldObject {
 	public float speed = 2.5f;
 
 	public UnityEngine.UI.Text healthText;
+	public UnityEngine.UI.Text gameOverText;
 
 	public enum State {
 		Idle,
 		Walking,
 		Attacking,
-		Hurt
+		Hurt,
+		Dead
 	}
 
-	[SerializeField]
 	private State state = State.Idle;
-	[SerializeField]
 	private string currentAnimation = "IdleDown";
-	[SerializeField]
+
 	private Vector2 moveDirection = new Vector2(0, 0);
-	[SerializeField]
 	private Vector2 faceDirection = new Vector2(0, -1);
-	[SerializeField]
 	private bool directionPressed = false;
 
 	private bool attackTrigger = false;
@@ -56,31 +55,44 @@ public class Player : WorldObject {
 	}
 
 	private void UpdateState() {
-		switch(state) {
-		case State.Idle:
-			if (directionPressed) {
-				state = State.Walking;
-			}
-			break;
-		case State.Walking:
-			if (!directionPressed) {
-				state = State.Idle;
-			}
-			break;
-		case State.Attacking:
-			ResumeAfterAnimation();
-			break;
-		case State.Hurt:
-			if (hurtTrigger) {
-				hurtTrigger = false;
-			} else {
+		if (health <= 0 && state != State.Dead) {
+			GetComponent<SpriteRenderer>().enabled = false;
+			GetComponent<Collider2D>().enabled = false;
+			gameOverText.enabled = true;
+			state = State.Dead;
+		} else {
+			switch(state) {
+			case State.Idle:
+				if (directionPressed) {
+					state = State.Walking;
+				}
+				break;
+			case State.Walking:
+				if (!directionPressed) {
+					state = State.Idle;
+				}
+				break;
+			case State.Attacking:
 				ResumeAfterAnimation();
+				break;
+			case State.Hurt:
+				if (hurtTrigger) {
+					hurtTrigger = false;
+				} else {
+					ResumeAfterAnimation();
+				}
+				break;
+			case State.Dead:
+				if (attackTrigger) {
+					int scene = SceneManager.GetActiveScene().buildIndex;
+					SceneManager.LoadScene(scene, LoadSceneMode.Single);
+				}
+				break;
 			}
-			break;
-		}
 
-		if (attackTrigger && (state == State.Idle || state == State.Walking)) {
-			state = State.Attacking;
+			if (attackTrigger && (state == State.Idle || state == State.Walking)) {
+				state = State.Attacking;
+			}
 		}
 	}
 
@@ -92,13 +104,15 @@ public class Player : WorldObject {
 	}
 
 	private void PlayAnimation() {
-		SetFaceDirection();
+		if (state != State.Dead) {
+			SetFaceDirection();
 
-		string nextAnimation = state.ToString() + getDirectionName();
+			string nextAnimation = state.ToString() + getDirectionName();
 
-		if (nextAnimation != currentAnimation) {
-			currentAnimation = nextAnimation;
-			animator.Play(currentAnimation);
+			if (nextAnimation != currentAnimation) {
+				currentAnimation = nextAnimation;
+				animator.Play(currentAnimation);
+			}
 		}
 	}
 
@@ -153,7 +167,7 @@ public class Player : WorldObject {
 
 	private void UpdateHealthText() {
 		healthText.color = health < 2 ? Color.red : Color.yellow;
-		healthText.text = new string('0', health);
+		healthText.text = health > 0 ? new string('0', health) : "";
 	}
 
 }
