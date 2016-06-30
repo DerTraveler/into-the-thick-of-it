@@ -7,6 +7,21 @@ This is [my entry](http://ludumdare.com/compo/minild-68/?action=preview&uid=8542
 
 In my childhood one of my greatest influences was without a doubt the legendary video game Secret of Mana.
 
+As a tribute I created a small endless hack&slash with my own clone of the famous Rabite enemy. How many can you kill before they kill you?
+
+I hope you enjoy this small game!
+
+Feel free to leave a comment via [Twitter](https://twitter.com/kfischer_okarin) and/or create an [issue](https://github.com/DerTraveler/into-the-thick-of-it/issues) if you find a bug or have a good idea to improve the game.
+
+## Controls
+
+Action | Keyboard   | Mouse      | Gamepad
+------ | ---------- | ---------- | --------
+Walk   | Arrow Keys | WASD       | D-Pad
+Attack | Ctrl       | Left click | Button 0
+
+Close the game with `Esc`
+
 ## Used Tools
 
 * [Unity](http://unity3d.com/) game engine

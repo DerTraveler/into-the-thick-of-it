@@ -61,6 +61,10 @@ public class Player : WorldObject {
 		directionPressed = moveDirection.sqrMagnitude > float.Epsilon;
 
 		attackTrigger = Input.GetButtonDown("Attack");
+
+		if (Input.GetButtonDown("Cancel")) {
+			Application.Quit();
+		}
 	}
 
 	private void UpdateState() {
