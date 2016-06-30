@@ -18,7 +18,7 @@ public abstract class WorldObject : MonoBehaviour {
 		}
 	}
 
-	public Spawner spawnedBy;
+	public Spawner spawnedBy = null;
 
 	// Receive damage, returns true if the object was really hurt
 	public abstract bool ReceiveDamage(int damage);
