@@ -3,7 +3,11 @@ using System.Collections.Generic;
 
 public class Player : WorldObject {
 
+	public int maxHealth = 5;
+	private int health;
 	public float speed = 2.5f;
+
+	public UnityEngine.UI.Text healthText;
 
 	public enum State {
 		Idle,
@@ -28,6 +32,8 @@ public class Player : WorldObject {
 
 	void Start () {
 		animator.SetFloat("Speed", speed);
+		health = maxHealth;
+		UpdateHealthText();
 	}
 	
 	// Update is called once per frame
@@ -139,6 +145,15 @@ public class Player : WorldObject {
 		state = State.Hurt;
 		hurtTrigger = true;
 
+		health -= damage;
+		UpdateHealthText();
+
 		return true;
 	}
+
+	private void UpdateHealthText() {
+		healthText.color = health < 2 ? Color.red : Color.yellow;
+		healthText.text = new string('0', health);
+	}
+
 }
