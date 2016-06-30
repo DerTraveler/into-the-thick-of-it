@@ -9,8 +9,8 @@ using System.Collections;
 
 public class AudioManager : MonoBehaviour {
 
-	public AudioSource sfxSource;
 	public AudioSource musicSource;
+	public AudioSource[] sfxSources;
 
 	public static AudioManager instance = null;
 
@@ -24,8 +24,20 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	public void PlaySound(AudioClip clip) {
-		sfxSource.clip = clip;
-		sfxSource.Play();
+		AudioSource freeSource = null;
+
+		foreach (AudioSource src in sfxSources) {
+			if (!src.isPlaying) {
+				freeSource = src;
+			}
+			if (src.clip == clip && src.isPlaying) {
+				return;
+			}
+		}
+		if (freeSource != null) {
+			freeSource.clip = clip;
+			freeSource.Play();	
+		}
 	}
 
 }
