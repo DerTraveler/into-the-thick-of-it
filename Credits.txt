@@ -1,0 +1,13 @@
+Player Sprite by b_0: http://opengameart.org/content/saxon-swordsman
+Potion by yafarida: http://opengameart.org/content/pixel-potion-set-16x16
+
+Grass tiles produced with SPARTAN procedural tile generator
+
+Background music: 
+- Field04 by Maoudamashii (JP): http://maoudamashii.jokersounds.com/archives/game_maoudamashii_4_field04.html
+
+Sound effects by:
+- Sound Effect Lab (JP): http://soundeffect-lab.info
+- Taira Komori (JP): http://taira-komori.jpn.org
+
+Font: Visitor by Ænigma http://www.dafont.com/visitor.font
