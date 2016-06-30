@@ -14,9 +14,9 @@ public class SlimeEnemy : WorldObject {
 	public float maxHitPoints = 3;
 
 	public float maxStamina = 100.0f;
-	public float staminaRegeneration = 40.0f;
+	public float staminaRegeneration = 60.0f;
 
-	public float distancePerJump = 0.15f;
+	public float distancePerJump = 0.5f;
 	public float staminaPerJump = 10.0f;
 
 	public enum State {
@@ -27,8 +27,6 @@ public class SlimeEnemy : WorldObject {
 
 	[SerializeField]
 	private State state = State.Idle;
-	[SerializeField]
-	private string currentAnimation = "Idle";
 
 	[SerializeField]
 	private float currentHitPoints;
@@ -160,7 +158,7 @@ public class SlimeEnemy : WorldObject {
 		return true;
 	}
 
-	protected void Die() {
+	private void Die() {
 		SendDeathNotification();
 		Destroy(gameObject, 1.0f);
 	}
