@@ -5,9 +5,12 @@ public abstract class WorldObject : MonoBehaviour {
 
 	public GameObject body;
 	private SpriteRenderer rend;
+	protected Animator animator;
 
 	void Awake () {
 		rend = body.GetComponent<SpriteRenderer>();
+		animator = GetComponent<Animator>();
+
 		gameObject.AddComponent<PixelPerfectPositioner>();
 		gameObject.AddComponent<KeepInBounds>();
 	}
@@ -17,6 +20,14 @@ public abstract class WorldObject : MonoBehaviour {
 			// Dynamic draw order based on y-coordinate
 			rend.sortingOrder = (int) (body.transform.position.y * 64.0 * -1.0f);
 		}
+	}
+
+	protected float GetAnimationTime(int layer = 0) {
+		return animator.GetCurrentAnimatorStateInfo(layer).normalizedTime;
+	}
+
+	protected bool IsAnimationFinished(int layer = 0) {
+		return GetAnimationTime(layer) >= 1.0f;
 	}
 
 	public Spawner spawnedBy = null;

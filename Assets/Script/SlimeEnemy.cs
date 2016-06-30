@@ -13,8 +13,6 @@ public class SlimeEnemy : WorldObject {
 	public float distancePerJump = 0.15f;
 	public float staminaPerJump = 10.0f;
 
-	private Animator animator;
-
 	public enum State {
 		Idle,
 		Following,
@@ -51,14 +49,8 @@ public class SlimeEnemy : WorldObject {
 		get { return (player.transform.position - transform.position); }
 	}
 
-	float animationTime {
-		get { return animator.GetCurrentAnimatorStateInfo(0).normalizedTime; }
-	}
-
-
 	void Start () {
 		player = FindObjectOfType<Player>();
-		animator = GetComponent<Animator>();
 		currentHitPoints = maxHitPoints;
 		currentStamina = maxStamina;
 	}
@@ -81,7 +73,7 @@ public class SlimeEnemy : WorldObject {
 			}
 			break;
 		case State.Following:
-			if (jumping && animationTime > 1.0f) {
+			if (jumping && IsAnimationFinished()) {
 				jumping = false;
 			} else if (jumpTrigger) {
 				jumpTrigger = false;
@@ -144,8 +136,8 @@ public class SlimeEnemy : WorldObject {
 	}
 
 	private void UpdateTransform() {
-		if (jumping && animationTime > jumpStartTime) {
-			Vector2 newPos = jumpOrigin + Mathf.Lerp(0, distancePerJump, (animationTime - jumpStartTime) / jumpDuration ) * jumpDirection;
+		if (jumping && GetAnimationTime() > jumpStartTime) {
+			Vector2 newPos = jumpOrigin + Mathf.Lerp(0, distancePerJump, (GetAnimationTime() - jumpStartTime) / jumpDuration ) * jumpDirection;
 			transform.position = newPos;
 		}
 	}
