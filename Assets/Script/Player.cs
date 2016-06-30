@@ -5,7 +5,11 @@ using System.Collections.Generic;
 public class Player : WorldObject {
 
 	public int maxHealth = 5;
-	private int health;
+	private int _health;
+	public int Health {
+		get { return _health; }
+		set { _health = Mathf.Min(value, maxHealth); UpdateHealthText(); }
+	}
 	public float speed = 2.5f;
 
 	public UnityEngine.UI.Text healthText;
@@ -31,8 +35,7 @@ public class Player : WorldObject {
 
 	void Start () {
 		animator.SetFloat("Speed", speed);
-		health = maxHealth;
-		UpdateHealthText();
+		Health = maxHealth;
 	}
 	
 	// Update is called once per frame
@@ -55,7 +58,7 @@ public class Player : WorldObject {
 	}
 
 	private void UpdateState() {
-		if (health <= 0 && state != State.Dead) {
+		if (_health <= 0 && state != State.Dead) {
 			GetComponent<SpriteRenderer>().enabled = false;
 			GetComponent<Collider2D>().enabled = false;
 			gameOverText.enabled = true;
@@ -159,15 +162,14 @@ public class Player : WorldObject {
 		state = State.Hurt;
 		hurtTrigger = true;
 
-		health -= damage;
-		UpdateHealthText();
+		Health -= damage;
 
 		return true;
 	}
 
 	private void UpdateHealthText() {
-		healthText.color = health < 2 ? Color.red : Color.yellow;
-		healthText.text = health > 0 ? new string('0', health) : "";
+		healthText.color = _health < 2 ? Color.red : Color.yellow;
+		healthText.text = _health > 0 ? new string('0', _health) : "";
 	}
 
 }
