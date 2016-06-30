@@ -11,6 +11,7 @@ public class KnockbackDamageCollider : MonoBehaviour {
 
 	public int attackDamage = 1;
 	public float knockbackForce = 1.0f;
+	public AudioClip hitSound = null;
 
 	void OnTriggerEnter2D(Collider2D other) {
 		WorldObject target = other.attachedRigidbody.GetComponent<WorldObject>();
@@ -23,6 +24,10 @@ public class KnockbackDamageCollider : MonoBehaviour {
 				hitForce.Set(0, Mathf.Sign(hitForce.y));
 			}
 			other.attachedRigidbody.AddForce(hitForce.normalized * knockbackForce, ForceMode2D.Impulse);
+
+			if (hitSound) {
+				AudioManager.instance.PlaySound(hitSound);
+			}
 		}
 	}
 
