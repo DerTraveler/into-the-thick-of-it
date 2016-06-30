@@ -9,7 +9,7 @@ using System.Collections;
 
 public class SlimeEnemy : WorldObject {
 
-	public Player player;
+	private Player player;
 
 	public float maxHitPoints = 3;
 
@@ -63,6 +63,7 @@ public class SlimeEnemy : WorldObject {
 
 
 	void Start () {
+		player = FindObjectOfType<Player>();
 		animator = GetComponent<Animator>();
 		currentHitPoints = maxHitPoints;
 		currentStamina = maxStamina;
@@ -167,7 +168,8 @@ public class SlimeEnemy : WorldObject {
 		return true;
 	}
 
-	private void Die() {
+	protected void Die() {
+		SendDeathNotification();
 		Destroy(gameObject, 1.0f);
 	}
 		
