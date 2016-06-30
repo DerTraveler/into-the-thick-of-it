@@ -24,7 +24,8 @@ public class SlimeEnemy : WorldObject {
 		Idle,
 		Following,
 		Hurt,
-		Recover
+		Recover,
+		Bite
 	}
 
 	[SerializeField]
@@ -85,6 +86,10 @@ public class SlimeEnemy : WorldObject {
 				jumpTrigger = false;
 				jumping = true;
 			} else if (!jumping) {
+				if (IsPlayerInFrontOfMe()){
+					lookToLeft = player.transform.position.x < transform.position.x;
+					state = State.Bite;
+				}
 				if (currentStamina >= staminaPerJump) {
 					Jump(playerDirection);
 				} else {
@@ -98,6 +103,7 @@ public class SlimeEnemy : WorldObject {
 			}
 			break;
 		case State.Recover:
+		case State.Bite:
 			if (IsAnimationFinished()) {
 				state = NextNormalAction();
 			}
@@ -107,6 +113,12 @@ public class SlimeEnemy : WorldObject {
 
 	private State NextNormalAction() {
 		return State.Following;
+	}
+
+	private bool IsPlayerInFrontOfMe() {
+		Vector2 playerPos = player.transform.position;
+		Rect attackRect = new Rect(transform.position.x - 0.6f, transform.position.y - 0.2f, 1.2f, 0.4f);
+		return attackRect.Contains(playerPos);
 	}
 
 	private void Jump(Vector2 direction) {
@@ -135,6 +147,9 @@ public class SlimeEnemy : WorldObject {
 			break;
 		case State.Recover:
 			animator.Play("Recover");
+			break;
+		case State.Bite:
+			animator.Play("Bite");
 			break;
 		default:
 			if (jumpTrigger) {
