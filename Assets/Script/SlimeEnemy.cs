@@ -84,6 +84,11 @@ public class SlimeEnemy : WorldObject {
 				}
 			}
 			break;
+		case State.Hurt:
+			if (IsAnimationFinished()) {
+				state = State.Idle;
+			}
+			break;
 		}
 
 	}
@@ -141,6 +146,10 @@ public class SlimeEnemy : WorldObject {
 	}
 
 	public override bool ReceiveDamage(int damage) {
+		if (state == State.Hurt) {
+			return false;
+		}
+
 		jumpTrigger = false;
 		jumping = false;
 		state = State.Hurt;
@@ -149,7 +158,7 @@ public class SlimeEnemy : WorldObject {
 		if (currentHitPoints <= 0) {
 			Die();
 		}
-		return true;
+		return true;	
 	}
 
 	private void Die() {
