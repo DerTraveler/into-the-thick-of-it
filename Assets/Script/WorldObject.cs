@@ -9,6 +9,7 @@ public abstract class WorldObject : MonoBehaviour {
 	void Awake () {
 		rend = body.GetComponent<SpriteRenderer>();
 		gameObject.AddComponent<PixelPerfectPositioner>();
+		gameObject.AddComponent<KeepInBounds>();
 	}
 	
 	void LateUpdate () {
