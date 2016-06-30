@@ -18,7 +18,6 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	public void PlaySound(AudioClip clip) {
-		print("Try to play sound: " + clip.name);
 		AudioSource freeSource = null;
 
 		foreach (AudioSource src in sfxSources) {
@@ -30,7 +29,6 @@ public class AudioManager : MonoBehaviour {
 			}
 		}
 		if (freeSource != null) {
-			print("Play sound: " + clip.name);
 			freeSource.clip = clip;
 			freeSource.Play();	
 		}
