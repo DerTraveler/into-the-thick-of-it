@@ -14,6 +14,9 @@ public class SlimeEnemy : WorldObject {
 	public float distancePerJump = 0.5f;
 	public float staminaPerJump = 10.0f;
 
+	public GameObject dropItem;
+	public float dropChance = 0.1f;
+
 	public enum State {
 		Idle,
 		Following,
@@ -66,6 +69,8 @@ public class SlimeEnemy : WorldObject {
 	}
 
 	private void UpdateState() {
+		dropChance = player.Health == 1 ? 0.3f : 0.1f;
+
 		switch(state) {
 		case State.Idle:
 			currentStamina = Mathf.Min(currentStamina + staminaRegeneration * Time.deltaTime, maxStamina);
@@ -193,6 +198,10 @@ public class SlimeEnemy : WorldObject {
 		SendDeathNotification();
 		body.GetComponent<SpriteRenderer>().enabled = false;
 		deathAnimation.Play();
+
+		if (Random.value < dropChance) {
+			Instantiate(dropItem, transform.position, Quaternion.identity);
+		}
 		Destroy(gameObject, 0.5f);
 	}
 		

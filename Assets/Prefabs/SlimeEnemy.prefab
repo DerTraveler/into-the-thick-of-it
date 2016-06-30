@@ -280,6 +280,8 @@ MonoBehaviour:
   staminaRegeneration: 60
   distancePerJump: 0.5
   staminaPerJump: 10
+  dropItem: {fileID: 159520, guid: 27abed791b3d9da4e85852a00b138b00, type: 2}
+  dropChance: 0.2
   state: 0
   currentHitPoints: 0
   currentStamina: 0
