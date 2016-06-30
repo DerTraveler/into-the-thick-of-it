@@ -16,7 +16,8 @@ public class SlimeEnemy : WorldObject {
 	public enum State {
 		Idle,
 		Following,
-		Hurt
+		Hurt,
+		Recover
 	}
 
 	[SerializeField]
@@ -67,7 +68,7 @@ public class SlimeEnemy : WorldObject {
 		case State.Idle:
 			currentStamina = Mathf.Min(currentStamina + staminaRegeneration * Time.deltaTime, maxStamina);
 			if (Mathf.Approximately(currentStamina, maxStamina)) {
-				state = State.Following;
+				state = state = NextNormalAction();
 			}
 			break;
 		case State.Following:
@@ -86,11 +87,19 @@ public class SlimeEnemy : WorldObject {
 			break;
 		case State.Hurt:
 			if (IsAnimationFinished()) {
-				state = State.Idle;
+				state = State.Recover;
+			}
+			break;
+		case State.Recover:
+			if (IsAnimationFinished()) {
+				state = NextNormalAction();
 			}
 			break;
 		}
+	}
 
+	private State NextNormalAction() {
+		return State.Following;
 	}
 
 	private void Jump(Vector2 direction) {
@@ -116,6 +125,9 @@ public class SlimeEnemy : WorldObject {
 			break;
 		case State.Hurt:
 			animator.Play("Hurt");
+			break;
+		case State.Recover:
+			animator.Play("Recover");
 			break;
 		default:
 			if (jumpTrigger) {
