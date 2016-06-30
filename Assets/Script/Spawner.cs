@@ -68,11 +68,19 @@ public class Spawner : MonoBehaviour {
 		return availablePoints[Random.Range(0, availablePoints.Count)];
 	}
 
+	private int nextStage = 5;
+
 	public void NotifyOfDeath(WorldObject spawnedObject) {
 		if (spawnedList.Remove(spawnedObject)) {
 			spawnedCount -= 1;
 			defeatedCount += 1;
 			defeatedEnemyText.text = defeatedCount.ToString();
+
+			if (defeatedCount >= nextStage) {
+				minimum++;
+				maximum++;
+				nextStage += 10;
+			}
 		}
 	}
 }
