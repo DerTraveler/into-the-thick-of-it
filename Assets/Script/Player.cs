@@ -11,12 +11,6 @@ public class Player : WorldObject {
 
 	public float speed = 2.5f;
 
-	private Animator animator;
-
-	float animationTime {
-		get { return animator.GetCurrentAnimatorStateInfo(0).normalizedTime; }
-	}
-
 	public enum State {
 		Idle,
 		Walking,
@@ -39,7 +33,6 @@ public class Player : WorldObject {
 	private bool hurtTrigger = false;
 
 	void Start () {
-		animator = GetComponent<Animator>();
 		animator.SetFloat("Speed", speed);
 	}
 
@@ -75,13 +68,13 @@ public class Player : WorldObject {
 			}
 			break;
 		case State.Attacking:
-			WaitForAnimationEnd();
+			ResumeAfterAnimation();
 			break;
 		case State.Hurt:
 			if (hurtTrigger) {
 				hurtTrigger = false;
 			} else {
-				WaitForAnimationEnd();
+				ResumeAfterAnimation();
 			}
 			break;
 		}
@@ -91,8 +84,8 @@ public class Player : WorldObject {
 		}
 	}
 
-	private void WaitForAnimationEnd() {
-		if (animationTime > 1.0f) {
+	private void ResumeAfterAnimation() {
+		if (IsAnimationFinished()) {
 			// Return to walk or idle after end of animation
 			state = directionPressed ? State.Walking : State.Idle;
 		}
