@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4c818b79febf740b83f16125e44e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionSound: {fileID: 8300000, guid: 08c7918921368b24d9db4e2a4909f3b1, type: 3}
   killTrigger: 0
 --- !u!212 &21241602
 SpriteRenderer:
