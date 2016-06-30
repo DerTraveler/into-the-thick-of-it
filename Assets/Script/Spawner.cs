@@ -18,18 +18,15 @@ public class Spawner : MonoBehaviour {
 	private int totalSpawnedCount = 0;
 	[SerializeField]
 	private int defeatedCount = 0;
-	[SerializeField]
 	private List<WorldObject> spawnedList = new List<WorldObject>();
-	[SerializeField]
 	private int spawnedCount = 0;
 
 	public int minimum = 1;
-	public int maximum = 10;
+	public int maximum = 3;
 
 	public float spawnedDelayShort = 1.0f;
 	public float spawnDelayNormal = 4.0f;
 
-	public float spawnPosition = 1.1f;
 	private float lastSpawnedTime;
 
 	private float spawnDelay {
@@ -44,27 +41,37 @@ public class Spawner : MonoBehaviour {
 	void Update () {
 		if (Time.time - lastSpawnedTime > spawnDelay) {
 			if (spawnedCount < maximum) {
-				Spawn();
+				Transform randomSpawnPoint = GetSpawningPosition();
+				if (randomSpawnPoint != null) {
+					Spawn(randomSpawnPoint);	
+				}
 			}
 			lastSpawnedTime = Time.time;
 		}
 	}
 
-	private void Spawn() {
-		foreach (Transform pos in possiblePositions) {
-			Vector2 posOnScreen = Camera.main.WorldToScreenPoint(pos.position);
-			if (Mathf.Abs(posOnScreen.x) > spawnPosition || Mathf.Abs(posOnScreen.y) > spawnPosition) {
-				WorldObject newSpawned = Instantiate(spawned);
-				spawned.spawnedBy = this;
-				newSpawned.transform.SetParent(this.transform);
-				newSpawned.transform.position = pos.position;
+	private void Spawn(Transform spawnPoint) {
+		WorldObject newSpawned = Instantiate(spawned);
+		spawned.spawnedBy = this;
+		newSpawned.transform.SetParent(this.transform);
+		newSpawned.transform.position = spawnPoint.position;
 
-				totalSpawnedCount += 1;
-				spawnedCount += 1;
-				spawnedList.Add(newSpawned);
-				break;
+		totalSpawnedCount += 1;
+		spawnedCount += 1;
+		spawnedList.Add(newSpawned);
+	}
+
+	private Transform GetSpawningPosition() {
+		List<Transform> availablePoints = new List<Transform>();
+		Rect screenRect = new Rect(-0.1f, -0.1f, 1.2f, 1.2f);
+
+		foreach (Transform t in possiblePositions) {
+			if(!screenRect.Contains(Camera.main.WorldToViewportPoint(t.position))){
+				availablePoints.Add(t);
 			}
 		}
+
+		return availablePoints[Random.Range(0, availablePoints.Count)];
 	}
 
 	public void NotifyOfDeath(WorldObject spawnedObject) {
