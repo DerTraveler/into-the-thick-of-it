@@ -12,8 +12,12 @@ public class Spawner : MonoBehaviour {
 	public WorldObject spawned;
 	public Transform[] possiblePositions;
 
+	public UnityEngine.UI.Text defeatedEnemyText;
+
 	[SerializeField]
 	private int totalSpawnedCount = 0;
+	[SerializeField]
+	private int defeatedCount = 0;
 	[SerializeField]
 	private List<WorldObject> spawnedList = new List<WorldObject>();
 	[SerializeField]
@@ -66,6 +70,8 @@ public class Spawner : MonoBehaviour {
 	public void NotifyOfDeath(WorldObject spawnedObject) {
 		if (spawnedList.Remove(spawnedObject)) {
 			spawnedCount -= 1;
+			defeatedCount += 1;
+			defeatedEnemyText.text = defeatedCount.ToString();
 		}
 	}
 }
