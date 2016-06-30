@@ -28,4 +28,8 @@ public abstract class WorldObject : MonoBehaviour {
 			spawnedBy.NotifyOfDeath(this);
 		}
 	}
+
+	protected void PlaySoundEffect(AudioClip clip) {
+		AudioManager.instance.PlaySound(clip);
+	}
 }
