@@ -10,3 +10,6 @@ Credits
 ## Sound Effects:
 * [Sound Effect Lab](http://soundeffect-lab.info) (JP)
 * [Taira Komori](http://taira-komori.jpn.org) (JP)
+
+## Font:
+* Visitor by Ænigma on [dafont](http://www.dafont.com/visitor.font)
