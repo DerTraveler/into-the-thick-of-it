@@ -13,8 +13,8 @@ public class PixelPerfectPositioner : MonoBehaviour {
 		transform.position = RoundToPixelPerfect(transform.position);
 	}
 
-	private Vector2 RoundToPixelPerfect(Vector2 pos) {
-		return new Vector2(Mathf.Round(pos.x / unitPerPixel) * unitPerPixel, Mathf.Round(pos.y / unitPerPixel) * unitPerPixel);
+	private Vector3 RoundToPixelPerfect(Vector3 pos) {
+		return new Vector3(Mathf.Round(pos.x / unitPerPixel) * unitPerPixel, Mathf.Round(pos.y / unitPerPixel) * unitPerPixel, pos.z);
 	}
 
 }
