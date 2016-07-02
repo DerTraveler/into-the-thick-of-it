@@ -6,3 +6,7 @@ Credits
 
 ## Background Music:
 * [Field04](http://maoudamashii.jokersounds.com/archives/game_maoudamashii_4_field04.html) by Maoudamashii (JP)
+
+## Sound Effects:
+* [Sound Effect Lab](http://soundeffect-lab.info) (JP)
+* [Taira Komori](http://taira-komori.jpn.org) (JP)
