@@ -30,6 +30,7 @@ public class Player : Actor {
 	public static class States {
 		public static PlayerIdle IDLE = new PlayerIdle();
 		public static PlayerWalking WALKING = new PlayerWalking();
+		public static PlayerDead DEAD = new PlayerDead();
 	}
 
 	private PlayerState _state = States.IDLE;
@@ -59,6 +60,14 @@ public class Player : Actor {
 	private void UpdateHealthText() {
 		healthText.color = _health < 2 ? Color.red : Color.yellow;
 		healthText.text = _health > 0 ? new string('0', _health) : "";
+	}
+
+	public void TriggerGameOver() {
+		GetComponent<SpriteRenderer>().enabled = false;
+		Destroy(GetComponent<Collider2D>());
+		Destroy(GetComponent<Rigidbody2D>());
+		Destroy(transform.Find("Sword").gameObject);
+		gameOverText.enabled = true;
 	}
 
 }

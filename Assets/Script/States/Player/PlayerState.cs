@@ -13,7 +13,9 @@ namespace States {
 		private int _receivedDamage = 0;
 
 		public override State<Player> HandleInput(Player subject) {
-			if (_receivedDamage > 0) {
+			if (subject.Health <= 0) {
+				return Player.States.DEAD;	
+			} else if (_receivedDamage > 0) {
 				int damage = _receivedDamage;
 				_receivedDamage = 0;
 				return new PlayerHurt(this, damage);
