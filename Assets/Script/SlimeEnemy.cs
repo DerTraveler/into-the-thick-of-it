@@ -145,20 +145,20 @@ public class SlimeEnemy : WorldObject {
 
 		switch(state) {
 		case State.Idle:
-			animator.Play("Idle");
+			Animator.Play("Idle");
 			break;
 		case State.Hurt:
-			animator.Play("Hurt");
+			Animator.Play("Hurt");
 			break;
 		case State.Recover:
-			animator.Play("Recover");
+			Animator.Play("Recover");
 			break;
 		case State.Bite:
-			animator.Play("Bite");
+			Animator.Play("Bite");
 			break;
 		default:
 			if (jumpTrigger) {
-				animator.Play("Jump", 0, 0);
+				Animator.Play("Jump", 0, 0);
 			}
 			break;
 		}

@@ -11,11 +11,13 @@ public abstract class WorldObject : MonoBehaviour {
 
 	public GameObject body;
 	private SpriteRenderer rend;
-	protected Animator animator;
+
+	private Animator _animator;
+	public Animator Animator { get { return _animator; } }
 
 	void Awake () {
 		rend = body.GetComponent<SpriteRenderer>();
-		animator = GetComponent<Animator>();
+		_animator = GetComponent<Animator>();
 
 		gameObject.AddComponent<PixelPerfectPositioner>();
 		gameObject.AddComponent<KeepInBounds>();
@@ -28,11 +30,11 @@ public abstract class WorldObject : MonoBehaviour {
 		}
 	}
 
-	protected float GetAnimationTime(int layer = 0) {
-		return animator.GetCurrentAnimatorStateInfo(layer).normalizedTime;
+	public float GetAnimationTime(int layer = 0) {
+		return Animator.GetCurrentAnimatorStateInfo(layer).normalizedTime;
 	}
 
-	protected bool IsAnimationFinished(int layer = 0) {
+	public bool IsAnimationFinished(int layer = 0) {
 		return GetAnimationTime(layer) >= 1.0f;
 	}
 

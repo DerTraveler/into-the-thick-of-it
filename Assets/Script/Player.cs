@@ -40,7 +40,7 @@ public class Player : WorldObject {
 	private bool hurtTrigger = false;
 
 	void Start () {
-		animator.SetFloat("Speed", speed);
+		Animator.SetFloat("Speed", speed);
 		Health = maxHealth;
 	}
 
@@ -124,7 +124,7 @@ public class Player : WorldObject {
 
 			if (nextAnimation != currentAnimation) {
 				currentAnimation = nextAnimation;
-				animator.Play(currentAnimation);
+				Animator.Play(currentAnimation);
 			}
 		}
 	}
