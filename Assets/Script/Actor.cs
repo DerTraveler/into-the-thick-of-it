@@ -15,6 +15,22 @@ public abstract class Actor : MonoBehaviour {
 	private Animator _animator;
 	public Animator Animator { get { return _animator; } }
 
+	private Vector2 _faceDirection = new Vector2(0, -1);
+	public Vector2 FaceDirection { 
+		get { return _faceDirection; } 
+		set { _faceDirection = value; }
+	}
+
+	public string DirectedAnimationName(string animationName) {
+		if (FaceDirection.y > 0) {
+			return animationName + "Up";
+		} else if (FaceDirection.y < 0) {
+			return animationName + "Down";
+		} else {
+			return animationName + "Side";
+		}
+	}
+
 	void Awake () {
 		rend = body.GetComponent<SpriteRenderer>();
 		_animator = GetComponent<Animator>();

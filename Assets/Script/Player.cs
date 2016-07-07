@@ -33,7 +33,6 @@ public class Player : Actor {
 	private string currentAnimation = "IdleDown";
 
 	private Vector2 moveDirection = new Vector2(0, 0);
-	private Vector2 faceDirection = new Vector2(0, -1);
 	private bool directionPressed = false;
 
 	private bool attackTrigger = false;
@@ -120,7 +119,7 @@ public class Player : Actor {
 		if (state != State.Dead) {
 			SetFaceDirection();
 
-			string nextAnimation = state.ToString() + getDirectionName();
+			string nextAnimation = DirectedAnimationName(state.ToString());
 
 			if (nextAnimation != currentAnimation) {
 				currentAnimation = nextAnimation;
@@ -132,18 +131,8 @@ public class Player : Actor {
 	private void FlipIfNecessary() {
 		Vector3 scale = transform.localScale;
 		float scaleX = Mathf.Abs(scale.x);
-		scale.Set(Mathf.Approximately(faceDirection.x, -1.0f) ? -scaleX: scaleX, scale.y, scale.z);
+		scale.Set(Mathf.Approximately(FaceDirection.x, -1.0f) ? -scaleX: scaleX, scale.y, scale.z);
 		transform.localScale = scale;
-	}
-
-	private string getDirectionName() {
-		if (faceDirection.y > 0) {
-			return "Up";
-		} else if (faceDirection.y < 0) {
-			return "Down";
-		} else {
-			return "Side";
-		}
 	}
 
 	private readonly IList<State> FixedDirectionStates = new List<State> { State.Attacking, State.Hurt }.AsReadOnly();
@@ -151,7 +140,7 @@ public class Player : Actor {
 	private void SetFaceDirection() {
 		if (!FixedDirectionStates.Contains(state)) {
 			if (Mathf.Approximately(moveDirection.sqrMagnitude, 1.0f)) {
-				faceDirection.Set(moveDirection.x, moveDirection.y);
+				FaceDirection = new Vector2(moveDirection.x, moveDirection.y);
 			}
 			FlipIfNecessary();
 		}
