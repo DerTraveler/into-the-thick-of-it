@@ -30,7 +30,7 @@ public class Player : Actor {
 		public static PlayerWalking WALKING = new PlayerWalking();
 	}
 
-	private State<Player> _state = States.IDLE;
+	private PlayerState _state = States.IDLE;
 
 	void Start () {
 		Animator.SetFloat("Speed", speed);
@@ -39,7 +39,7 @@ public class Player : Actor {
 
 	// Update is called once per frame
 	void Update () {
-		State<Player> newState = _state.HandleInput(this);
+		PlayerState newState = _state.HandleInput(this) as PlayerState;
 
 		if (newState != null) {
 			_state.Exit(this);

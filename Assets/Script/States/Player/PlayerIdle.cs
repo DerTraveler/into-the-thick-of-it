@@ -8,14 +8,14 @@ using UnityEngine;
 
 namespace States {
 
-	public class PlayerIdle : State<Player> {
+	public class PlayerIdle : PlayerState {
 
 		public override State<Player> HandleInput(Player subject) {
 			subject.MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 			if (subject.MoveDirection.sqrMagnitude > float.Epsilon) {
 				return Player.States.WALKING;
 			}
-			return null;
+			return base.HandleInput(subject);
 		}
 
 		public override void Update(Player subject) {
