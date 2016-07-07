@@ -32,7 +32,6 @@ public class Player : Actor {
 	private State state = State.Idle;
 	private string currentAnimation = "IdleDown";
 
-	private Vector2 moveDirection = new Vector2(0, 0);
 	private bool directionPressed = false;
 
 	private bool attackTrigger = false;
@@ -55,9 +54,9 @@ public class Player : Actor {
 	}
 
 	private void ReadInput() {
-		moveDirection.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+		MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-		directionPressed = moveDirection.sqrMagnitude > float.Epsilon;
+		directionPressed = MoveDirection.sqrMagnitude > float.Epsilon;
 
 		attackTrigger = Input.GetButtonDown("Attack");
 
@@ -139,8 +138,8 @@ public class Player : Actor {
 
 	private void SetFaceDirection() {
 		if (!FixedDirectionStates.Contains(state)) {
-			if (Mathf.Approximately(moveDirection.sqrMagnitude, 1.0f)) {
-				FaceDirection = new Vector2(moveDirection.x, moveDirection.y);
+			if (Mathf.Approximately(MoveDirection.sqrMagnitude, 1.0f)) {
+				FaceDirection = MoveDirection;
 			}
 			FlipIfNecessary();
 		}
@@ -148,7 +147,7 @@ public class Player : Actor {
 
 	private void UpdateTransform() {
 		if (state == State.Walking) {
-			Vector3 newPos = transform.position + (Vector3)(moveDirection * speed * Time.deltaTime);
+			Vector3 newPos = transform.position + (Vector3)(MoveDirection * speed * Time.deltaTime);
 			transform.position = newPos;
 		}
 	}

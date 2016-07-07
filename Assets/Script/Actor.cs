@@ -21,6 +21,12 @@ public abstract class Actor : MonoBehaviour {
 		set { _faceDirection = value; }
 	}
 
+	private Vector2 _moveDirection = new Vector2(0, 0);
+	public Vector2 MoveDirection { 
+		get { return _moveDirection; } 
+		set { _moveDirection = value; }
+	}
+
 	public string DirectedAnimationName(string animationName) {
 		if (FaceDirection.y > 0) {
 			return animationName + "Up";
