@@ -18,13 +18,32 @@ public abstract class Actor : MonoBehaviour {
 	private Vector2 _faceDirection = new Vector2(0, -1);
 	public Vector2 FaceDirection { 
 		get { return _faceDirection; } 
-		set { _faceDirection = value; }
+		set { 
+			_faceDirection = value;
+			FlipIfNecessary();
+		}
 	}
 
 	private Vector2 _moveDirection = new Vector2(0, 0);
 	public Vector2 MoveDirection { 
 		get { return _moveDirection; } 
-		set { _moveDirection = value; }
+		set { 
+			_moveDirection = value;
+			UpdateFaceDirection();
+		}
+	}
+
+	private void UpdateFaceDirection() {
+		if (Mathf.Approximately(MoveDirection.sqrMagnitude, 1.0f)) {
+			FaceDirection = MoveDirection;
+		}
+	}
+
+	private void FlipIfNecessary() {
+		Vector3 scale = transform.localScale;
+		float scaleX = Mathf.Abs(scale.x);
+		scale.Set(Mathf.Approximately(FaceDirection.x, -1.0f) ? -scaleX: scaleX, scale.y, scale.z);
+		transform.localScale = scale;
 	}
 
 	public string DirectedAnimationName(string animationName) {

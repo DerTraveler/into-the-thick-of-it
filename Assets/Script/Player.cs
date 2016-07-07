@@ -127,32 +127,12 @@ public class Player : Actor {
 
 	private void PlayAnimation() {
 		if (state != State.Dead) {
-			SetFaceDirection();
-
 			string nextAnimation = DirectedAnimationName(state.ToString());
 
 			if (nextAnimation != currentAnimation) {
 				currentAnimation = nextAnimation;
 				Animator.Play(currentAnimation);
 			}
-		}
-	}
-
-	private void FlipIfNecessary() {
-		Vector3 scale = transform.localScale;
-		float scaleX = Mathf.Abs(scale.x);
-		scale.Set(Mathf.Approximately(FaceDirection.x, -1.0f) ? -scaleX: scaleX, scale.y, scale.z);
-		transform.localScale = scale;
-	}
-
-	private readonly IList<State> FixedDirectionStates = new List<State> { State.Attacking, State.Hurt }.AsReadOnly();
-
-	private void SetFaceDirection() {
-		if (!FixedDirectionStates.Contains(state)) {
-			if (Mathf.Approximately(MoveDirection.sqrMagnitude, 1.0f)) {
-				FaceDirection = MoveDirection;
-			}
-			FlipIfNecessary();
 		}
 	}
 
