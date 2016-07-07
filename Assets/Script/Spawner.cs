@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 public class Spawner : MonoBehaviour {
 
-	public WorldObject spawned;
+	public Actor spawned;
 	public Transform[] possiblePositions;
 
 	public UnityEngine.UI.Text defeatedEnemyText;
@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour {
 	private int totalSpawnedCount = 0;
 	[SerializeField]
 	private int defeatedCount = 0;
-	private List<WorldObject> spawnedList = new List<WorldObject>();
+	private List<Actor> spawnedList = new List<Actor>();
 	private int spawnedCount = 0;
 
 	public int minimum = 1;
@@ -51,7 +51,7 @@ public class Spawner : MonoBehaviour {
 	}
 
 	private void Spawn(Transform spawnPoint) {
-		WorldObject newSpawned = Instantiate(spawned);
+		Actor newSpawned = Instantiate(spawned);
 		spawned.spawnedBy = this;
 		newSpawned.transform.SetParent(this.transform);
 		newSpawned.transform.position = spawnPoint.position;
@@ -76,7 +76,7 @@ public class Spawner : MonoBehaviour {
 
 	private int nextStage = 5;
 
-	public void NotifyOfDeath(WorldObject spawnedObject) {
+	public void NotifyOfDeath(Actor spawnedObject) {
 		if (spawnedList.Remove(spawnedObject)) {
 			spawnedCount -= 1;
 			defeatedCount += 1;

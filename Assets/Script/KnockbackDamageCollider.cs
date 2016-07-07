@@ -14,7 +14,7 @@ public class KnockbackDamageCollider : MonoBehaviour {
 	public AudioClip hitSound = null;
 
 	void OnTriggerEnter2D(Collider2D other) {
-		WorldObject target = other.attachedRigidbody.GetComponent<WorldObject>();
+		Actor target = other.attachedRigidbody.GetComponent<Actor>();
 
 		if (target.ReceiveDamage(attackDamage)) {
 			Vector2 hitForce = other.bounds.center - transform.position;

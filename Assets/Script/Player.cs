@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public class Player : WorldObject {
+public class Player : Actor {
 
 	public int maxHealth = 5;
 	private int _health;

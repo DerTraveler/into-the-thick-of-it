@@ -7,7 +7,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class SlimeEnemy : WorldObject {
+public class SlimeEnemy : Actor {
 
 	private Player player;
 
