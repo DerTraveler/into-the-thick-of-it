@@ -17,6 +17,8 @@ namespace States {
 				int damage = _receivedDamage;
 				_receivedDamage = 0;
 				return new PlayerHurt(this, damage);
+			} else if (Input.GetButtonDown("Attack")) {
+				return new PlayerAttack(this);
 			}
 			return null;
 		}

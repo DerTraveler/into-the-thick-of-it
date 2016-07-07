@@ -24,6 +24,7 @@ public class Player : Actor {
 		public const string IDLE = "Idle";
 		public const string WALKING = "Walking";
 		public const string HURT = "Hurt";
+		public const string ATTACKING = "Attacking";
 	}
 
 	public static class States {
