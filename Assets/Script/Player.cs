@@ -7,6 +7,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using States;
 
 public class Player : Actor {
 
@@ -20,6 +21,16 @@ public class Player : Actor {
 
 	public UnityEngine.UI.Text healthText;
 	public UnityEngine.UI.Text gameOverText;
+
+	public static class Animations {
+		public const string IDLE = "Idle";
+		public const string WALKING = "Walking";
+	}
+
+	public static class States {
+		public static PlayerIdle IDLE = new PlayerIdle();
+		public static PlayerWalking WALKING = new PlayerWalking();
+	}
 
 	public enum State {
 		Idle,
