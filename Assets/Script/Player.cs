@@ -23,6 +23,7 @@ public class Player : Actor {
 	public static class Animations {
 		public const string IDLE = "Idle";
 		public const string WALKING = "Walking";
+		public const string HURT = "Hurt";
 	}
 
 	public static class States {
@@ -50,12 +51,8 @@ public class Player : Actor {
 		_state.Update(this);
 	}
 
-
 	public override bool ReceiveDamage(int damage) {
-
-		Health -= damage;
-
-		return true;
+		return _state.ReceiveDamage(damage);
 	}
 
 	private void UpdateHealthText() {

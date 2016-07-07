@@ -10,8 +10,20 @@ namespace States {
 
 	public abstract class PlayerState : State<Player> {
 
+		private int _receivedDamage = 0;
+
 		public override State<Player> HandleInput(Player subject) {
+			if (_receivedDamage > 0) {
+				int damage = _receivedDamage;
+				_receivedDamage = 0;
+				return new PlayerHurt(this, damage);
+			}
 			return null;
+		}
+
+		public virtual bool ReceiveDamage(int damage) { 
+			_receivedDamage = damage;
+			return true;
 		}
 
 	}
