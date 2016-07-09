@@ -36,8 +36,9 @@ public class SlimeEnemy : Actor {
 
 	[SerializeField]
 	private float currentHitPoints;
-	[SerializeField]
-	private float currentStamina;
+
+	private float _currentStamina;
+	public float CurrentStamina { get { return _currentStamina; } }
 
 	[SerializeField]
 	private bool jumpTrigger = false;
@@ -62,7 +63,7 @@ public class SlimeEnemy : Actor {
 	void Start () {
 		player = FindObjectOfType<Player>();
 		currentHitPoints = maxHitPoints;
-		currentStamina = maxStamina;
+		_currentStamina = maxStamina;
 	}
 
 	// Update is called once per frame
@@ -79,8 +80,8 @@ public class SlimeEnemy : Actor {
 
 		switch(state) {
 		case State.Idle:
-			currentStamina = Mathf.Min(currentStamina + staminaRegeneration * Time.deltaTime, maxStamina);
-			if (Mathf.Approximately(currentStamina, maxStamina)) {
+			Rest();
+			if (Mathf.Approximately(_currentStamina, maxStamina)) {
 				state = state = NextNormalAction();
 			}
 			break;
@@ -95,7 +96,7 @@ public class SlimeEnemy : Actor {
 					lookToLeft = player.transform.position.x < transform.position.x;
 					state = State.Bite;
 				}
-				if (currentStamina >= staminaPerJump) {
+				if (_currentStamina >= staminaPerJump) {
 					Jump(playerDirection);
 				} else {
 					state = State.Idle;
@@ -114,6 +115,12 @@ public class SlimeEnemy : Actor {
 			}
 			break;
 		}
+	}
+
+	public float Rest() {
+		float oldStamina = _currentStamina;
+		_currentStamina = Mathf.Min(_currentStamina + staminaRegeneration * Time.deltaTime, maxStamina);
+		return _currentStamina - oldStamina;
 	}
 
 	private State NextNormalAction() {
@@ -137,7 +144,7 @@ public class SlimeEnemy : Actor {
 			jumpDirection.Set(0f, Mathf.Sign(direction.y) * 1.0f);
 		}
 
-		currentStamina -= (staminaPerJump + Random.Range(-3, 3));
+		_currentStamina -= (staminaPerJump + Random.Range(-3, 3));
 	}
 
 	private void PlayAnimation() {
