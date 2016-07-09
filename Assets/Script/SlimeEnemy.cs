@@ -6,6 +6,7 @@
 
 using UnityEngine;
 using System.Collections;
+using States;
 
 public class SlimeEnemy : Actor {
 
@@ -22,6 +23,14 @@ public class SlimeEnemy : Actor {
 
 	public GameObject dropItem;
 	public float dropChance = 0.1f;
+
+	public static class Animations {
+		public const string IDLE = "Idle";
+	}
+
+	public static class States {
+		public static SlimeEnemyIdle IDLE = new SlimeEnemyIdle();
+	}
 
 	public enum State {
 		Idle,
