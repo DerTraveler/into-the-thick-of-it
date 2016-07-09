@@ -8,12 +8,12 @@ using UnityEngine;
 
 namespace States {
 
-	public class PlayerHurt : PlayerState {
+	public class PlayerHurt : PlayerBase {
 
-		private PlayerState _previous;
+		private PlayerBase _previous;
 		private int _damage;
 
-		public PlayerHurt(PlayerState previous, int damage) {
+		public PlayerHurt(PlayerBase previous, int damage) {
 			_previous = previous;
 			_damage = damage;
 		}

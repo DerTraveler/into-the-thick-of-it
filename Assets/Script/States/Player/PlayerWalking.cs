@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace States {
 
-	public class PlayerWalking : PlayerState {
+	public class PlayerWalking : PlayerBase {
 
 		public override State<Player> HandleInput(Player subject) {
 			subject.MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));

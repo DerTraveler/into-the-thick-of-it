@@ -8,11 +8,11 @@ using UnityEngine;
 
 namespace States {
 
-	public class PlayerAttack : PlayerState {
+	public class PlayerAttack : PlayerBase {
 
-		private PlayerState _previous;
+		private PlayerBase _previous;
 
-		public PlayerAttack(PlayerState previous) {
+		public PlayerAttack(PlayerBase previous) {
 			_previous = previous;
 		}
 

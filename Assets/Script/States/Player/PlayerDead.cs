@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 namespace States {
 
-	public class PlayerDead : PlayerState {
+	public class PlayerDead : PlayerBase {
 
 		public override void Entry(Player subject) {
 			subject.TriggerGameOver();

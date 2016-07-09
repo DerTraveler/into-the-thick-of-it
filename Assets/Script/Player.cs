@@ -33,7 +33,7 @@ public class Player : Actor {
 		public static PlayerDead DEAD = new PlayerDead();
 	}
 
-	private PlayerState _state = States.IDLE;
+	private PlayerBase _state = States.IDLE;
 
 	void Start () {
 		Animator.SetFloat("Speed", speed);
@@ -42,7 +42,7 @@ public class Player : Actor {
 
 	// Update is called once per frame
 	void Update () {
-		PlayerState newState = _state.HandleInput(this) as PlayerState;
+		PlayerBase newState = _state.HandleInput(this) as PlayerBase;
 
 		if (newState != null) {
 			_state.Exit(this);

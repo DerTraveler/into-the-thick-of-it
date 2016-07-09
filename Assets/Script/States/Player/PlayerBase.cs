@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace States {
 
-	public abstract class PlayerState : State<Player> {
+	public abstract class PlayerBase : State<Player> {
 
 		private int _receivedDamage = 0;
 
