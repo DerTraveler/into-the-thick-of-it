@@ -14,6 +14,6 @@ public abstract class State<T> {
 
 	public abstract State<T> HandleInput(T subject);
 	
-	public abstract void Update(T subject);
+	public virtual void Update(T subject) { }
 
 }

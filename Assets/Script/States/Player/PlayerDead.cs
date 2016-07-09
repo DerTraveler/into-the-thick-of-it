@@ -23,8 +23,6 @@ namespace States {
 			return null;
 		}
 
-		public override void Update(Player subject) { }
-
 		public override bool ReceiveDamage(int damage) { 
 			return false;
 		}

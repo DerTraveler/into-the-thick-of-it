@@ -27,8 +27,6 @@ namespace States {
 			subject.Animator.Play(subject.DirectedAnimationName(Player.Animations.ATTACKING), 0, 0f);
 		}
 
-		public override void Update(Player subject) { }
-
 	}
 
 }
