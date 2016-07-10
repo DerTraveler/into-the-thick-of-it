@@ -26,22 +26,23 @@ public class SlimeEnemy : Actor {
 
 	public static class Animations {
 		public const string IDLE = "Idle";
+		public const string JUMP = "Jump";
 	}
 
 	public static class States {
 		public static SlimeEnemyIdle IDLE = new SlimeEnemyIdle();
+		public static SlimeEnemyFollow FOLLOW = new SlimeEnemyFollow();
 	}
 
-	public enum State {
-		Idle,
-		Following,
-		Hurt,
-		Recover,
-		Bite
+	private readonly SlimeEnemyJumping _jumpingState = new SlimeEnemyJumping();
+
+	public SlimeEnemyJumping JumpingState(Vector2 jumpGoal, State<SlimeEnemy> afterJump) {
+		_jumpingState.jumpGoal = jumpGoal;
+		_jumpingState.afterJumpState = afterJump;
+		return _jumpingState;
 	}
 
-	[SerializeField]
-	private State state = State.Idle;
+	private State<SlimeEnemy> _state = States.IDLE;
 
 	[SerializeField]
 	private float currentHitPoints;
@@ -49,23 +50,11 @@ public class SlimeEnemy : Actor {
 	private float _currentStamina;
 	public float CurrentStamina { get { return _currentStamina; } }
 
-	[SerializeField]
-	private bool jumpTrigger = false;
-	[SerializeField]
-	private bool jumping = false;
-	[SerializeField]
-	private Vector2 jumpOrigin;
-	[SerializeField]
-	private Vector2 jumpDirection = new Vector2(1, 0);
-
-	[SerializeField]
-	private bool lookToLeft = false;
-
 	float distanceFromPlayer {
 		get { return (player.transform.position - transform.position).magnitude; }
 	}
 
-	Vector2 playerDirection {
+	public Vector2 PlayerDirection {
 		get { return (player.transform.position - transform.position); }
 	}
 
@@ -77,53 +66,15 @@ public class SlimeEnemy : Actor {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		UpdateState();
+		State<SlimeEnemy> newState = _state.HandleInput(this) as State<SlimeEnemy>;
 
-		PlayAnimation();
-
-		UpdateTransform();
-	}
-
-	private void UpdateState() {
-		dropChance = player.Health == 1 ? 0.3f : 0.1f;
-
-		switch(state) {
-		case State.Idle:
-			Rest();
-			if (Mathf.Approximately(_currentStamina, maxStamina)) {
-				state = state = NextNormalAction();
-			}
-			break;
-		case State.Following:
-			if (jumping && IsAnimationFinished()) {
-				jumping = false;
-			} else if (jumpTrigger) {
-				jumpTrigger = false;
-				jumping = true;
-			} else if (!jumping) {
-				if (IsPlayerInFrontOfMe()){
-					lookToLeft = player.transform.position.x < transform.position.x;
-					state = State.Bite;
-				}
-				if (_currentStamina >= staminaPerJump) {
-					Jump(playerDirection);
-				} else {
-					state = State.Idle;
-				}
-			}
-			break;
-		case State.Hurt:
-			if (IsAnimationFinished()) {
-				state = State.Recover;
-			}
-			break;
-		case State.Recover:
-		case State.Bite:
-			if (IsAnimationFinished()) {
-				state = NextNormalAction();
-			}
-			break;
+		if (newState != null) {
+			_state.Exit(this);
+			newState.Entry(this);
+			_state = newState;
 		}
+
+		_state.Update(this);
 	}
 
 	public float Rest() {
@@ -132,8 +83,10 @@ public class SlimeEnemy : Actor {
 		return _currentStamina - oldStamina;
 	}
 
-	private State NextNormalAction() {
-		return State.Following;
+	public float JumpExhaustion() {
+		float oldStamina = _currentStamina;
+		_currentStamina -= (staminaPerJump + Random.Range(-3, 3));
+		return oldStamina - _currentStamina;
 	}
 
 	private bool IsPlayerInFrontOfMe() {
@@ -142,72 +95,7 @@ public class SlimeEnemy : Actor {
 		return attackRect.Contains(playerPos);
 	}
 
-	private void Jump(Vector2 direction) {
-		jumpTrigger = true;
-
-		jumpOrigin = transform.position;
-		if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) {
-			jumpDirection.Set(Mathf.Sign(direction.x) * 1.0f, 0f);
-			lookToLeft = jumpDirection.x < 0;
-		} else {
-			jumpDirection.Set(0f, Mathf.Sign(direction.y) * 1.0f);
-		}
-
-		_currentStamina -= (staminaPerJump + Random.Range(-3, 3));
-	}
-
-	private void PlayAnimation() {
-		FlipIfNecessary();
-
-		switch(state) {
-		case State.Idle:
-			Animator.Play("Idle");
-			break;
-		case State.Hurt:
-			Animator.Play("Hurt");
-			break;
-		case State.Recover:
-			Animator.Play("Recover");
-			break;
-		case State.Bite:
-			Animator.Play("Bite");
-			break;
-		default:
-			if (jumpTrigger) {
-				Animator.Play("Jump", 0, 0);
-			}
-			break;
-		}
-	}
-
-	private void FlipIfNecessary() {
-		Vector3 scale = transform.localScale;
-		float scaleX = Mathf.Abs(scale.x);
-		scale.Set(lookToLeft ? -scaleX: scaleX, scale.y, scale.z);
-		transform.localScale = scale;
-	}
-
-	private const float jumpStartTime = 0.305f;
-	private const float jumpEndTime = 0.78f;
-	private float jumpDuration {
-		get { return jumpEndTime - jumpStartTime; }
-	}
-
-	private void UpdateTransform() {
-		if (jumping && GetAnimationTime() > jumpStartTime) {
-			Vector2 newPos = jumpOrigin + Mathf.Lerp(0, distancePerJump, (GetAnimationTime() - jumpStartTime) / jumpDuration ) * jumpDirection;
-			transform.position = newPos;
-		}
-	}
-
 	public override bool ReceiveDamage(int damage) {
-		if (state == State.Hurt) {
-			return false;
-		}
-
-		jumpTrigger = false;
-		jumping = false;
-		state = State.Hurt;
 
 		currentHitPoints -= damage;
 		if (currentHitPoints <= 0) {

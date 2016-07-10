@@ -8,11 +8,16 @@ using UnityEngine;
 
 namespace States {
 
-	public abstract class SlimeEnemyAI : State<SlimeEnemy>  {
+	public class SlimeEnemyFollow : State<SlimeEnemy>  {
 
 		public override State<SlimeEnemy> HandleInput(SlimeEnemy subject) {
-			return SlimeEnemy.States.FOLLOW;
+			if (subject.CurrentStamina > subject.staminaPerJump) {
+				return subject.JumpingState(subject.PlayerDirection, this);
+			} else {
+				return SlimeEnemy.States.IDLE;
+			}
 		}
+
 
 	}
 
