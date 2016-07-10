@@ -20,6 +20,8 @@ namespace States {
 		}
 
 		public override State<SlimeEnemy> HandleInput(SlimeEnemy subject) {
+			if (subject.currentHitPoints <= 0)
+				return SlimeEnemy.States.DEAD;
 			return _hurtStage == 4 ? _previous : null;
 		}
 

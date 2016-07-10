@@ -33,6 +33,7 @@ public class SlimeEnemy : Actor {
 	public static class States {
 		public static SlimeEnemyIdle IDLE = new SlimeEnemyIdle();
 		public static SlimeEnemyFollow FOLLOW = new SlimeEnemyFollow();
+		public static SlimeEnemyDead DEAD = new SlimeEnemyDead();
 	}
 
 	private readonly SlimeEnemyJumping _jumpingState = new SlimeEnemyJumping();
@@ -99,7 +100,7 @@ public class SlimeEnemy : Actor {
 		return _state.ReceiveDamage(damage);
 	}
 
-	private void Die() {
+	public void Die() {
 		SendDeathNotification();
 		body.GetComponent<SpriteRenderer>().enabled = false;
 		deathAnimation.Play();
