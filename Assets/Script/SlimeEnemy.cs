@@ -66,6 +66,8 @@ public class SlimeEnemy : Actor {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+		_state.Update(this);
+
 		State<SlimeEnemy> newState = _state.HandleInput(this) as State<SlimeEnemy>;
 
 		if (newState != null) {
@@ -73,8 +75,6 @@ public class SlimeEnemy : Actor {
 			newState.Entry(this);
 			_state = newState;
 		}
-
-		_state.Update(this);
 	}
 
 	public float Rest() {
@@ -96,6 +96,9 @@ public class SlimeEnemy : Actor {
 	}
 
 	public override bool ReceiveDamage(int damage) {
+//		if (state == State.Hurt) {
+//			return false;
+//		}
 
 		currentHitPoints -= damage;
 		if (currentHitPoints <= 0) {

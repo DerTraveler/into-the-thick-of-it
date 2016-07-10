@@ -42,6 +42,8 @@ public class Player : Actor {
 
 	// Update is called once per frame
 	void Update () {
+		_state.Update(this);
+
 		PlayerBase newState = _state.HandleInput(this) as PlayerBase;
 
 		if (newState != null) {
@@ -49,8 +51,6 @@ public class Player : Actor {
 			newState.Entry(this);
 			_state = newState;
 		}
-
-		_state.Update(this);
 	}
 
 	public override bool ReceiveDamage(int damage) {
