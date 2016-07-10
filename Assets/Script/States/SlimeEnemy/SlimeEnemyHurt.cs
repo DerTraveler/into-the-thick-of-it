@@ -35,6 +35,12 @@ namespace States {
 				break;
 			case 1:
 				if (subject.IsAnimationFinished()) {
+					subject.Animator.Play(SlimeEnemy.Animations.RECOVER, 0, 0f);
+					_hurtStage = 2;
+				}
+				break;
+			case 2:
+				if (subject.IsAnimationFinished()) {
 					_hurtStage = 4;
 				}
 				break;

@@ -28,6 +28,7 @@ public class SlimeEnemy : Actor {
 		public const string IDLE = "Idle";
 		public const string JUMP = "Jump";
 		public const string HURT = "Hurt";
+		public const string RECOVER = "Recover";
 	}
 
 	public static class States {
