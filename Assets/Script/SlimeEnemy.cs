@@ -27,6 +27,7 @@ public class SlimeEnemy : Actor {
 	public static class Animations {
 		public const string IDLE = "Idle";
 		public const string JUMP = "Jump";
+		public const string HURT = "Hurt";
 	}
 
 	public static class States {
@@ -42,10 +43,9 @@ public class SlimeEnemy : Actor {
 		return _jumpingState;
 	}
 
-	private State<SlimeEnemy> _state = States.IDLE;
+	private SlimeEnemyAI _state = States.IDLE;
 
-	[SerializeField]
-	private float currentHitPoints;
+	public float currentHitPoints;
 
 	private float _currentStamina;
 	public float CurrentStamina { get { return _currentStamina; } }
@@ -68,7 +68,7 @@ public class SlimeEnemy : Actor {
 	void FixedUpdate () {
 		_state.Update(this);
 
-		State<SlimeEnemy> newState = _state.HandleInput(this) as State<SlimeEnemy>;
+		SlimeEnemyAI newState = _state.HandleInput(this) as SlimeEnemyAI;
 
 		if (newState != null) {
 			_state.Exit(this);
@@ -96,15 +96,7 @@ public class SlimeEnemy : Actor {
 	}
 
 	public override bool ReceiveDamage(int damage) {
-//		if (state == State.Hurt) {
-//			return false;
-//		}
-
-		currentHitPoints -= damage;
-		if (currentHitPoints <= 0) {
-			Die();
-		}
-		return true;	
+		return _state.ReceiveDamage(damage);
 	}
 
 	private void Die() {

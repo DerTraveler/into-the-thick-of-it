@@ -12,9 +12,11 @@ namespace States {
 
 		public override State<SlimeEnemy> HandleInput(SlimeEnemy subject) {
 			State<SlimeEnemy> aiDecision = base.HandleInput(subject);
-			if (Mathf.Approximately(subject.CurrentStamina, subject.maxStamina)) {
+			if (IsHighPriorityState(aiDecision))
 				return aiDecision;
-			}
+
+			if (Mathf.Approximately(subject.CurrentStamina, subject.maxStamina))
+				return aiDecision;
 			return null;
 		}
 

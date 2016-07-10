@@ -8,9 +8,13 @@ using UnityEngine;
 
 namespace States {
 
-	public class SlimeEnemyFollow : State<SlimeEnemy>  {
+	public class SlimeEnemyFollow : SlimeEnemyAI {
 
 		public override State<SlimeEnemy> HandleInput(SlimeEnemy subject) {
+			State<SlimeEnemy> aiDecision = base.HandleInput(subject);
+			if (IsHighPriorityState(aiDecision))
+				return aiDecision;
+			
 			if (subject.CurrentStamina > subject.staminaPerJump) {
 				return subject.JumpingState(subject.PlayerDirection, this);
 			} else {

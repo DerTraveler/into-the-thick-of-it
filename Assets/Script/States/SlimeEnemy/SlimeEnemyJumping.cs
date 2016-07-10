@@ -35,7 +35,11 @@ namespace States {
 		}
 
 		public override State<SlimeEnemy> HandleInput(SlimeEnemy subject) {
-			return !subject.IsAnimationFinished() ? null : afterJumpState;
+			State<SlimeEnemy> aiDecision = base.HandleInput(subject);
+			if (IsHighPriorityState(aiDecision))
+				return aiDecision;
+			
+			return subject.IsAnimationFinished() ? afterJumpState : null;
 		}
 
 		public override void Update(SlimeEnemy subject) {
