@@ -63,10 +63,9 @@ public class Player : Actor {
 	}
 
 	public void TriggerGameOver() {
+		PrepareDeath();
 		GetComponent<SpriteRenderer>().enabled = false;
-		Destroy(GetComponent<Collider2D>());
-		Destroy(GetComponent<Rigidbody2D>());
-		Destroy(transform.Find("Sword").gameObject);
+
 		gameOverText.enabled = true;
 	}
 

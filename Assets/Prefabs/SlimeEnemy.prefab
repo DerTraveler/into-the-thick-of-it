@@ -282,14 +282,13 @@ MonoBehaviour:
   staminaPerJump: 10
   dropItem: {fileID: 159520, guid: 27abed791b3d9da4e85852a00b138b00, type: 2}
   dropChance: 0.2
-  state: 0
   currentHitPoints: 0
-  currentStamina: 0
-  jumpTrigger: 0
-  jumping: 0
-  jumpOrigin: {x: 0, y: 0}
-  jumpDirection: {x: 1, y: 0}
-  lookToLeft: 0
+  destroyOnDeath:
+  - {fileID: 5057962}
+  - {fileID: 149720}
+  - {fileID: 138468}
+  - {fileID: 156020}
+  - {fileID: 5804752}
 --- !u!114 &11492714
 MonoBehaviour:
   m_ObjectHideFlags: 1

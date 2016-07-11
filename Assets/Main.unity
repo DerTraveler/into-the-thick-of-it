@@ -343,6 +343,10 @@ MonoBehaviour:
   speed: 2.5
   healthText: {fileID: 1996264813}
   gameOverText: {fileID: 137773300}
+  destroyOnDeath:
+  - {fileID: 313976975}
+  - {fileID: 313976974}
+  - {fileID: 1851474514}
 --- !u!58 &313976974
 CircleCollider2D:
   m_ObjectHideFlags: 0

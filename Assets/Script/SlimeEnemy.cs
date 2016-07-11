@@ -104,8 +104,11 @@ public class SlimeEnemy : Actor {
 	}
 
 	public void Die() {
-		SendDeathNotification();
+		PrepareDeath();
 		body.GetComponent<SpriteRenderer>().enabled = false;
+
+		SendDeathNotification();
+
 		deathAnimation.Play();
 
 		if (Random.value < dropChance) {

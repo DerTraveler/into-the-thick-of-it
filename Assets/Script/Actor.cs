@@ -84,6 +84,14 @@ public abstract class Actor : MonoBehaviour {
 	// Receive damage, returns true if the object was really hurt
 	public abstract bool ReceiveDamage(int damage);
 
+	public Object[] destroyOnDeath;
+
+	protected void PrepareDeath() {
+		foreach (Object o in destroyOnDeath) {
+			Destroy(o);
+		}
+	}
+
 	protected void SendDeathNotification() {
 		if (spawnedBy) {
 			spawnedBy.NotifyOfDeath(this);
