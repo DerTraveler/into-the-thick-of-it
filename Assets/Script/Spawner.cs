@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour {
 	}
 
 	void Start () {
-		lastSpawnedTime = -spawnDelay;
+		lastSpawnedTime = Time.time - spawnDelay;
 	}
 
 	// Update is called once per frame
@@ -52,7 +52,7 @@ public class Spawner : MonoBehaviour {
 
 	private void Spawn(Transform spawnPoint) {
 		Actor newSpawned = Instantiate(spawned);
-		spawned.spawnedBy = this;
+		newSpawned.spawnedBy = this;
 		newSpawned.transform.SetParent(this.transform);
 		newSpawned.transform.position = spawnPoint.position;
 
