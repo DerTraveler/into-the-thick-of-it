@@ -17,6 +17,8 @@ namespace States {
 				int damage = _receivedDamage;
 				_receivedDamage = 0;
 				return new SlimeEnemyHurt(this, damage);
+			} else if (subject.IsPlayerInFrontOfMe()) {
+				return SlimeEnemy.States.BITING;
 			} else {
 				return SlimeEnemy.States.FOLLOW;	
 			}

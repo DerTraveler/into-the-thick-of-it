@@ -29,12 +29,14 @@ public class SlimeEnemy : Actor {
 		public const string JUMP = "Jump";
 		public const string HURT = "Hurt";
 		public const string RECOVER = "Recover";
+		public const string BITE = "Bite";
 	}
 
 	public static class States {
 		public static SlimeEnemyIdle IDLE = new SlimeEnemyIdle();
 		public static SlimeEnemyFollow FOLLOW = new SlimeEnemyFollow();
 		public static SlimeEnemyDead DEAD = new SlimeEnemyDead();
+		public static SlimeEnemyBiting BITING = new SlimeEnemyBiting();
 	}
 
 	private readonly SlimeEnemyJumping _jumpingState = new SlimeEnemyJumping();
@@ -91,7 +93,7 @@ public class SlimeEnemy : Actor {
 		return oldStamina - _currentStamina;
 	}
 
-	private bool IsPlayerInFrontOfMe() {
+	public bool IsPlayerInFrontOfMe() {
 		Vector2 playerPos = player.transform.position;
 		Rect attackRect = new Rect(transform.position.x - 0.6f, transform.position.y - 0.2f, 1.2f, 0.4f);
 		return attackRect.Contains(playerPos);
