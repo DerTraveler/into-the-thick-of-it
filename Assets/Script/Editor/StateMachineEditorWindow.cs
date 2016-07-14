@@ -45,6 +45,8 @@ namespace StateMachine.Editor {
 		}
 
 		void OnGUI () {
+			Event currentEvent = Event.current;
+
 			GUI.BeginGroup(new Rect(0, 0, Screen.width, Screen.height));
 			{
 				foreach (State s in StateMachine.States) {
@@ -52,6 +54,8 @@ namespace StateMachine.Editor {
 				}
 			}
 			GUI.EndGroup();
+
+			HandleContextMenu(currentEvent);
 		}
 
 		private void DrawState(State state) {
@@ -62,7 +66,24 @@ namespace StateMachine.Editor {
 			GUILayout.EndArea();
 		}
 
+		#region Context Menu
+		private void HandleContextMenu(Event ev) {
+			if (ev.type == EventType.ContextClick) {
+				Vector2 mousePos = ev.mousePosition;
+				GenericMenu contextMenu = new GenericMenu();
+				contextMenu.AddItem(new GUIContent("Create State"), false, this.CreateState, mousePos);
+				contextMenu.ShowAsContext();
+				ev.Use();
+			}
+		}
 
+		private void CreateState(object position) {
+			Vector2 statePosition = (Vector2) position;
+			statePosition.Set(statePosition.x - StateMachineConstants.STATE_WIDTH / 2f, 
+				              statePosition.y - StateMachineConstants.STATE_HEIGHT / 2f);
+			_stateMachineEditor.AddState(statePosition);
+		}
+		#endregion
 
 	}
 
