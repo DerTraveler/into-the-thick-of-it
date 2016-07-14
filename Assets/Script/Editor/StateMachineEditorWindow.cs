@@ -16,7 +16,7 @@ namespace StateMachine.Editor {
 		private StateMachine _stateMachine;
 		public StateMachine StateMachine {
 			get { EnsureStateMachine(); return _stateMachine; }
-			set { _stateMachine = value; }
+			set { _stateMachine = value; _stateMachineEditor = StateMachineEditor.GetEditor(value); }
 		}
 		private void EnsureStateMachine() {
 			if (_stateMachine == null) {
@@ -25,6 +25,7 @@ namespace StateMachine.Editor {
 		}
 		#endregion
 
+		private StateMachineEditor _stateMachineEditor;
 		private static StateMachineEditorWindow _window;
 		
 		[MenuItem("Window/State Machine Editor")]
