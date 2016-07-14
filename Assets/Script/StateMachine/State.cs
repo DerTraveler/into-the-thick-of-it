@@ -9,13 +9,23 @@ using System.Collections.Generic;
 
 namespace StateMachine {
 
-	[CreateAssetMenu(fileName = "NewStateMachine.asset", menuName = "State Machine", order = 101)]
-	public class StateMachine : ScriptableObject {
+	[System.Serializable]
+	public class State {
 
-		[SerializeField] private List<State> _states = new List<State>();
-		public State[] States {
-			get { return _states.ToArray(); }
+		[SerializeField] private int _id;
+		public int id {
+			get { return _id; }
+		}
+
+		public string name;
+		public Vector2 position;
+
+		public State(int id, Vector2 position) {
+			_id = id;
+			name = "NewState";
+			this.position = position;
 		}
 
 	}
+
 }

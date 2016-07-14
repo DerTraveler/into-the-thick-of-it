@@ -12,16 +12,18 @@ namespace StateMachine.Editor {
 
 	public class StateMachineEditorWindow : EditorWindow {
 
+		#region Getter/Setter
 		private StateMachine _stateMachine;
 		public StateMachine StateMachine {
-			get {
-				if (_stateMachine == null) {
-					_stateMachine = ScriptableObject.CreateInstance<StateMachine>();
-				}
-				return _stateMachine;
-			}
+			get { EnsureStateMachine(); return _stateMachine; }
 			set { _stateMachine = value; }
 		}
+		private void EnsureStateMachine() {
+			if (_stateMachine == null) {
+				this.StateMachine = ScriptableObject.CreateInstance<StateMachine>();
+			}
+		}
+		#endregion
 
 		private static StateMachineEditorWindow _window;
 		
@@ -42,8 +44,23 @@ namespace StateMachine.Editor {
 		}
 
 		void OnGUI () {
-			
+			GUI.BeginGroup(new Rect(0, 0, Screen.width, Screen.height));
+			{
+				foreach (State s in StateMachine.States) {
+					DrawState(s);
+				}
+			}
+			GUI.EndGroup();
 		}
+
+		private void DrawState(State state) {
+			GUILayout.BeginArea(new Rect(state.position.x, state.position.y, StateMachineConstants.STATE_WIDTH, StateMachineConstants.STATE_HEIGHT));
+			{
+				GUILayout.Box(state.name, GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
+			}
+			GUILayout.EndArea();
+		}
+
 
 
 	}
