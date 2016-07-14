@@ -12,6 +12,17 @@ namespace StateMachine.Editor {
 
 	public class StateMachineEditorWindow : EditorWindow {
 
+		private StateMachine _stateMachine;
+		public StateMachine StateMachine {
+			get {
+				if (_stateMachine == null) {
+					_stateMachine = ScriptableObject.CreateInstance<StateMachine>();
+				}
+				return _stateMachine;
+			}
+			set { _stateMachine = value; }
+		}
+
 		private static StateMachineEditorWindow _window;
 		
 		[MenuItem("Window/State Machine Editor")]
