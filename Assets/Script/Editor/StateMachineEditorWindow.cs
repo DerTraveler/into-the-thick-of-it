@@ -35,7 +35,7 @@ namespace StateMachine.Editor {
 		public static bool OpenStateMachine(int instanceID, int line) {
 			if (Selection.activeObject as StateMachine != null) {
 				ShowWindow();
-
+				_window.StateMachine = AssetDatabase.LoadAssetAtPath<StateMachine>(AssetDatabase.GetAssetPath(instanceID));
 				return true;
 			}
 			return false;
