@@ -29,7 +29,7 @@ namespace StateMachine.Editor {
 		void OnGUI () {
 			Event currentEvent = Event.current;
 
-			GUI.BeginGroup(new Rect(0, 0, Screen.width, Screen.height));
+			GUI.BeginGroup(new Rect(CanvasPosition.x, CanvasPosition.y, StateMachineConstants.CANVAS_WIDTH, StateMachineConstants.CANVAS_HEIGHT));
 			{
 				foreach (State s in StateMachine.States) {
 					DrawState(s);
@@ -38,6 +38,7 @@ namespace StateMachine.Editor {
 			GUI.EndGroup();
 
 			HandleContextMenu(currentEvent);
+			HandleCanvasDrag(currentEvent);
 		}
 
 		private void DrawState(State state) {
@@ -118,12 +119,28 @@ namespace StateMachine.Editor {
 
 		private void CreateState(object position) {
 			Vector2 statePosition = (Vector2) position;
-			statePosition.Set(statePosition.x - StateMachineConstants.STATE_WIDTH / 2f, 
-				              statePosition.y - StateMachineConstants.STATE_HEIGHT / 2f);
+			statePosition.Set(statePosition.x - StateMachineConstants.STATE_WIDTH / 2f - CanvasPosition.x, 
+							  statePosition.y - StateMachineConstants.STATE_HEIGHT / 2f - CanvasPosition.y);
 			_stateMachineEditor.AddState(statePosition);
 		}
 		#endregion
+		
+		#region Drag and Drop
+		private Vector2 _canvasPosition = new Vector2(0, 0);
+		public Vector2 CanvasPosition {
+			get { return _canvasPosition; }
+			set { _canvasPosition.Set(Mathf.Clamp(value.x, -(StateMachineConstants.CANVAS_WIDTH - Screen.width), 0),
+									  Mathf.Clamp(value.y, -(StateMachineConstants.CANVAS_HEIGHT - Screen.height), 0)); }
+		}
 
+		private void HandleCanvasDrag(Event e) {
+			if (e.type == EventType.MouseDrag && e.button == 2) {
+				CanvasPosition += e.delta;
+				Repaint();
+			}
+		}
+		#endregion
+		
 		#region Undo/Redo
 		public static void AddEventHandlers() {
 			if (_window != null)

@@ -17,6 +17,9 @@ namespace StateMachine.Editor {
 
 		public static string PREF_VISIBLE = "StateMachineEditorVisible";
 		public static string PREF_INSTANCE = "StateMachineEditorInstance";
+
+		public static int CANVAS_WIDTH = 2000;
+		public static int CANVAS_HEIGHT = 2000;
 	}
 
 }
