@@ -38,6 +38,7 @@ namespace StateMachine.Editor {
 			}
 			GUI.EndGroup();
 
+			HandleSelection(currentEvent);
 			HandleContextMenu(currentEvent);
 			HandleCanvasDrag(currentEvent);
 		}
@@ -119,6 +120,20 @@ namespace StateMachine.Editor {
 					} else {
 						ShowWindow();
 					}
+				}
+			}
+		}
+		#endregion
+
+		#region Selection
+		private void HandleSelection(Event ev) {
+			if (ev.type == EventType.MouseDown && ev.button == 0) {
+				Vector2 mousePos = ev.mousePosition;
+				StateInEditor clickedState = ClickedState(mousePos);
+				if (clickedState != null) {
+					Selection.activeObject = clickedState;
+				} else {
+					Selection.activeObject = _stateMachine;
 				}
 			}
 		}
