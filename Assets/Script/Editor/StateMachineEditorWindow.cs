@@ -14,33 +14,31 @@ namespace StateMachine.Editor {
 		#region Getter/Setter
 		private StateMachine _stateMachine;
 		public StateMachine StateMachine {
-			get { EnsureStateMachine(); return _stateMachine; }
+			get { return _stateMachine; }
 			set { _stateMachine = value; _stateMachineEditor = StateMachineEditor.GetEditor(value); }
-		}
-		private void EnsureStateMachine() {
-			if (_stateMachine == null) {
-				this.StateMachine = ScriptableObject.CreateInstance<StateMachine>();
-			}
 		}
 
 		private StateMachineEditor _stateMachineEditor;
+
 		private GUISkin _skin;
 		#endregion
 
 		void OnGUI () {
-			Event currentEvent = Event.current;
+			if (StateMachine != null) {
+				Event currentEvent = Event.current;
 
-			GUI.BeginGroup(new Rect(CanvasPosition.x, CanvasPosition.y, StateMachineConstants.CANVAS_WIDTH, StateMachineConstants.CANVAS_HEIGHT));
-			{
-				foreach (StateInEditor s in _stateMachineEditor.states) {
-					DrawState(s);
+				GUI.BeginGroup(new Rect(CanvasPosition.x, CanvasPosition.y, StateMachineConstants.CANVAS_WIDTH, StateMachineConstants.CANVAS_HEIGHT));
+				{
+					foreach (StateInEditor s in _stateMachineEditor.states) {
+						DrawState(s);
+					}
 				}
-			}
-			GUI.EndGroup();
+				GUI.EndGroup();
 
-			HandleSelection(currentEvent);
-			HandleContextMenu(currentEvent);
-			HandleCanvasDrag(currentEvent);
+				HandleSelection(currentEvent);
+				HandleContextMenu(currentEvent);
+				HandleCanvasDrag(currentEvent);
+			}
 		}
 
 		private void DrawState(StateInEditor state) {
