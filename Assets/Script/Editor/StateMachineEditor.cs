@@ -6,7 +6,7 @@
 
 using UnityEngine;
 using UnityEditor;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace StateMachine.Editor {
 
@@ -20,22 +20,49 @@ namespace StateMachine.Editor {
 			return _editor as StateMachineEditor;
 		}
 
+		public List<StateInEditor> states = new List<StateInEditor>();
+
+		void OnEnable () {
+			ReadStatesIntoEditor();
+		}
+
+		private void ReadStatesIntoEditor() {
+			StateMachine stateMachine = target as StateMachine;
+			foreach (State state in stateMachine.States) {
+				StateInEditor converted = ScriptableObject.CreateInstance<StateInEditor>();
+				converted.Initialize(state);
+				states.Add(converted);
+			}
+		}
+
 		public State AddState(Vector2 position) {
 			StateMachine stateMachine = target as StateMachine;
-
 			Undo.RecordObject(stateMachine, "Add new State");
 			State newState = stateMachine.AddState(position);
+
+			StateInEditor inEditor = ScriptableObject.CreateInstance<StateInEditor>();
+			Undo.RegisterCreatedObjectUndo(inEditor, "Add new State");
+			inEditor.Initialize(newState);
+
+			Undo.RecordObject(this, "Add new State");
+			states.Add(inEditor);
+
 			EditorUtility.SetDirty(stateMachine);
 
 			serializedObject.ApplyModifiedProperties();
 			return newState;
 		}
 
-		public void RemoveState(State state) {
+		public void RemoveState(StateInEditor state) {
 			StateMachine stateMachine = target as StateMachine;
+			Undo.RecordObject(stateMachine, "Remove state");
+			stateMachine.RemoveState(state.source);
 
-			Undo.RecordObject(stateMachine, "Remove state '" + state.name + "'");
-			stateMachine.RemoveState(state);
+			Undo.DestroyObjectImmediate(state);
+
+			Undo.RecordObject(this, "Remove state");
+			states.Remove(state);
+
 			EditorUtility.SetDirty(stateMachine);
 
 			serializedObject.ApplyModifiedProperties();

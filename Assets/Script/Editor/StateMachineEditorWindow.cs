@@ -32,7 +32,7 @@ namespace StateMachine.Editor {
 
 			GUI.BeginGroup(new Rect(CanvasPosition.x, CanvasPosition.y, StateMachineConstants.CANVAS_WIDTH, StateMachineConstants.CANVAS_HEIGHT));
 			{
-				foreach (State s in StateMachine.States) {
+				foreach (StateInEditor s in _stateMachineEditor.states) {
 					DrawState(s);
 				}
 			}
@@ -42,20 +42,20 @@ namespace StateMachine.Editor {
 			HandleCanvasDrag(currentEvent);
 		}
 
-		private void DrawState(State state) {
-			GUILayout.BeginArea(GetStateRect(state), state.name, _skin.window);
+		private void DrawState(StateInEditor state) {
+			GUILayout.BeginArea(GetStateRect(state), state.Name, _skin.window);
 			{
 				
 			}
 			GUILayout.EndArea();
 		}
 
-		private Rect GetStateRect(State state) {
-			return new Rect(state.position.x, state.position.y, StateMachineConstants.STATE_WIDTH, StateMachineConstants.STATE_HEIGHT);
+		private Rect GetStateRect(StateInEditor state) {
+			return new Rect(state.Position.x, state.Position.y, StateMachineConstants.STATE_WIDTH, StateMachineConstants.STATE_HEIGHT);
 		}
 
-		private State ClickedState(Vector2 mousePos) {
-			foreach(State state in _stateMachine.States) {
+		private StateInEditor ClickedState(Vector2 mousePos) {
+			foreach(StateInEditor state in _stateMachineEditor.states) {
 				if(GetStateRect(state).Contains(mousePos - _canvasPosition))
 					return state;
 			}
@@ -128,7 +128,7 @@ namespace StateMachine.Editor {
 		private void HandleContextMenu(Event ev) {
 			if (ev.type == EventType.ContextClick) {
 				Vector2 mousePos = ev.mousePosition;
-				State clickedState = ClickedState(mousePos);
+				StateInEditor clickedState = ClickedState(mousePos);
 				GenericMenu contextMenu = new GenericMenu();
 				if (clickedState != null) {
 					AddStateContextMenu(contextMenu, clickedState);
@@ -144,7 +144,7 @@ namespace StateMachine.Editor {
 			contextMenu.AddItem(new GUIContent("Create State"), false, this.CreateState, mousePos);
 		}
 
-		private void AddStateContextMenu(GenericMenu contextMenu, State state) {
+		private void AddStateContextMenu(GenericMenu contextMenu, StateInEditor state) {
 			contextMenu.AddItem(new GUIContent("Delete State"), false, this.RemoveState, state);
 		}
 
@@ -156,7 +156,7 @@ namespace StateMachine.Editor {
 		}
 
 		private void RemoveState(object argument) {
-			State state = (State) argument;
+			StateInEditor state = (StateInEditor) argument;
 			_stateMachineEditor.RemoveState(state);
 		}
 		#endregion
