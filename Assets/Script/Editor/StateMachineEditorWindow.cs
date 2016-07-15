@@ -57,12 +57,17 @@ namespace StateMachine.Editor {
 		private static void EnsureWindow() {
 			if (_window == null) {
 				_window = GetWindow<StateMachineEditorWindow>(false, "State Machine Editor");
+				AddEventHandlers();
 			}
 		}
 
 		[MenuItem("Window/State Machine Editor")]
 		public static void ShowWindow() {
 			Window.Show();
+		}
+
+		void OnDestroy() {
+			RemoveEventHandlers();
 		}
 
 		[UnityEditor.Callbacks.OnOpenAsset(1)]
@@ -96,6 +101,17 @@ namespace StateMachine.Editor {
 		}
 		#endregion
 
+		#region Undo/Redo
+		public static void AddEventHandlers() {
+			if (_window != null)
+				Undo.undoRedoPerformed += _window.Repaint;
+		}
+
+		public static void RemoveEventHandlers() {
+			if (_window != null)
+				Undo.undoRedoPerformed -= _window.Repaint;
+		}
+		#endregion
 	}
 
 }

@@ -23,7 +23,9 @@ namespace StateMachine.Editor {
 		public State AddState(Vector2 position) {
 			StateMachine stateMachine = target as StateMachine;
 
+			Undo.RecordObject(stateMachine, "Add new State");
 			State newState = stateMachine.AddState(position);
+			EditorUtility.SetDirty(stateMachine);
 
 			serializedObject.ApplyModifiedProperties();
 			return newState;
