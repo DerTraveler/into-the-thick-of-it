@@ -24,6 +24,7 @@ namespace StateMachine.Editor {
 		}
 
 		private StateMachineEditor _stateMachineEditor;
+		private GUISkin _skin;
 		#endregion
 
 		void OnGUI () {
@@ -42,9 +43,9 @@ namespace StateMachine.Editor {
 		}
 
 		private void DrawState(State state) {
-			GUILayout.BeginArea(new Rect(state.position.x, state.position.y, StateMachineConstants.STATE_WIDTH, StateMachineConstants.STATE_HEIGHT));
+			GUILayout.BeginArea(new Rect(state.position.x, state.position.y, StateMachineConstants.STATE_WIDTH, StateMachineConstants.STATE_HEIGHT), state.name, _skin.window);
 			{
-				GUILayout.Box(state.name, GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
+				
 			}
 			GUILayout.EndArea();
 		}
@@ -58,13 +59,18 @@ namespace StateMachine.Editor {
 		private static void EnsureWindow() {
 			if (_window == null) {
 				_window = GetWindow<StateMachineEditorWindow>(false, "State Machine Editor");
-				AddEventHandlers();
 			}
 		}
 
 		[MenuItem("Window/State Machine Editor")]
 		public static void ShowWindow() {
 			Window.Show();
+			Window.OnEnable();
+		}
+
+		void OnEnable() {
+			AddEventHandlers();
+			_skin = AssetDatabase.LoadAssetAtPath<GUISkin>(StateMachineConstants.SKIN_PATH);
 		}
 
 		void OnDestroy() {
