@@ -11,7 +11,6 @@ using System.Collections;
 namespace StateMachine.Editor {
 
 	public class StateMachineEditorWindow : EditorWindow {
-
 		#region Getter/Setter
 		private StateMachine _stateMachine;
 		public StateMachine StateMachine {
@@ -23,26 +22,9 @@ namespace StateMachine.Editor {
 				this.StateMachine = ScriptableObject.CreateInstance<StateMachine>();
 			}
 		}
-		#endregion
 
 		private StateMachineEditor _stateMachineEditor;
-		private static StateMachineEditorWindow _window;
-		
-		[MenuItem("Window/State Machine Editor")]
-		public static void ShowWindow() {
-			_window = GetWindow<StateMachineEditorWindow>();
-			_window.titleContent = new GUIContent("State Machine Editor");
-		}
-
-		[UnityEditor.Callbacks.OnOpenAsset(1)]
-		public static bool OpenStateMachine(int instanceID, int line) {
-			if (Selection.activeObject as StateMachine != null) {
-				ShowWindow();
-				_window.StateMachine = AssetDatabase.LoadAssetAtPath<StateMachine>(AssetDatabase.GetAssetPath(instanceID));
-				return true;
-			}
-			return false;
-		}
+		#endregion
 
 		void OnGUI () {
 			Event currentEvent = Event.current;
@@ -65,6 +47,35 @@ namespace StateMachine.Editor {
 			}
 			GUILayout.EndArea();
 		}
+
+		#region Window Lifecycle
+		private static StateMachineEditorWindow _window;
+		public static StateMachineEditorWindow Window {
+			get { EnsureWindow(); return _window; }
+		}
+
+		private static void EnsureWindow() {
+			if (_window == null) {
+				_window = GetWindow<StateMachineEditorWindow>(false, "State Machine Editor");
+			}
+		}
+
+		[MenuItem("Window/State Machine Editor")]
+		public static void ShowWindow() {
+			Window.Show();
+		}
+
+		[UnityEditor.Callbacks.OnOpenAsset(1)]
+		public static bool OpenStateMachine(int instanceID, int line) {
+			if (Selection.activeObject as StateMachine != null) {
+				ShowWindow();
+				Window.StateMachine = AssetDatabase.LoadAssetAtPath<StateMachine>(AssetDatabase.GetAssetPath(instanceID));
+				Window.Repaint();
+				return true;
+			}
+			return false;
+		}
+		#endregion
 
 		#region Context Menu
 		private void HandleContextMenu(Event ev) {
