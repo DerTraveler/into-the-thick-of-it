@@ -80,6 +80,29 @@ namespace StateMachine.Editor {
 			}
 			return false;
 		}
+
+		// Added to EditorApplication.playmodeStateChanged callback
+		public static void PlaymodePersistence() {
+			// First is current state, second is next state
+			if (!EditorApplication.isPlaying && EditorApplication.isPlayingOrWillChangePlaymode) {
+				// Save Window state before play mode
+				if (_window != null) {
+					EditorPrefs.SetBool(StateMachineConstants.PREF_VISIBLE, true);
+					EditorPrefs.SetInt(StateMachineConstants.PREF_INSTANCE, _window.StateMachine.GetInstanceID());
+				}
+
+			}
+			if (EditorApplication.isPlaying && !EditorApplication.isPlayingOrWillChangePlaymode) {
+				// Restore window state after play mode
+				if (EditorPrefs.GetBool(StateMachineConstants.PREF_VISIBLE)) {
+					if (EditorPrefs.GetInt(StateMachineConstants.PREF_INSTANCE) != 0) {
+						OpenStateMachine(EditorPrefs.GetInt(StateMachineConstants.PREF_INSTANCE), 0);
+					} else {
+						ShowWindow();
+					}
+				}
+			}
+		}
 		#endregion
 
 		#region Context Menu
@@ -105,6 +128,9 @@ namespace StateMachine.Editor {
 		public static void AddEventHandlers() {
 			if (_window != null)
 				Undo.undoRedoPerformed += _window.Repaint;
+			
+			EditorPrefs.DeleteKey(StateMachineConstants.PREF_VISIBLE);
+			EditorPrefs.DeleteKey(StateMachineConstants.PREF_INSTANCE);
 		}
 
 		public static void RemoveEventHandlers() {

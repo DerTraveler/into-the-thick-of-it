@@ -10,13 +10,12 @@ using System.Collections;
 
 namespace StateMachine.Editor {
 
-	public static class StateMachineConstants {
+	[InitializeOnLoad]
+	public static class StateMachineOnInitialize {
 
-		public static int STATE_WIDTH = 150;
-		public static int STATE_HEIGHT = 50;
-
-		public static string PREF_VISIBLE = "StateMachineEditorVisible";
-		public static string PREF_INSTANCE = "StateMachineEditorInstance";
+		static StateMachineOnInitialize() {
+			EditorApplication.playmodeStateChanged += StateMachineEditorWindow.PlaymodePersistence;
+		}
 	}
 
 }
