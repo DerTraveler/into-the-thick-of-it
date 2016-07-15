@@ -43,11 +43,23 @@ namespace StateMachine.Editor {
 		}
 
 		private void DrawState(State state) {
-			GUILayout.BeginArea(new Rect(state.position.x, state.position.y, StateMachineConstants.STATE_WIDTH, StateMachineConstants.STATE_HEIGHT), state.name, _skin.window);
+			GUILayout.BeginArea(GetStateRect(state), state.name, _skin.window);
 			{
 				
 			}
 			GUILayout.EndArea();
+		}
+
+		private Rect GetStateRect(State state) {
+			return new Rect(state.position.x, state.position.y, StateMachineConstants.STATE_WIDTH, StateMachineConstants.STATE_HEIGHT);
+		}
+
+		private State ClickedState(Vector2 mousePos) {
+			foreach(State state in _stateMachine.States) {
+				if(GetStateRect(state).Contains(mousePos - _canvasPosition))
+					return state;
+			}
+			return null;
 		}
 
 		#region Window Lifecycle
@@ -116,18 +128,36 @@ namespace StateMachine.Editor {
 		private void HandleContextMenu(Event ev) {
 			if (ev.type == EventType.ContextClick) {
 				Vector2 mousePos = ev.mousePosition;
+				State clickedState = ClickedState(mousePos);
 				GenericMenu contextMenu = new GenericMenu();
-				contextMenu.AddItem(new GUIContent("Create State"), false, this.CreateState, mousePos);
+				if (clickedState != null) {
+					AddStateContextMenu(contextMenu, clickedState);
+				} else {
+					AddBackgroundContextMenu(contextMenu, mousePos);
+				}
 				contextMenu.ShowAsContext();
 				ev.Use();
 			}
 		}
 
-		private void CreateState(object position) {
-			Vector2 statePosition = (Vector2) position;
-			statePosition.Set(statePosition.x - StateMachineConstants.STATE_WIDTH / 2f - CanvasPosition.x, 
-							  statePosition.y - StateMachineConstants.STATE_HEIGHT / 2f - CanvasPosition.y);
-			_stateMachineEditor.AddState(statePosition);
+		private void AddBackgroundContextMenu(GenericMenu contextMenu, Vector2 mousePos) {
+			contextMenu.AddItem(new GUIContent("Create State"), false, this.CreateState, mousePos);
+		}
+
+		private void AddStateContextMenu(GenericMenu contextMenu, State state) {
+			contextMenu.AddItem(new GUIContent("Delete State"), false, this.RemoveState, state);
+		}
+
+		private void CreateState(object argument) {
+			Vector2 position = (Vector2) argument;
+			position.Set(position.x - StateMachineConstants.STATE_WIDTH / 2f - CanvasPosition.x, 
+					     position.y - StateMachineConstants.STATE_HEIGHT / 2f - CanvasPosition.y);
+			_stateMachineEditor.AddState(position);
+		}
+
+		private void RemoveState(object argument) {
+			State state = (State) argument;
+			_stateMachineEditor.RemoveState(state);
 		}
 		#endregion
 		

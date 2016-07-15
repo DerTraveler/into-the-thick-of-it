@@ -25,5 +25,9 @@ namespace StateMachine {
 			return newState;
 		}
 
+		public void RemoveState(State state) {
+			_states.Remove(state);
+		}
+
 	}
 }

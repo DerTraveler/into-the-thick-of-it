@@ -31,6 +31,16 @@ namespace StateMachine.Editor {
 			return newState;
 		}
 
+		public void RemoveState(State state) {
+			StateMachine stateMachine = target as StateMachine;
+
+			Undo.RecordObject(stateMachine, "Remove state '" + state.name + "'");
+			stateMachine.RemoveState(state);
+			EditorUtility.SetDirty(stateMachine);
+
+			serializedObject.ApplyModifiedProperties();
+		}
+
 		public override void OnInspectorGUI() {
 			serializedObject.Update();
 
