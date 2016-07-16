@@ -9,25 +9,26 @@ using System.Collections.Generic;
 
 namespace StateMachine {
 
-	[CreateAssetMenu(fileName = "NewStateMachine.asset", menuName = "State Machine", order = 101)]
-	public class StateMachine : ScriptableObject {
+    [CreateAssetMenu(fileName = "NewStateMachine.asset", menuName = "State Machine", order = 101)]
+    public class StateMachine : ScriptableObject {
 
-		[SerializeField] private int _nextStateId = 0;
-		[SerializeField] private List<State> _states = new List<State>();
-		public State[] States {
-			get { return _states.ToArray(); }
-		}
+        [SerializeField] int _nextStateId;
+        [SerializeField] List<State> _states = new List<State>();
 
-		public State AddState(Vector2 position) {
-			State newState = new State(_nextStateId, position);
-			_states.Add(newState);
-			_nextStateId++;
-			return newState;
-		}
+        public State[] States {
+            get { return _states.ToArray(); }
+        }
 
-		public void RemoveState(State state) {
-			_states.Remove(state);
-		}
+        public State AddState(Vector2 position) {
+            var newState = new State(_nextStateId, position);
+            _states.Add(newState);
+            _nextStateId++;
+            return newState;
+        }
 
-	}
+        public void RemoveState(State state) {
+            _states.Remove(state);
+        }
+
+    }
 }

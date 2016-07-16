@@ -8,21 +8,20 @@ using UnityEngine;
 
 namespace States {
 
-	public class PlayerIdle : PlayerBase {
+    public class PlayerIdle : PlayerBase {
 
-		public override State<Player> HandleInput(Player subject) {
-			subject.MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-			if (subject.MoveDirection.sqrMagnitude > float.Epsilon) {
-				return Player.States.WALKING;
-			}
-			return base.HandleInput(subject);
-		}
+        public override State<Player> HandleInput(Player subject) {
+            subject.MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-		public override void Update(Player subject) {
-			subject.Animator.Play(subject.DirectedAnimationName(Player.Animations.IDLE));
-		}
+            return subject.MoveDirection.sqrMagnitude > float.Epsilon ? 
+                Player.States.WALKING : base.HandleInput(subject);
+        }
 
-	}
+        public override void Update(Player subject) {
+            subject.Animator.Play(subject.DirectedAnimationName(Player.Animations.IDLE));
+        }
+
+    }
 
 }
 

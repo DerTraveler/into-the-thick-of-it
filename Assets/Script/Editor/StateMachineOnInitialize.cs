@@ -4,18 +4,16 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-using UnityEngine;
 using UnityEditor;
-using System.Collections;
 
 namespace StateMachine.Editor {
 
-	[InitializeOnLoad]
-	public static class StateMachineOnInitialize {
+    [InitializeOnLoad]
+    public static class StateMachineOnInitialize {
 
-		static StateMachineOnInitialize() {
-			EditorApplication.playmodeStateChanged += StateMachineEditorWindow.PlaymodePersistence;
-		}
-	}
+        static StateMachineOnInitialize() {
+            EditorApplication.playmodeStateChanged += StateMachineEditorWindow.PlaymodePersistence;
+        }
+    }
 
 }

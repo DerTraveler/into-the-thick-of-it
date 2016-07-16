@@ -9,25 +9,25 @@ using UnityEngine.SceneManagement;
 
 namespace States {
 
-	public class PlayerDead : PlayerBase {
+    public class PlayerDead : PlayerBase {
 
-		public override void Entry(Player subject) {
-			subject.TriggerGameOver();
-		}
+        public override void Entry(Player subject) {
+            subject.TriggerGameOver();
+        }
 
-		public override State<Player> HandleInput(Player subject) {
-			if (Input.GetButtonDown("Attack")) {
-				int scene = SceneManager.GetActiveScene().buildIndex; 
-				SceneManager.LoadScene(scene, LoadSceneMode.Single); 
-			}
-			return null;
-		}
+        public override State<Player> HandleInput(Player subject) {
+            if (Input.GetButtonDown("Attack")) {
+                int scene = SceneManager.GetActiveScene().buildIndex; 
+                SceneManager.LoadScene(scene, LoadSceneMode.Single); 
+            }
+            return null;
+        }
 
-		public override bool ReceiveDamage(int damage) { 
-			return false;
-		}
+        public override bool ReceiveDamage(int damage) { 
+            return false;
+        }
 
-	}
+    }
 
 }
 

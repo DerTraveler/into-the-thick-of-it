@@ -4,24 +4,20 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-using UnityEngine;
-using UnityEditor;
-using System.Collections;
-
 namespace StateMachine.Editor {
 
-	public static class StateMachineConstants {
+    public static class StateMachineConstants {
 
-		public static int STATE_WIDTH = 150;
-		public static int STATE_HEIGHT = 50;
+        public static int STATE_WIDTH = 150;
+        public static int STATE_HEIGHT = 50;
 
-		public static string PREF_VISIBLE = "StateMachineEditorVisible";
-		public static string PREF_INSTANCE = "StateMachineEditorInstance";
+        public static string PREF_VISIBLE = "StateMachineEditorVisible";
+        public static string PREF_INSTANCE = "StateMachineEditorInstance";
 
-		public static int CANVAS_WIDTH = 2000;
-		public static int CANVAS_HEIGHT = 2000;
+        public static int CANVAS_WIDTH = 2000;
+        public static int CANVAS_HEIGHT = 2000;
 
-		public static string SKIN_PATH = @"Assets/Script/Editor/Resources/EditorSkin.guiskin";
-	}
+        public static string SKIN_PATH = @"Assets/Script/Editor/Resources/EditorSkin.guiskin";
+    }
 
 }

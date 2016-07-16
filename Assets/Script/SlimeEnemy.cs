@@ -5,116 +5,116 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 using UnityEngine;
-using System.Collections;
 using States;
 
 public class SlimeEnemy : Actor {
 
-	private Player player;
+    Player player;
 
-	public ParticleSystem deathAnimation;
-	public float maxHitPoints = 3;
+    public ParticleSystem deathAnimation;
+    public float maxHitPoints = 3;
 
-	public float maxStamina = 100.0f;
-	public float staminaRegeneration = 60.0f;
+    public float maxStamina = 100.0f;
+    public float staminaRegeneration = 60.0f;
 
-	public float distancePerJump = 0.5f;
-	public float staminaPerJump = 10.0f;
+    public float distancePerJump = 0.5f;
+    public float staminaPerJump = 10.0f;
 
-	public GameObject dropItem;
-	public float dropChance = 0.1f;
+    public GameObject dropItem;
+    public float dropChance = 0.1f;
 
-	public static class Animations {
-		public const string IDLE = "Idle";
-		public const string JUMP = "Jump";
-		public const string HURT = "Hurt";
-		public const string RECOVER = "Recover";
-		public const string BITE = "Bite";
-	}
+    public static class Animations {
+        public const string IDLE = "Idle";
+        public const string JUMP = "Jump";
+        public const string HURT = "Hurt";
+        public const string RECOVER = "Recover";
+        public const string BITE = "Bite";
+    }
 
-	public static class States {
-		public static SlimeEnemyIdle IDLE = new SlimeEnemyIdle();
-		public static SlimeEnemyFollow FOLLOW = new SlimeEnemyFollow();
-		public static SlimeEnemyDead DEAD = new SlimeEnemyDead();
-		public static SlimeEnemyBiting BITING = new SlimeEnemyBiting();
-	}
+    public static class States {
+        public static SlimeEnemyIdle IDLE = new SlimeEnemyIdle();
+        public static SlimeEnemyFollow FOLLOW = new SlimeEnemyFollow();
+        public static SlimeEnemyDead DEAD = new SlimeEnemyDead();
+        public static SlimeEnemyBiting BITING = new SlimeEnemyBiting();
+    }
 
-	private readonly SlimeEnemyJumping _jumpingState = new SlimeEnemyJumping();
+    readonly SlimeEnemyJumping _jumpingState = new SlimeEnemyJumping();
 
-	public SlimeEnemyJumping JumpingState(Vector2 jumpGoal, State<SlimeEnemy> afterJump) {
-		_jumpingState.jumpGoal = jumpGoal;
-		_jumpingState.afterJumpState = afterJump;
-		return _jumpingState;
-	}
+    public SlimeEnemyJumping JumpingState(Vector2 jumpGoal, State<SlimeEnemy> afterJump) {
+        _jumpingState.jumpGoal = jumpGoal;
+        _jumpingState.afterJumpState = afterJump;
+        return _jumpingState;
+    }
 
-	private SlimeEnemyAI _state = States.IDLE;
+    SlimeEnemyAI _state = States.IDLE;
 
-	public float currentHitPoints;
+    public float currentHitPoints;
 
-	private float _currentStamina;
-	public float CurrentStamina { get { return _currentStamina; } }
+    float _currentStamina;
 
-	float distanceFromPlayer {
-		get { return (player.transform.position - transform.position).magnitude; }
-	}
+    public float CurrentStamina { get { return _currentStamina; } }
 
-	public Vector2 PlayerDirection {
-		get { return (player.transform.position - transform.position); }
-	}
+    float distanceFromPlayer {
+        get { return (player.transform.position - transform.position).magnitude; }
+    }
 
-	void Start () {
-		player = FindObjectOfType<Player>();
-		currentHitPoints = maxHitPoints;
-		_currentStamina = maxStamina;
-	}
+    public Vector2 PlayerDirection {
+        get { return (player.transform.position - transform.position); }
+    }
 
-	// Update is called once per frame
-	void FixedUpdate () {
-		_state.Update(this);
+    void Start() {
+        player = FindObjectOfType<Player>();
+        currentHitPoints = maxHitPoints;
+        _currentStamina = maxStamina;
+    }
 
-		SlimeEnemyAI newState = _state.HandleInput(this) as SlimeEnemyAI;
+    // Update is called once per frame
+    void FixedUpdate() {
+        _state.Update(this);
 
-		if (newState != null) {
-			_state.Exit(this);
-			newState.Entry(this);
-			_state = newState;
-		}
-	}
+        var newState = _state.HandleInput(this) as SlimeEnemyAI;
 
-	public float Rest() {
-		float oldStamina = _currentStamina;
-		_currentStamina = Mathf.Min(_currentStamina + staminaRegeneration * Time.deltaTime, maxStamina);
-		return _currentStamina - oldStamina;
-	}
+        if (newState != null) {
+            _state.Exit(this);
+            newState.Entry(this);
+            _state = newState;
+        }
+    }
 
-	public float JumpExhaustion() {
-		float oldStamina = _currentStamina;
-		_currentStamina -= (staminaPerJump + Random.Range(-3, 3));
-		return oldStamina - _currentStamina;
-	}
+    public float Rest() {
+        float oldStamina = _currentStamina;
+        _currentStamina = Mathf.Min(_currentStamina + staminaRegeneration * Time.deltaTime, maxStamina);
+        return _currentStamina - oldStamina;
+    }
 
-	public bool IsPlayerInFrontOfMe() {
-		Vector2 playerPos = player.transform.position;
-		Rect attackRect = new Rect(transform.position.x - 0.6f, transform.position.y - 0.2f, 1.2f, 0.4f);
-		return attackRect.Contains(playerPos);
-	}
+    public float JumpExhaustion() {
+        float oldStamina = _currentStamina;
+        _currentStamina -= (staminaPerJump + Random.Range(-3, 3));
+        return oldStamina - _currentStamina;
+    }
 
-	public override bool ReceiveDamage(int damage) {
-		return _state.ReceiveDamage(damage);
-	}
+    public bool IsPlayerInFrontOfMe() {
+        Vector2 playerPos = player.transform.position;
+        var attackRect = new Rect(transform.position.x - 0.6f, transform.position.y - 0.2f, 1.2f, 0.4f);
+        return attackRect.Contains(playerPos);
+    }
 
-	public void Die() {
-		PrepareDeath();
-		body.GetComponent<SpriteRenderer>().enabled = false;
+    public override bool ReceiveDamage(int damage) {
+        return _state.ReceiveDamage(damage);
+    }
 
-		SendDeathNotification();
+    public void Die() {
+        PrepareDeath();
+        body.GetComponent<SpriteRenderer>().enabled = false;
 
-		deathAnimation.Play();
+        SendDeathNotification();
 
-		if (Random.value < dropChance) {
-			Instantiate(dropItem, transform.position, Quaternion.identity);
-		}
-		Destroy(gameObject, 0.5f);
-	}
+        deathAnimation.Play();
+
+        if (Random.value < dropChance) {
+            Instantiate(dropItem, transform.position, Quaternion.identity);
+        }
+        Destroy(gameObject, 0.5f);
+    }
 		
 }

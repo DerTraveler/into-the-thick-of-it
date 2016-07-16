@@ -9,64 +9,69 @@ using States;
 
 public class Player : Actor {
 
-	public int maxHealth = 5;
-	private int _health;
-	public int Health {
-		get { return _health; }
-		set { _health = Mathf.Min(value, maxHealth); UpdateHealthText(); }
-	}
-	public float speed = 2.5f;
+    public int maxHealth = 5;
+    int _health;
 
-	public UnityEngine.UI.Text healthText;
-	public UnityEngine.UI.Text gameOverText;
+    public int Health {
+        get { return _health; }
+        set {
+            _health = Mathf.Min(value, maxHealth);
+            UpdateHealthText();
+        }
+    }
 
-	public static class Animations {
-		public const string IDLE = "Idle";
-		public const string WALKING = "Walking";
-		public const string HURT = "Hurt";
-		public const string ATTACKING = "Attacking";
-	}
+    public float speed = 2.5f;
 
-	public static class States {
-		public static PlayerIdle IDLE = new PlayerIdle();
-		public static PlayerWalking WALKING = new PlayerWalking();
-		public static PlayerDead DEAD = new PlayerDead();
-	}
+    public UnityEngine.UI.Text healthText;
+    public UnityEngine.UI.Text gameOverText;
 
-	private PlayerBase _state = States.IDLE;
+    public static class Animations {
+        public const string IDLE = "Idle";
+        public const string WALKING = "Walking";
+        public const string HURT = "Hurt";
+        public const string ATTACKING = "Attacking";
+    }
 
-	void Start () {
-		Animator.SetFloat("Speed", speed);
-		Health = maxHealth;
-	}
+    public static class States {
+        public static PlayerIdle IDLE = new PlayerIdle();
+        public static PlayerWalking WALKING = new PlayerWalking();
+        public static PlayerDead DEAD = new PlayerDead();
+    }
 
-	// Update is called once per frame
-	void Update () {
-		_state.Update(this);
+    PlayerBase _state = States.IDLE;
 
-		PlayerBase newState = _state.HandleInput(this) as PlayerBase;
+    void Start() {
+        Animator.SetFloat("Speed", speed);
+        Health = maxHealth;
+    }
 
-		if (newState != null) {
-			_state.Exit(this);
-			newState.Entry(this);
-			_state = newState;
-		}
-	}
+    // Update is called once per frame
+    void Update() {
+        _state.Update(this);
 
-	public override bool ReceiveDamage(int damage) {
-		return _state.ReceiveDamage(damage);
-	}
+        var newState = _state.HandleInput(this) as PlayerBase;
 
-	private void UpdateHealthText() {
-		healthText.color = _health < 2 ? Color.red : Color.yellow;
-		healthText.text = _health > 0 ? new string('0', _health) : "";
-	}
+        if (newState != null) {
+            _state.Exit(this);
+            newState.Entry(this);
+            _state = newState;
+        }
+    }
 
-	public void TriggerGameOver() {
-		PrepareDeath();
-		GetComponent<SpriteRenderer>().enabled = false;
+    public override bool ReceiveDamage(int damage) {
+        return _state.ReceiveDamage(damage);
+    }
 
-		gameOverText.enabled = true;
-	}
+    void UpdateHealthText() {
+        healthText.color = _health < 2 ? Color.red : Color.yellow;
+        healthText.text = _health > 0 ? new string('0', _health) : "";
+    }
+
+    public void TriggerGameOver() {
+        PrepareDeath();
+        GetComponent<SpriteRenderer>().enabled = false;
+
+        gameOverText.enabled = true;
+    }
 
 }

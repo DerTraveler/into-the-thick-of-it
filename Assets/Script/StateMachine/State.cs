@@ -5,27 +5,27 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 using UnityEngine;
-using System.Collections.Generic;
 
 namespace StateMachine {
 
-	[System.Serializable]
-	public class State {
+    [System.Serializable]
+    public class State {
 
-		[SerializeField] private int _id;
-		public int id {
-			get { return _id; }
-		}
+        [SerializeField] int _id;
 
-		public string name;
-		public Vector2 position;
+        public int id {
+            get { return _id; }
+        }
 
-		public State(int id, Vector2 position) {
-			_id = id;
-			name = "NewState";
-			this.position = position;
-		}
+        public string name;
+        public Vector2 position;
 
-	}
+        public State(int id, Vector2 position) {
+            _id = id;
+            name = "NewState";
+            this.position = position;
+        }
+
+    }
 
 }

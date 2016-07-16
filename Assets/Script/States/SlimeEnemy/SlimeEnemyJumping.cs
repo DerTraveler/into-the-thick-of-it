@@ -8,48 +8,48 @@ using UnityEngine;
 
 namespace States {
 
-	public class SlimeEnemyJumping : SlimeEnemyAI  {
+    public class SlimeEnemyJumping : SlimeEnemyAI {
 
-		public Vector2 jumpGoal;
-		public State<SlimeEnemy> afterJumpState;
+        public Vector2 jumpGoal;
+        public State<SlimeEnemy> afterJumpState;
 
-		private Vector2 _jumpOrigin;
+        Vector2 _jumpOrigin;
 
-		private const float _startTime = 0.305f;
-		private const float _endTime = 0.78f;
-		private float duration {
-			get { return _endTime - _startTime; }
-		}
+        const float _startTime = 0.305f;
+        const float _endTime = 0.78f;
 
-		public override void Entry(SlimeEnemy subject) {
-			subject.JumpExhaustion();
+        static float duration {
+            get { return _endTime - _startTime; }
+        }
 
-			_jumpOrigin = subject.transform.position;
-			if (Mathf.Abs(jumpGoal.x) > Mathf.Abs(jumpGoal.y)) {
-				subject.MoveDirection = new Vector2(Mathf.Sign(jumpGoal.x) * 1.0f, 0f);
-			} else {
-				subject.MoveDirection = new Vector2(0f, Mathf.Sign(jumpGoal.y) * 1.0f);
-			}
+        public override void Entry(SlimeEnemy subject) {
+            subject.JumpExhaustion();
 
-			subject.Animator.Play(SlimeEnemy.Animations.JUMP, 0, 0f);
-		}
+            _jumpOrigin = subject.transform.position;
+            subject.MoveDirection = Mathf.Abs(jumpGoal.x) > Mathf.Abs(jumpGoal.y) ? 
+                new Vector2(Mathf.Sign(jumpGoal.x) * 1.0f, 0f) : new Vector2(0f, Mathf.Sign(jumpGoal.y) * 1.0f);
 
-		public override State<SlimeEnemy> HandleInput(SlimeEnemy subject) {
-			State<SlimeEnemy> aiDecision = base.HandleInput(subject);
-			if (IsHighPriorityState(aiDecision))
-				return aiDecision;
+            subject.Animator.Play(SlimeEnemy.Animations.JUMP, 0, 0f);
+        }
+
+        public override State<SlimeEnemy> HandleInput(SlimeEnemy subject) {
+            State<SlimeEnemy> aiDecision = base.HandleInput(subject);
+            if (IsHighPriorityState(aiDecision))
+                return aiDecision;
 			
-			return subject.IsAnimationFinished() ? afterJumpState : null;
-		}
+            return subject.IsAnimationFinished() ? 
+                afterJumpState : null;
+        }
 
-		public override void Update(SlimeEnemy subject) {
-			if (subject.GetAnimationTime() > _startTime) {
-				Vector2 newPos = _jumpOrigin + Mathf.Lerp(0, subject.distancePerJump, (subject.GetAnimationTime() - _startTime) / duration ) * subject.MoveDirection;
-				subject.transform.position = newPos;
-			}
-		}
+        public override void Update(SlimeEnemy subject) {
+            if (subject.GetAnimationTime() > _startTime) {
+                Vector2 newPos = _jumpOrigin +
+                                 Mathf.Lerp(0, subject.distancePerJump, (subject.GetAnimationTime() - _startTime) / duration) * subject.MoveDirection;
+                subject.transform.position = newPos;
+            }
+        }
 
-	}
+    }
 
 }
 

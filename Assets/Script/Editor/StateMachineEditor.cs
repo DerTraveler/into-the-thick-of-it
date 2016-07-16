@@ -10,73 +10,71 @@ using System.Collections.Generic;
 
 namespace StateMachine.Editor {
 
-	[CustomEditor(typeof(StateMachine))]
-	public class StateMachineEditor : UnityEditor.Editor {
+    [CustomEditor(typeof(StateMachine))]
+    public class StateMachineEditor : UnityEditor.Editor {
 
-		private static UnityEditor.Editor _editor;
+        static UnityEditor.Editor _editor;
 
-		public static StateMachineEditor GetEditor(StateMachine stateMachine) {
-			UnityEditor.Editor.CreateCachedEditor(stateMachine, typeof(StateMachineEditor), ref _editor);
-			return _editor as StateMachineEditor;
-		}
+        public static StateMachineEditor GetEditor(StateMachine stateMachine) {
+            UnityEditor.Editor.CreateCachedEditor(stateMachine, typeof(StateMachineEditor), ref _editor);
+            return _editor as StateMachineEditor;
+        }
 
-		#region ScriptableObject-Wrapper
-		public List<StateInEditor> states = new List<StateInEditor>();
+        #region ScriptableObject-Wrapper
+        public List<StateInEditor> states = new List<StateInEditor>();
 
-		void OnEnable () {
-			ReadStatesIntoEditor();
-		}
+        public void ReadStatesIntoEditor() {
+            var stateMachine = target as StateMachine;
+            if (stateMachine != null) {
+                states.Clear();
+                foreach (State state in stateMachine.States) {
+                    StateInEditor converted = ScriptableObject.CreateInstance<StateInEditor>();
+                    converted.Initialize(state);
+                    states.Add(converted);
+                }
+            }
+        }
+        #endregion
 
-		private void ReadStatesIntoEditor() {
-			StateMachine stateMachine = target as StateMachine;
-			foreach (State state in stateMachine.States) {
-				StateInEditor converted = ScriptableObject.CreateInstance<StateInEditor>();
-				converted.Initialize(state);
-				states.Add(converted);
-			}
-		}
-		#endregion
+        #region Actions
+        public StateInEditor AddState(Vector2 position) {
+            var stateMachine = target as StateMachine;
+            Undo.RecordObject(stateMachine, "Add new State");
+            State newState = stateMachine.AddState(position);
 
-		#region Actions
-		public State AddState(Vector2 position) {
-			StateMachine stateMachine = target as StateMachine;
-			Undo.RecordObject(stateMachine, "Add new State");
-			State newState = stateMachine.AddState(position);
+            StateInEditor inEditor = ScriptableObject.CreateInstance<StateInEditor>();
+            Undo.RegisterCreatedObjectUndo(inEditor, "Add new State");
+            inEditor.Initialize(newState);
 
-			StateInEditor inEditor = ScriptableObject.CreateInstance<StateInEditor>();
-			Undo.RegisterCreatedObjectUndo(inEditor, "Add new State");
-			inEditor.Initialize(newState);
+            Undo.RecordObject(this, "Add new State");
+            states.Add(inEditor);
 
-			Undo.RecordObject(this, "Add new State");
-			states.Add(inEditor);
+            EditorUtility.SetDirty(stateMachine);
 
-			EditorUtility.SetDirty(stateMachine);
+            serializedObject.ApplyModifiedProperties();
+            return inEditor;
+        }
 
-			serializedObject.ApplyModifiedProperties();
-			return newState;
-		}
+        public void RemoveState(StateInEditor state) {
+            var stateMachine = target as StateMachine;
+            Undo.RecordObject(stateMachine, "Remove state");
+            stateMachine.RemoveState(state.source);
 
-		public void RemoveState(StateInEditor state) {
-			StateMachine stateMachine = target as StateMachine;
-			Undo.RecordObject(stateMachine, "Remove state");
-			stateMachine.RemoveState(state.source);
+            Undo.RecordObject(this, "Remove state");
+            states.Remove(state);
 
-			Undo.DestroyObjectImmediate(state);
+            Undo.DestroyObjectImmediate(state);
 
-			Undo.RecordObject(this, "Remove state");
-			states.Remove(state);
+            EditorUtility.SetDirty(stateMachine);
+            serializedObject.ApplyModifiedProperties();
+        }
+        #endregion
 
-			EditorUtility.SetDirty(stateMachine);
+        public override void OnInspectorGUI() {
+            serializedObject.Update();
 
-			serializedObject.ApplyModifiedProperties();
-		}
-		#endregion
-
-		public override void OnInspectorGUI() {
-			serializedObject.Update();
-
-			serializedObject.ApplyModifiedProperties();
-		}
-	}
+            serializedObject.ApplyModifiedProperties();
+        }
+    }
 
 }

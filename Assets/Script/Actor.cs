@@ -5,100 +5,102 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 using UnityEngine;
-using System.Collections;
 
 public abstract class Actor : MonoBehaviour {
 
-	public GameObject body;
-	private SpriteRenderer rend;
+    public GameObject body;
+    SpriteRenderer rend;
 
-	private Animator _animator;
-	public Animator Animator { get { return _animator; } }
+    Animator _animator;
 
-	private Vector2 _faceDirection = new Vector2(0, -1);
-	public Vector2 FaceDirection { 
-		get { return _faceDirection; } 
-		set { 
-			_faceDirection = value;
-			FlipIfNecessary();
-		}
-	}
+    public Animator Animator { get { return _animator; } }
 
-	private Vector2 _moveDirection = new Vector2(0, 0);
-	public Vector2 MoveDirection { 
-		get { return _moveDirection; } 
-		set { 
-			_moveDirection = value;
-			UpdateFaceDirection();
-		}
-	}
+    Vector2 _faceDirection = new Vector2(0, -1);
 
-	private void UpdateFaceDirection() {
-		if (Mathf.Approximately(MoveDirection.sqrMagnitude, 1.0f)) {
-			FaceDirection = MoveDirection;
-		}
-	}
+    public Vector2 FaceDirection { 
+        get { return _faceDirection; } 
+        set { 
+            _faceDirection = value;
+            FlipIfNecessary();
+        }
+    }
 
-	private void FlipIfNecessary() {
-		Vector3 scale = transform.localScale;
-		float scaleX = Mathf.Abs(scale.x);
-		scale.Set(Mathf.Approximately(FaceDirection.x, -1.0f) ? -scaleX: scaleX, scale.y, scale.z);
-		transform.localScale = scale;
-	}
+    Vector2 _moveDirection = new Vector2(0, 0);
 
-	public string DirectedAnimationName(string animationName) {
-		if (FaceDirection.y > 0) {
-			return animationName + "Up";
-		} else if (FaceDirection.y < 0) {
-			return animationName + "Down";
-		} else {
-			return animationName + "Side";
-		}
-	}
+    public Vector2 MoveDirection { 
+        get { return _moveDirection; } 
+        set { 
+            _moveDirection = value;
+            UpdateFaceDirection();
+        }
+    }
 
-	void Awake () {
-		rend = body.GetComponent<SpriteRenderer>();
-		_animator = GetComponent<Animator>();
+    void UpdateFaceDirection() {
+        if (Mathf.Approximately(MoveDirection.sqrMagnitude, 1.0f)) {
+            FaceDirection = MoveDirection;
+        }
+    }
 
-		gameObject.AddComponent<PixelPerfectPositioner>();
-		gameObject.AddComponent<KeepInBounds>();
-	}
+    void FlipIfNecessary() {
+        Vector3 scale = transform.localScale;
+        float scaleX = Mathf.Abs(scale.x);
+        scale.Set(Mathf.Approximately(FaceDirection.x, -1.0f) ? -scaleX : scaleX, scale.y, scale.z);
+        transform.localScale = scale;
+    }
 
-	void LateUpdate () {
-		if (rend.isVisible) {
-			// Dynamic draw order based on y-coordinate
-			rend.sortingOrder = (int) (body.transform.position.y * 64.0 * -1.0f);
-		}
-	}
+    public string DirectedAnimationName(string animationName) {
+        if (FaceDirection.y > 0) {
+            return animationName + "Up";
+        } else if (FaceDirection.y < 0) {
+            return animationName + "Down";
+        } else {
+            return animationName + "Side";
+        }
+    }
 
-	public float GetAnimationTime(int layer = 0) {
-		return Animator.GetCurrentAnimatorStateInfo(layer).normalizedTime;
-	}
+    void Awake() {
+        rend = body.GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
 
-	public bool IsAnimationFinished(int layer = 0) {
-		return GetAnimationTime(layer) >= 1.0f;
-	}
+        gameObject.AddComponent<PixelPerfectPositioner>();
+        gameObject.AddComponent<KeepInBounds>();
+    }
 
-	public Spawner spawnedBy = null;
+    void LateUpdate() {
+        if (rend.isVisible) {
+            // Dynamic draw order based on y-coordinate
+            rend.sortingOrder = (int) (body.transform.position.y * 64.0 * -1.0f);
+        }
+    }
 
-	// Receive damage, returns true if the object was really hurt
-	public abstract bool ReceiveDamage(int damage);
+    public float GetAnimationTime(int layer = 0) {
+        return Animator.GetCurrentAnimatorStateInfo(layer).normalizedTime;
+    }
 
-	public Object[] destroyOnDeath;
+    public bool IsAnimationFinished(int layer = 0) {
+        return GetAnimationTime(layer) >= 1.0f;
+    }
 
-	protected void PrepareDeath() {
-		foreach (Object o in destroyOnDeath) {
-			Destroy(o);
-		}
-	}
+    public Spawner spawnedBy;
 
-	protected void SendDeathNotification() {
-		if (spawnedBy) {
-			spawnedBy.NotifyOfDeath(this);
-		}
-	}
+    // Receive damage, returns true if the object was really hurt
+    public abstract bool ReceiveDamage(int damage);
 
-	protected void PlaySoundEffect(AudioClip clip) {
-		AudioManager.instance.PlaySound(clip);
-	}
+    public Object[] destroyOnDeath;
+
+    protected void PrepareDeath() {
+        foreach (Object o in destroyOnDeath) {
+            Destroy(o);
+        }
+    }
+
+    protected void SendDeathNotification() {
+        if (spawnedBy) {
+            spawnedBy.NotifyOfDeath(this);
+        }
+    }
+
+    protected void PlaySoundEffect(AudioClip clip) {
+        AudioManager.instance.PlaySound(clip);
+    }
 }

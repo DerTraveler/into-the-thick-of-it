@@ -4,36 +4,34 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-using UnityEngine;
-
 namespace States {
 
-	public abstract class SlimeEnemyAI : State<SlimeEnemy>  {
+    public abstract class SlimeEnemyAI : State<SlimeEnemy> {
 
-		private int _receivedDamage = 0;
+        int _receivedDamage;
 
-		public override State<SlimeEnemy> HandleInput(SlimeEnemy subject) {
-			if (_receivedDamage > 0) {
-				int damage = _receivedDamage;
-				_receivedDamage = 0;
-				return new SlimeEnemyHurt(this, damage);
-			} else if (subject.IsPlayerInFrontOfMe()) {
-				return SlimeEnemy.States.BITING;
-			} else {
-				return SlimeEnemy.States.FOLLOW;	
-			}
-		}
+        public override State<SlimeEnemy> HandleInput(SlimeEnemy subject) {
+            if (_receivedDamage > 0) {
+                int damage = _receivedDamage;
+                _receivedDamage = 0;
+                return new SlimeEnemyHurt(this, damage);
+            } else if (subject.IsPlayerInFrontOfMe()) {
+                return SlimeEnemy.States.BITING;
+            } else {
+                return SlimeEnemy.States.FOLLOW;	
+            }
+        }
 
-		public virtual bool ReceiveDamage(int damage) { 
-			_receivedDamage = damage;
-			return true;
-		}
+        public virtual bool ReceiveDamage(int damage) { 
+            _receivedDamage = damage;
+            return true;
+        }
 
-		protected bool IsHighPriorityState(State<SlimeEnemy> state) {
-			return state is SlimeEnemyHurt;
-		}
+        protected bool IsHighPriorityState(State<SlimeEnemy> state) {
+            return state is SlimeEnemyHurt;
+        }
 
-	}
+    }
 
 }
 

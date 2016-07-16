@@ -8,25 +8,24 @@ using UnityEngine;
 
 namespace States {
 
-	public class SlimeEnemyIdle : SlimeEnemyAI  {
+    public class SlimeEnemyIdle : SlimeEnemyAI {
 
-		public override State<SlimeEnemy> HandleInput(SlimeEnemy subject) {
-			State<SlimeEnemy> aiDecision = base.HandleInput(subject);
-			if (IsHighPriorityState(aiDecision))
-				return aiDecision;
+        public override State<SlimeEnemy> HandleInput(SlimeEnemy subject) {
+            State<SlimeEnemy> aiDecision = base.HandleInput(subject);
+            if (IsHighPriorityState(aiDecision))
+                return aiDecision;
 
-			if (Mathf.Approximately(subject.CurrentStamina, subject.maxStamina))
-				return aiDecision;
-			return null;
-		}
+            return Mathf.Approximately(subject.CurrentStamina, subject.maxStamina) ? 
+                aiDecision : null;
+        }
 
-		public override void Update(SlimeEnemy subject) {
-			subject.Animator.Play(SlimeEnemy.Animations.IDLE);
+        public override void Update(SlimeEnemy subject) {
+            subject.Animator.Play(SlimeEnemy.Animations.IDLE);
 
-			subject.Rest();
-		}
+            subject.Rest();
+        }
 
-	}
+    }
 
 }
 

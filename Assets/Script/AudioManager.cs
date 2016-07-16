@@ -5,39 +5,38 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 using UnityEngine;
-using System.Collections;
 
 public class AudioManager : MonoBehaviour {
 
-	public AudioSource musicSource;
-	public AudioSource[] sfxSources;
+    public AudioSource musicSource;
+    public AudioSource[] sfxSources;
 
-	public static AudioManager instance = null;
+    public static AudioManager instance;
 
-	void Awake() {
-		if (instance == null) {
-			instance = this;
-		} else if (instance != this) {
-			Destroy(gameObject);
-		}
-		DontDestroyOnLoad(gameObject);
-	}
+    void Awake() {
+        if (instance == null) {
+            instance = this;
+        } else if (instance != this) {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
 
-	public void PlaySound(AudioClip clip) {
-		AudioSource freeSource = null;
+    public void PlaySound(AudioClip clip) {
+        AudioSource freeSource = null;
 
-		foreach (AudioSource src in sfxSources) {
-			if (!src.isPlaying) {
-				freeSource = src;
-			}
-			if (src.clip == clip && src.isPlaying) {
-				return;
-			}
-		}
-		if (freeSource != null) {
-			freeSource.clip = clip;
-			freeSource.Play();	
-		}
-	}
+        foreach (AudioSource src in sfxSources) {
+            if (!src.isPlaying) {
+                freeSource = src;
+            }
+            if (src.clip == clip && src.isPlaying) {
+                return;
+            }
+        }
+        if (freeSource != null) {
+            freeSource.clip = clip;
+            freeSource.Play();	
+        }
+    }
 
 }

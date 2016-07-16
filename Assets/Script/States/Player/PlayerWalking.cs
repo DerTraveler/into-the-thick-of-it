@@ -8,24 +8,23 @@ using UnityEngine;
 
 namespace States {
 
-	public class PlayerWalking : PlayerBase {
+    public class PlayerWalking : PlayerBase {
 
-		public override State<Player> HandleInput(Player subject) {
-			subject.MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-			if (Mathf.Approximately(subject.MoveDirection.sqrMagnitude, 0f)) {
-				return Player.States.IDLE;
-			}
-			return base.HandleInput(subject);
-		}
+        public override State<Player> HandleInput(Player subject) {
+            subject.MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-		public override void Update(Player subject) {
-			subject.Animator.Play(subject.DirectedAnimationName(Player.Animations.WALKING));
+            return Mathf.Approximately(subject.MoveDirection.sqrMagnitude, 0f) ? 
+                Player.States.IDLE : base.HandleInput(subject);
+        }
+
+        public override void Update(Player subject) {
+            subject.Animator.Play(subject.DirectedAnimationName(Player.Animations.WALKING));
 			
-			Vector3 newPos = subject.transform.position + (Vector3)(subject.MoveDirection * subject.speed * Time.deltaTime);
-			subject.transform.position = newPos;
-		}
+            Vector3 newPos = subject.transform.position + (Vector3) (subject.MoveDirection * subject.speed * Time.deltaTime);
+            subject.transform.position = newPos;
+        }
 
-	}
+    }
 
 }
 

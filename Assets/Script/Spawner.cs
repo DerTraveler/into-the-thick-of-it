@@ -9,84 +9,82 @@ using System.Collections.Generic;
 
 public class Spawner : MonoBehaviour {
 
-	public Actor spawned;
-	public Transform[] possiblePositions;
+    public Actor spawned;
+    public Transform[] possiblePositions;
 
-	public UnityEngine.UI.Text defeatedEnemyText;
+    public UnityEngine.UI.Text defeatedEnemyText;
 
-	[SerializeField]
-	private int totalSpawnedCount = 0;
-	[SerializeField]
-	private int defeatedCount = 0;
-	private List<Actor> spawnedList = new List<Actor>();
-	private int spawnedCount = 0;
+    int totalSpawnedCount;
+    int defeatedCount;
+    List<Actor> spawnedList = new List<Actor>();
+    int spawnedCount;
 
-	public int minimum = 1;
-	public int maximum = 3;
+    public int minimum = 1;
+    public int maximum = 3;
 
-	public float spawnedDelayShort = 1.0f;
-	public float spawnDelayNormal = 4.0f;
+    public float spawnedDelayShort = 1.0f;
+    public float spawnDelayNormal = 4.0f;
 
-	private float lastSpawnedTime;
+    float lastSpawnedTime;
 
-	private float spawnDelay {
-		get { return spawnedCount < minimum ? spawnedDelayShort : spawnDelayNormal; }
-	}
+    float spawnDelay {
+        get { return spawnedCount < minimum ? spawnedDelayShort : spawnDelayNormal; }
+    }
 
-	void Start () {
-		lastSpawnedTime = Time.time - spawnDelay;
-	}
+    void Start() {
+        lastSpawnedTime = Time.time - spawnDelay;
+    }
 
-	// Update is called once per frame
-	void Update () {
-		if (Time.time - lastSpawnedTime > spawnDelay) {
-			if (spawnedCount < maximum) {
-				Transform randomSpawnPoint = GetSpawningPosition();
-				if (randomSpawnPoint != null) {
-					Spawn(randomSpawnPoint);	
-				}
-			}
-			lastSpawnedTime = Time.time;
-		}
-	}
+    // Update is called once per frame
+    void Update() {
+        if (Time.time - lastSpawnedTime > spawnDelay) {
+            if (spawnedCount < maximum) {
+                Transform randomSpawnPoint = GetSpawningPosition();
+                if (randomSpawnPoint != null) {
+                    Spawn(randomSpawnPoint);	
+                }
+            }
+            lastSpawnedTime = Time.time;
+        }
+    }
 
-	private void Spawn(Transform spawnPoint) {
-		Actor newSpawned = Instantiate(spawned);
-		newSpawned.spawnedBy = this;
-		newSpawned.transform.SetParent(this.transform);
-		newSpawned.transform.position = spawnPoint.position;
+    void Spawn(Transform spawnPoint) {
+        Actor newSpawned = Instantiate(spawned);
+        newSpawned.spawnedBy = this;
+        newSpawned.transform.SetParent(transform);
+        newSpawned.transform.position = spawnPoint.position;
 
-		totalSpawnedCount += 1;
-		spawnedCount += 1;
-		spawnedList.Add(newSpawned);
-	}
+        totalSpawnedCount += 1;
+        spawnedCount += 1;
+        spawnedList.Add(newSpawned);
+    }
 
-	private Transform GetSpawningPosition() {
-		List<Transform> availablePoints = new List<Transform>();
-		Rect screenRect = new Rect(-0.1f, -0.1f, 1.2f, 1.2f);
+    Transform GetSpawningPosition() {
+        var availablePoints = new List<Transform>();
+        var screenRect = new Rect(-0.1f, -0.1f, 1.2f, 1.2f);
 
-		foreach (Transform t in possiblePositions) {
-			if(!screenRect.Contains(Camera.main.WorldToViewportPoint(t.position))){
-				availablePoints.Add(t);
-			}
-		}
+        foreach (Transform t in possiblePositions) {
+            if (!screenRect.Contains(Camera.main.WorldToViewportPoint(t.position))) {
+                availablePoints.Add(t);
+            }
+        }
 
-		return availablePoints[Random.Range(0, availablePoints.Count)];
-	}
+        return availablePoints[Random.Range(0, availablePoints.Count)];
+    }
 
-	private int nextStage = 5;
+    int nextStage = 5;
 
-	public void NotifyOfDeath(Actor spawnedObject) {
-		if (spawnedList.Remove(spawnedObject)) {
-			spawnedCount -= 1;
-			defeatedCount += 1;
-			defeatedEnemyText.text = defeatedCount.ToString();
+    public void NotifyOfDeath(Actor spawnedObject) {
+        if (spawnedList.Remove(spawnedObject)) {
+            spawnedCount -= 1;
+            defeatedCount += 1;
+            defeatedEnemyText.text = defeatedCount.ToString();
 
-			if (defeatedCount >= nextStage) {
-				minimum++;
-				maximum++;
-				nextStage += 10;
-			}
-		}
-	}
+            if (defeatedCount >= nextStage) {
+                minimum++;
+                maximum++;
+                nextStage += 10;
+            }
+        }
+    }
 }
