@@ -20,6 +20,7 @@ namespace StateMachine.Editor {
 			return _editor as StateMachineEditor;
 		}
 
+		#region ScriptableObject-Wrapper
 		public List<StateInEditor> states = new List<StateInEditor>();
 
 		void OnEnable () {
@@ -34,7 +35,9 @@ namespace StateMachine.Editor {
 				states.Add(converted);
 			}
 		}
+		#endregion
 
+		#region Actions
 		public State AddState(Vector2 position) {
 			StateMachine stateMachine = target as StateMachine;
 			Undo.RecordObject(stateMachine, "Add new State");
@@ -67,6 +70,7 @@ namespace StateMachine.Editor {
 
 			serializedObject.ApplyModifiedProperties();
 		}
+		#endregion
 
 		public override void OnInspectorGUI() {
 			serializedObject.Update();

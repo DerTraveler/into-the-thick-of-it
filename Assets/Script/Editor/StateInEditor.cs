@@ -20,14 +20,16 @@ namespace StateMachine.Editor {
 			set { source.name = value; }
 		}
 
-		public Vector2 Position {
-			get { return source.position; }
-			set { source.position = value; }
+		private Rect _drawRect;
+		public Rect DrawRect {
+			get { return _drawRect; }
+			set { _drawRect = value; source.position.Set(value.x, value.y); }
 		}
 
 		public void Initialize(State sourceState) {
 			this.source = sourceState;
 			this.name = sourceState.name;
+			this._drawRect = new Rect(sourceState.position.x, sourceState.position.y, 0, 0);
 		}
 
 	}

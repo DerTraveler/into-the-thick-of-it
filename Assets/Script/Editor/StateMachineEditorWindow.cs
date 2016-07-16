@@ -49,13 +49,9 @@ namespace StateMachine.Editor {
 			GUILayout.EndArea();
 		}
 
-		private Rect GetStateRect(StateInEditor state) {
-			return new Rect(state.Position.x, state.Position.y, StateMachineConstants.STATE_WIDTH, StateMachineConstants.STATE_HEIGHT);
-		}
-
 		private StateInEditor ClickedState(Vector2 mousePos) {
 			foreach(StateInEditor state in _stateMachineEditor.states) {
-				if(GetStateRect(state).Contains(mousePos - _canvasPosition))
+				if(state.DrawRect.Contains(mousePos - _canvasPosition))
 					return state;
 			}
 			return null;
@@ -133,6 +129,7 @@ namespace StateMachine.Editor {
 				} else {
 					Selection.activeObject = _stateMachine;
 				}
+				ev.Use();
 			}
 		}
 		#endregion
