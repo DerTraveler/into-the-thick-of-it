@@ -46,7 +46,7 @@ namespace StateMachine.Editor {
         }
 
         void DrawState(StateInEditor state) {
-            GUILayout.BeginArea(state.DrawRect, state.Name, _skin.window);
+            GUILayout.BeginArea(state.DrawRect, state.Name, _selectedState == state ? _skin.customStyles[1] : _skin.customStyles[0]);
             {
 
             }
@@ -115,6 +115,8 @@ namespace StateMachine.Editor {
         #endregion
 
         #region Selection
+        private StateInEditor _selectedState;
+
         void HandleSelection(Event ev) {
             if (ev.type == EventType.MouseDown && ev.button == 0) {
                 Vector2 mousePos = ev.mousePosition;
@@ -130,10 +132,12 @@ namespace StateMachine.Editor {
         }
 
         void SelectState(StateInEditor state) {
+            _selectedState = state;
             Selection.activeObject = state;
         }
 
         void Deselect() {
+            _selectedState = null;
             Selection.activeObject = StateMachine;
         }
         #endregion
