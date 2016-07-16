@@ -89,11 +89,12 @@ namespace StateMachine.Editor {
         void OnEnable() {
             _windowState = ScriptableObject.CreateInstance<EditorWindowState>();
             AddEventHandlers();
-            _skin = AssetDatabase.LoadAssetAtPath<GUISkin>(StateMachineConstants.SKIN_PATH);
+            _skin = Resources.Load<GUISkin>(StateMachineConstants.SKIN_PATH);
         }
 
         void OnDestroy() {
             RemoveEventHandlers();
+            Resources.UnloadAsset(_skin);
         }
 
         [UnityEditor.Callbacks.OnOpenAsset(1)]
