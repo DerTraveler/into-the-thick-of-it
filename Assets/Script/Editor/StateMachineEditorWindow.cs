@@ -11,12 +11,12 @@ namespace StateMachine.Editor {
 
     public class StateMachineEditorWindow : EditorWindow {
         #region Getter/Setter
-        StateMachine _stateMachine;
+        EditorWindowState _windowState;
 
         public StateMachine StateMachine {
-            get { return _stateMachine; }
+            get { return _windowState.stateMachine; }
             set {
-                _stateMachine = value;
+                _windowState.stateMachine = value;
                 _stateMachineEditor = StateMachineEditor.GetEditor(value);
                 _stateMachineEditor.ReadStatesIntoEditor();
             }
@@ -46,7 +46,7 @@ namespace StateMachine.Editor {
         }
 
         void DrawState(StateInEditor state) {
-            GUILayout.BeginArea(state.DrawRect, state.Name, _selectedState == state ? _skin.customStyles[1] : _skin.customStyles[0]);
+            GUILayout.BeginArea(state.DrawRect, state.Name, SelectedStateId == state.GetInstanceID() ? _skin.customStyles[1] : _skin.customStyles[0]);
             {
 
             }
@@ -84,6 +84,7 @@ namespace StateMachine.Editor {
         }
 
         void OnEnable() {
+            _windowState = ScriptableObject.CreateInstance<EditorWindowState>();
             AddEventHandlers();
             _skin = AssetDatabase.LoadAssetAtPath<GUISkin>(StateMachineConstants.SKIN_PATH);
         }
@@ -115,7 +116,10 @@ namespace StateMachine.Editor {
         #endregion
 
         #region Selection
-        private StateInEditor _selectedState;
+        int SelectedStateId {
+            get { return _windowState.selectedStateId; }
+            set { _windowState.selectedStateId = value; }
+        }
 
         void HandleSelection(Event ev) {
             if (ev.type == EventType.MouseDown && ev.button == 0) {
@@ -132,12 +136,14 @@ namespace StateMachine.Editor {
         }
 
         void SelectState(StateInEditor state) {
-            _selectedState = state;
+            Undo.RecordObject(_windowState, "Select State");
+            SelectedStateId = state.GetInstanceID();
             Selection.activeObject = state;
         }
 
         void Deselect() {
-            _selectedState = null;
+            Undo.RecordObject(_windowState, "Deselect State");
+            SelectedStateId = 0;
             Selection.activeObject = StateMachine;
         }
         #endregion
