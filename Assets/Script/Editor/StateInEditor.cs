@@ -23,8 +23,12 @@ namespace StateMachine.Editor {
 
         public Rect DrawRect {
             get { return _drawRect; }
-            set {
-                _drawRect = value;
+        }
+
+        public Vector2 Position {
+            get { return _drawRect.position; }
+            set { 
+                _drawRect.position = value;
                 source.position.Set(value.x, value.y);
             }
         }

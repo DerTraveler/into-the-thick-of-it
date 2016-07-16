@@ -40,13 +40,16 @@ namespace StateMachine.Editor {
                 GUI.EndGroup();
 
                 HandleSelection(currentEvent);
+                HandleStateDrag(currentEvent);
                 HandleContextMenu(currentEvent);
                 HandleCanvasDrag(currentEvent);
             }
         }
 
         void DrawState(StateInEditor state) {
-            GUILayout.BeginArea(state.DrawRect, state.Name, SelectedStateId == state.GetInstanceID() ? _skin.customStyles[1] : _skin.customStyles[0]);
+            GUILayout.BeginArea(_dragged == null || _dragged != state ? state.DrawRect : _dragRect, 
+                                state.Name, 
+                                SelectedStateId == state.GetInstanceID() ? _skin.customStyles[1] : _skin.customStyles[0]);
             {
 
             }
@@ -193,6 +196,7 @@ namespace StateMachine.Editor {
         #endregion
 
         #region Drag and Drop
+        #region Canvas Drag
         Vector2 _canvasPosition = new Vector2(0, 0);
 
         public Vector2 CanvasPosition {
@@ -210,6 +214,40 @@ namespace StateMachine.Editor {
                 ev.Use();
             }
         }
+        #endregion
+
+        #region Stage Drag
+        private StateInEditor _dragged;
+        private Rect _dragRect;
+
+        void HandleStateDrag(Event ev) {
+            if (ev.type == EventType.MouseDrag && ev.button == 0) {
+                Vector2 mousePos = ev.mousePosition;
+                StateInEditor clickedState = ClickedState(mousePos);
+
+                if (_dragged != null || clickedState != null && clickedState.GetInstanceID() == SelectedStateId) {
+                    if (_dragged == null) {
+                        _dragged = clickedState;
+                        _dragRect = clickedState.DrawRect;
+                    }
+
+                    _dragRect.position += ev.delta;
+                    Repaint();
+                    ev.Use();
+                }
+            }
+
+            if (ev.type == EventType.MouseUp && _dragged != null) {
+                Undo.RecordObject(_dragged, "Move State");
+                Undo.RecordObject(StateMachine, "Move State");
+                _dragged.Position = _dragRect.position;
+                EditorUtility.SetDirty(_dragged);
+                EditorUtility.SetDirty(StateMachine);
+                _dragged = null;
+                ev.Use();
+            }
+        }
+        #endregion
         #endregion
 
         #region Undo/Redo
