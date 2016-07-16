@@ -30,5 +30,13 @@ namespace StateMachine {
             _states.Remove(state);
         }
 
+        public State GetState(int id) {
+            foreach (State state in _states) {
+                if (state.id == id)
+                    return state;
+            }
+            return null;
+        }
+
     }
 }
