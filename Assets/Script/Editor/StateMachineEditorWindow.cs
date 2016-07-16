@@ -94,7 +94,7 @@ namespace StateMachine.Editor {
 
         [UnityEditor.Callbacks.OnOpenAsset(1)]
         public static bool OpenStateMachine(int instanceID, int line) {
-            if (Selection.activeObject as StateMachine != null) {
+            if (EditorUtility.InstanceIDToObject(instanceID) as StateMachine != null) {
                 ShowWindow();
                 Window.StateMachine = AssetDatabase.LoadAssetAtPath<StateMachine>(AssetDatabase.GetAssetPath(instanceID));
                 Window.Repaint();
@@ -105,24 +105,11 @@ namespace StateMachine.Editor {
 
         // Added to EditorApplication.playmodeStateChanged callback
         public static void PlaymodePersistence() {
-            // First is current state, second is next state
             if (!EditorApplication.isPlaying && EditorApplication.isPlayingOrWillChangePlaymode) {
-                // Save Window state before play mode
-                if (_window != null) {
-                    EditorPrefs.SetBool(StateMachineConstants.PREF_VISIBLE, true);
-                    EditorPrefs.SetInt(StateMachineConstants.PREF_INSTANCE, _window.StateMachine.GetInstanceID());
-                }
-
-            }
-            if (EditorApplication.isPlaying && !EditorApplication.isPlayingOrWillChangePlaymode) {
-                // Restore window state after play mode
-                if (EditorPrefs.GetBool(StateMachineConstants.PREF_VISIBLE)) {
-                    if (EditorPrefs.GetInt(StateMachineConstants.PREF_INSTANCE) != 0) {
-                        OpenStateMachine(EditorPrefs.GetInt(StateMachineConstants.PREF_INSTANCE), 0);
-                    } else {
-                        ShowWindow();
-                    }
-                }
+                // Close Window state before play mode
+                // TODO: Proper Window Serialization and Restoration
+                if (_window != null)
+                    _window.Close();
             }
         }
         #endregion
@@ -217,9 +204,6 @@ namespace StateMachine.Editor {
         public static void AddEventHandlers() {
             if (_window != null)
                 Undo.undoRedoPerformed += _window.Repaint;
-
-            EditorPrefs.DeleteKey(StateMachineConstants.PREF_VISIBLE);
-            EditorPrefs.DeleteKey(StateMachineConstants.PREF_INSTANCE);
         }
 
         public static void RemoveEventHandlers() {
