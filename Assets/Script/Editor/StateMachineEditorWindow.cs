@@ -126,12 +126,13 @@ namespace StateMachine.Editor {
                 Vector2 mousePos = ev.mousePosition;
                 StateInEditor clickedState = ClickedState(mousePos);
 
-                if (clickedState != null)
+                if (clickedState != null && clickedState.GetInstanceID() != SelectedStateId) {
                     SelectState(clickedState);
-                else
+                    ev.Use();
+                } else if (clickedState == null && SelectedStateId != StateMachineConstants.NOTHING_SELECTED) {
                     Deselect();
-
-                ev.Use();
+                    ev.Use();
+                }
             }
         }
 
@@ -143,7 +144,7 @@ namespace StateMachine.Editor {
 
         void Deselect() {
             Undo.RecordObject(_windowState, "Deselect State");
-            SelectedStateId = 0;
+            SelectedStateId = StateMachineConstants.NOTHING_SELECTED;
             Selection.activeObject = StateMachine;
         }
         #endregion
@@ -202,10 +203,11 @@ namespace StateMachine.Editor {
             }
         }
 
-        void HandleCanvasDrag(Event e) {
-            if (e.type == EventType.MouseDrag && e.button == 2) {
-                CanvasPosition += e.delta;
+        void HandleCanvasDrag(Event ev) {
+            if (ev.type == EventType.MouseDrag && ev.button == 2) {
+                CanvasPosition += ev.delta;
                 Repaint();
+                ev.Use();
             }
         }
         #endregion

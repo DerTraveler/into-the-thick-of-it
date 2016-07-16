@@ -18,6 +18,8 @@ namespace StateMachine.Editor {
         public static int CANVAS_HEIGHT = 2000;
 
         public static string SKIN_PATH = @"Assets/Script/Editor/Resources/EditorSkin.guiskin";
+
+        public static int NOTHING_SELECTED = -1;
     }
 
 }

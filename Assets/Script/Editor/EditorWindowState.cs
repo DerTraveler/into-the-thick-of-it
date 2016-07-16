@@ -12,7 +12,7 @@ namespace StateMachine.Editor {
 
         public StateMachine stateMachine;
 
-        public int selectedStateId;
+        public int selectedStateId = StateMachineConstants.NOTHING_SELECTED;
 
     }
 
