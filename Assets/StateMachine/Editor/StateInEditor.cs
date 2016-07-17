@@ -8,38 +8,54 @@ using UnityEngine;
 
 namespace StateMachine.Editor {
 
-    public class StateInEditor : ScriptableObject {
+    // Concrete State implementation used by the Editor.
+    public class StateInEditor : State, ISerializationCallbackReceiver {
 
         #region Getter/Setter
-        public State source;
+        [SerializeField] int _stateId;
 
-        public string Name {
-            get { return source.name; }
-            set { source.name = value; }
+        public override int StateId {
+            get {
+                return _stateId;
+            }
         }
 
-        [SerializeField]
         Rect _drawRect;
 
         public Rect DrawRect {
             get { return _drawRect; }
         }
 
+        [SerializeField] Vector2 _position;
+
         public Vector2 Position {
-            get { return _drawRect.position; }
-            set { 
+            get { return _position; }
+            set {
+                _position = value;
                 _drawRect.position = value;
-                source.position.Set(value.x, value.y);
             }
         }
         #endregion
 
-        public void Initialize(State sourceState) {
-            source = sourceState;
-            name = sourceState.name;
-            _drawRect = new Rect(sourceState.position.x, sourceState.position.y, StateMachineConstants.STATE_WIDTH, StateMachineConstants.STATE_HEIGHT);
+        public void Initialize(int stateId, Vector2 position) {
+            _stateId = stateId;
+            name = StateMachineConstants.NEW_STATE_NAME;
+            _position = position;
+            CalcDrawRect();
         }
 
+        void CalcDrawRect() {
+            _drawRect = new Rect(Position.x, Position.y, StateMachineConstants.STATE_WIDTH, StateMachineConstants.STATE_HEIGHT);
+        }
+
+        #region ISerializationCallbackReceiver implementation
+        public void OnBeforeSerialize() {
+        }
+
+        public void OnAfterDeserialize() {
+            CalcDrawRect();
+        }
+        #endregion
     }
 
 }

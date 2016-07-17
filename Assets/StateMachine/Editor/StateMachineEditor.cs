@@ -6,75 +6,54 @@
 
 using UnityEngine;
 using UnityEditor;
-using System.Collections.Generic;
 
 namespace StateMachine.Editor {
 
-    [CustomEditor(typeof(StateMachine))]
+    [CustomEditor(typeof(StateMachineInEditor))]
     public class StateMachineEditor : UnityEditor.Editor {
 
+        #region Static Editor Getter
         static UnityEditor.Editor _editor;
 
-        public static StateMachineEditor GetEditor(StateMachine stateMachine) {
+        public static StateMachineEditor GetEditor(StateMachineInEditor stateMachine) {
             UnityEditor.Editor.CreateCachedEditor(stateMachine, typeof(StateMachineEditor), ref _editor);
             return _editor as StateMachineEditor;
         }
-
-        #region ScriptableObject-Wrapper
-        public List<StateInEditor> states = new List<StateInEditor>();
-
-        public void ReadStatesIntoEditor() {
-            var stateMachine = target as StateMachine;
-            if (stateMachine != null) {
-                states.Clear();
-                foreach (State state in stateMachine.States) {
-                    StateInEditor converted = ScriptableObject.CreateInstance<StateInEditor>();
-                    converted.Initialize(state);
-                    states.Add(converted);
-                }
-            }
-        }
         #endregion
 
-        #region Actions
         public StateInEditor AddState(Vector2 position) {
-            var stateMachine = target as StateMachine;
-            Undo.RecordObject(stateMachine, "Add new State");
-            State newState = stateMachine.AddState(position);
+            var stateMachine = target as StateMachineInEditor;
 
-            StateInEditor inEditor = ScriptableObject.CreateInstance<StateInEditor>();
-            Undo.RegisterCreatedObjectUndo(inEditor, "Add new State");
-            inEditor.Initialize(newState);
+            Undo.RecordObject(stateMachine, StateMachineConstants.UndoCommands.CREATE_STATE);
+            StateInEditor newState = stateMachine.AddState(position);
+            newState.hideFlags = HideFlags.HideInHierarchy;
+            Undo.RegisterCreatedObjectUndo(newState, StateMachineConstants.UndoCommands.CREATE_STATE);
 
-            Undo.RecordObject(this, "Add new State");
-            states.Add(inEditor);
+            AssetDatabase.AddObjectToAsset(newState, stateMachine);
+            AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(stateMachine));
 
             EditorUtility.SetDirty(stateMachine);
 
-            serializedObject.ApplyModifiedProperties();
-            return inEditor;
+            return newState;
         }
 
         public void RemoveState(StateInEditor state) {
-            var stateMachine = target as StateMachine;
-            Undo.RecordObject(stateMachine, "Remove state");
-            stateMachine.RemoveState(state.source);
+            var stateMachine = target as StateMachineInEditor;
 
-            Undo.RecordObject(this, "Remove state");
-            states.Remove(state);
+            Undo.RecordObject(stateMachine, StateMachineConstants.UndoCommands.DELETE_STATE);
+            stateMachine.RemoveState(state);
 
             Undo.DestroyObjectImmediate(state);
 
             EditorUtility.SetDirty(stateMachine);
-            serializedObject.ApplyModifiedProperties();
         }
-        #endregion
 
         public override void OnInspectorGUI() {
             serializedObject.Update();
 
             serializedObject.ApplyModifiedProperties();
         }
+
     }
 
 }

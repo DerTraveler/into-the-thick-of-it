@@ -13,12 +13,11 @@ namespace StateMachine.Editor {
         #region Getter/Setter
         EditorWindowState _windowState;
 
-        public StateMachine StateMachine {
+        public StateMachineInEditor StateMachine {
             get { return _windowState.stateMachine; }
             set {
                 _windowState.stateMachine = value;
                 _stateMachineEditor = StateMachineEditor.GetEditor(value);
-                _stateMachineEditor.ReadStatesIntoEditor();
             }
         }
 
@@ -33,7 +32,7 @@ namespace StateMachine.Editor {
 
                 GUI.BeginGroup(new Rect(CanvasPosition.x, CanvasPosition.y, StateMachineConstants.CANVAS_WIDTH, StateMachineConstants.CANVAS_HEIGHT));
                 {
-                    foreach (StateInEditor s in _stateMachineEditor.states) {
+                    foreach (StateInEditor s in StateMachine.States) {
                         DrawState(s);
                     }
                 }
@@ -48,7 +47,7 @@ namespace StateMachine.Editor {
 
         void DrawState(StateInEditor state) {
             GUILayout.BeginArea(_dragged == null || _dragged != state ? state.DrawRect : _dragRect, 
-                                state.Name, 
+                                state.name, 
                                 SelectedStateId == state.GetInstanceID() ? _skin.customStyles[1] : _skin.customStyles[0]);
             {
 
@@ -57,7 +56,7 @@ namespace StateMachine.Editor {
         }
 
         StateInEditor ClickedState(Vector2 mousePos) {
-            foreach (StateInEditor state in _stateMachineEditor.states) {
+            foreach (StateInEditor state in StateMachine.States) {
                 if (state.DrawRect.Contains(mousePos - _canvasPosition))
                     return state;
             }
@@ -101,7 +100,7 @@ namespace StateMachine.Editor {
         public static bool OpenStateMachine(int instanceID, int line) {
             if (EditorUtility.InstanceIDToObject(instanceID) as StateMachine != null) {
                 ShowWindow();
-                Window.StateMachine = AssetDatabase.LoadAssetAtPath<StateMachine>(AssetDatabase.GetAssetPath(instanceID));
+                Window.StateMachine = AssetDatabase.LoadAssetAtPath<StateMachineInEditor>(AssetDatabase.GetAssetPath(instanceID));
                 Window.Repaint();
                 return true;
             }
@@ -239,11 +238,8 @@ namespace StateMachine.Editor {
             }
 
             if (ev.type == EventType.MouseUp && _dragged != null) {
-                Undo.RecordObject(_dragged, "Move State");
-                Undo.RecordObject(StateMachine, "Move State");
-                _dragged.Position = _dragRect.position;
-                EditorUtility.SetDirty(_dragged);
-                EditorUtility.SetDirty(StateMachine);
+                StateEditor stateEditor = StateEditor.GetEditor(_dragged);
+                stateEditor.UpdatePosition(_dragRect.position);
                 _dragged = null;
                 ev.Use();
             }

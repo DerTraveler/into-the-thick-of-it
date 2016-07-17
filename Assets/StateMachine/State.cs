@@ -8,23 +8,9 @@ using UnityEngine;
 
 namespace StateMachine {
 
-    [System.Serializable]
-    public class State {
+    public abstract class State : ScriptableObject {
 
-        [SerializeField] int _id;
-
-        public int id {
-            get { return _id; }
-        }
-
-        public string name;
-        public Vector2 position;
-
-        public State(int id, Vector2 position) {
-            _id = id;
-            name = "NewState";
-            this.position = position;
-        }
+        public abstract int StateId { get; }
 
     }
 

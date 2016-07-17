@@ -9,20 +9,20 @@ using UnityEditor;
 
 namespace StateMachine.Editor {
 
-    [CustomEditor(typeof(NewStateInEditor))]
+    [CustomEditor(typeof(StateInEditor))]
     public class StateEditor : UnityEditor.Editor {
 
         #region Static Editor Getter
         static UnityEditor.Editor _editor;
 
-        public static StateEditor GetEditor(NewStateInEditor state) {
+        public static StateEditor GetEditor(StateInEditor state) {
             UnityEditor.Editor.CreateCachedEditor(state, typeof(StateEditor), ref _editor);
             return _editor as StateEditor;
         }
         #endregion
 
         public void UpdatePosition(Vector2 position) {
-            var state = target as NewStateInEditor;
+            var state = target as StateInEditor;
 
             Undo.RecordObject(state, StateMachineConstants.UndoCommands.UPDATE_STATE_POSITION);
             state.Position = position;

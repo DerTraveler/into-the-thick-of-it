@@ -10,7 +10,7 @@ namespace StateMachine.Editor {
 
     public class EditorWindowState : ScriptableObject {
 
-        public StateMachine stateMachine;
+        public StateMachineInEditor stateMachine;
 
         public int selectedStateId = StateMachineConstants.NOTHING_SELECTED;
 

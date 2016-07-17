@@ -10,18 +10,18 @@ using System.Collections.Generic;
 namespace StateMachine.Editor {
 
     [CreateAssetMenu(fileName = "NewStateMachine.asset", menuName = "State Machine", order = 101)]
-    public class NewStateMachineInEditor : NewStateMachine {
+    public class StateMachineInEditor : StateMachine {
 
-        [SerializeField] List<NewStateInEditor> _states = new List<NewStateInEditor>();
+        [SerializeField] List<StateInEditor> _states = new List<StateInEditor>();
 
-        public override NewState[] States { 
+        public override State[] States { 
             get { return _states.ToArray(); } 
         }
 
         [SerializeField] int _nextId = 1;
 
-        public NewStateInEditor AddState(Vector2 position) {
-            var newState = ScriptableObject.CreateInstance<NewStateInEditor>();
+        public StateInEditor AddState(Vector2 position) {
+            var newState = ScriptableObject.CreateInstance<StateInEditor>();
             newState.Initialize(_nextId, position);
             _nextId++;
 
@@ -30,7 +30,7 @@ namespace StateMachine.Editor {
             return newState;
         }
 
-        public bool RemoveState(NewStateInEditor state) {
+        public bool RemoveState(StateInEditor state) {
             return _states.Remove(state);
         }
 
