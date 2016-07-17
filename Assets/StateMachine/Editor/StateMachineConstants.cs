@@ -8,6 +8,8 @@ namespace StateMachine.Editor {
 
     public static class StateMachineConstants {
 
+        public static string NEW_STATE_NAME = "NewState";
+
         public static int STATE_WIDTH = 150;
         public static int STATE_HEIGHT = 50;
 
