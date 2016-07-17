@@ -9,7 +9,6 @@ using System.Collections.Generic;
 
 namespace StateMachine {
 
-    [CreateAssetMenu(fileName = "NewStateMachine.asset", menuName = "State Machine", order = 101)]
     public class StateMachine : ScriptableObject {
 
         [SerializeField] int _nextStateId;
