@@ -10,6 +10,12 @@ namespace StateMachine.Editor {
 
         public static string NEW_STATE_NAME = "NewState";
 
+        public static class UndoCommands {
+            public static string CREATE_STATE = "Create State";
+            public static string DELETE_STATE = "Delete State";
+            public static string UPDATE_STATE_POSITION = "Update State Position";
+        }
+
         public static int STATE_WIDTH = 150;
         public static int STATE_HEIGHT = 50;
 
